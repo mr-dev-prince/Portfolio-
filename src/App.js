@@ -5,7 +5,7 @@ import Projects from "./pages/Projects";
 import Journey from "./pages/Journey";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
-import { Header } from "./components/common/Header";
+import { Header } from "./common/Header";
 
 function App() {
   return (

@@ -12,7 +12,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D9F24F;
+  background: #d9f24f;
   border-radius: 5px;
 }
 
@@ -22,16 +22,40 @@ html {
   user-select: none;
 }
 
+.bounce {
+  animation: bounce 0.3s;
+}
 
+@keyframes bounce {
+  0% {
+    scale: 1;
+  }
+  30% {
+    scale: 1.05;
+  }
+  50% {
+    scale: 1.1;
+  }
+  70% {
+    scale: 1.05;
+  }
+  100% {
+    scale: 1;
+  }
+}
 
 .myfont {
   font-family: "Tac One", "sans-serif";
+}
+
+.fivo {
+  font-family: "Fivo Sans Modern", sans-serif;
 }
 
 .dash-hover {
   @apply hover:pl-2 duration-200;
 }
 
-.active{
-    @apply text-[#D9F24F]
+.active {
+  @apply text-[#D9F24F];
 }
