@@ -38,7 +38,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="cursor-grab">
+    <div>
       {isLargeScreen ? (
         <Draggable>
           <div>

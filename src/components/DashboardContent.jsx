@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const DashboardContent = ({
@@ -19,7 +19,7 @@ const DashboardContent = ({
 
   return (
     <div>
-      <div className=" flex w-40 gap-4 relative items-center bg-white select-none myfont p-2 px-8 justify-between">
+      <div className="w-40 cursor-grab gap-4 relative flex  items-center justify-center bg-white fivo uppercase font-bold p-2 ">
         <p>{isLargeScreen ? "Dashboard" : selectedOptionText}</p>
         <p
           className="cursor-pointer w-7 text-center "
@@ -31,9 +31,9 @@ const DashboardContent = ({
       <div
         className={`bg-transparent w-40 ${
           openDashboard ? "absolute" : "hidden"
-        } flex flex-col gap-8 justify-start pl-6 border-l-2 border-r-2 border-b-8 pt-8 pb-4 myfont text-xl text-white  items-center tracking-wide`}
+        } flex flex-col gap-8 justify-start pl-6 border-l-2 border-r-2 border-b-8 pt-8 pb-4 fivo uppercase font-bold text-md text-white  items-center `}
       >
-        <div className="flex flex-col justify-start w-full gap-1">
+        <div className="flex flex-col justify-start w-full gap-2">
           <Link
             to="/"
             onClick={() => handleOptionClickAndUpdateText("Profile", "Profile")}
@@ -121,13 +121,13 @@ const DashboardContent = ({
             </p>
           </Link>
         </div>
-        <div className=" text-lg flex flex-col justify-start items-center gap-4 w-full">
+        <div className=" text-sm flex flex-col justify-start items-center gap-4 w-full">
           <p
             onClick={() => setDarkMode(!darkMode)}
             className="flex items-center w-full gap-4 cursor-pointer "
           >
             <span
-              className={`h-4 w-4 rounded-full outline outline-2 ${
+              className={`h-3 w-3 rounded-full outline outline-2 ${
                 darkMode ? null : "bg-[#D9F24F]"
               }`}
             ></span>
@@ -138,7 +138,7 @@ const DashboardContent = ({
             className="flex items-center w-full gap-4 cursor-pointer "
           >
             <span
-              className={`h-4 w-4 rounded-full outline outline-1 ${
+              className={`h-3 w-3 rounded-full outline outline-1 ${
                 darkMode ? "bg-[#D9F24F]" : null
               }`}
             ></span>

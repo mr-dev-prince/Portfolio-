@@ -1,14 +1,25 @@
-import React from "react";
-
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import React, { useEffect, useRef } from "react";
 
 const Home = () => {
+  gsap.registerPlugin(useGSAP);
+
+  const textRef = useRef();
+
+  useGSAP(() => {
+    gsap.from(".text", { y: 100 });
+  });
 
   return (
     <div className="flex pl-36 min-h-screen">
       <div className=" h-full mt-72 flex flex-col gap-4">
-        <div >
-          <p  className="text text-2xl font-semibold tracking-wide">
-            Hey, This is Prince.
+        <div>
+          <p
+            ref={textRef}
+            className="text text-2xl font-semibold tracking-wide"
+          >
+            This is Prince.
           </p>
         </div>
         <div className="uppercase text-[#F2E8DE] text-8xl font-bold fivo tracking-wide">
