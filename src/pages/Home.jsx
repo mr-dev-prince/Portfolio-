@@ -1,32 +1,43 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import react from "../Assets/structure.png";
 
 const Home = () => {
   gsap.registerPlugin(useGSAP);
 
   const textRef = useRef();
+  const rRef = useRef();
 
   useGSAP(() => {
     gsap.from(".text", { y: 100 });
+    setTimeout(() => {
+      gsap.from(".react", { y: 100, opacity:0 });
+    }, 1000);
   });
 
   return (
     <div className="flex pl-36 min-h-screen">
-      <div className=" h-full mt-72 flex flex-col gap-4">
+      <div className=" h-full mt-56 flex flex-col gap-12">
         <div>
           <p
             ref={textRef}
-            className="text text-2xl font-semibold tracking-wide"
+            className="text text-3xl font-semibold tracking-wide text-white"
           >
-            This is Prince.
+            Hi, I am Prince...
           </p>
         </div>
         <div className="uppercase text-[#F2E8DE] text-8xl font-bold fivo tracking-wide">
           <div className="flex gap-4 items-center">
-            <p className=" -rotate-6 bg-[#D9F24F] h-20 px-4 text-[#1f1f1f] text-center">
-              Tech
-            </p>
+            <div className="relative -rotate-6">
+              <p className="relative bg-[#C5DC4A] text-[#1f1f1f] px-4">Tech</p>
+              <span
+                ref={rRef}
+                className=" react absolute -top-7 -right-5 bg-[#1f1f1f] p-3 rounded-full"
+              >
+                <img className="h-5 animate-spin" src={react} alt="" />
+              </span>
+            </div>
             <p>ninja</p>
           </div>
           <p>mastering</p>
