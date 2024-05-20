@@ -38,7 +38,6 @@ html {
   color: #f2e8de;
 }
 
-
 .myfont {
   font-family: "Tac One", "sans-serif";
 }
@@ -50,8 +49,6 @@ html {
 .dash-hover {
   @apply hover:pl-2 duration-200;
 }
-
-
 
 @keyframes fadeIn {
   from {
@@ -79,7 +76,7 @@ html {
   80% {
     transform: rotate(-4deg);
   }
-  100%{
+  100% {
     transform: rotate(-6deg);
   }
 }
@@ -102,7 +99,6 @@ html {
   animation: bgAnimateDark 0.2s ease-out 1s forwards;
 }
 
-
 @keyframes bgAnimateLight {
   from {
     background-color: transparent;
@@ -116,3 +112,19 @@ html {
 .bgAnimaLight {
   animation: bgAnimateLight 0.2s ease-out 1s forwards;
 }
+
+.spin {
+  animation: spinElem 3s infinite linear;
+}
+
+@keyframes spinElem {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*  draggable */
+

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ToggleTheme from "./ToggleTheme";
 import { useRecoilState } from "recoil";
-import { ThemeState } from "../context/atoms/themeState";
+import { ThemeState } from "../../context/atoms/themeState";
 
 const DashboardContent = ({
   activeOption,
@@ -22,12 +22,12 @@ const DashboardContent = ({
   };
 
   return (
-    <div>
+    <div className=" group ">
       <div
-        className={`w-40 cursor-grab gap-4 relative flex  items-center text-${
-          theme === "light" ? "[#F2E8DE]" : "[#1f1f1f]"
-        } ${
-          theme === "light" ? "bg-[#1f1f1f]" : "bg-[#F2E8DE]"
+        className={`w-40 cursor-grab gap-4 relative flex  items-center ${
+          theme === "light"
+            ? "bg-[#1f1f1f] text-[#F2E8DE] group-hover:bg-[#dc143c] duration-200"
+            : "bg-[#F2E8DE] text-[#1f1f1f] group-hover:bg-[#D9F24F] duration-200"
         } justify-center fivo uppercase font-bold p-2`}
       >
         <p>{isLargeScreen ? "Dashboard" : selectedOptionText}</p>
@@ -43,8 +43,8 @@ const DashboardContent = ({
           openDashboard ? "absolute" : "hidden"
         } flex flex-col gap-8 justify-start pl-6 border-l-2 border-r-2 ${
           theme === "light"
-            ? "border-[#1f1f1f] text-[#1f1f1f]"
-            : "border-[#F2E8DE] text-[#F2E8DE]"
+            ? "border-[#1f1f1f] text-[#1f1f1f] group-hover:border-[#dc143c] duration-200"
+            : "border-[#F2E8DE] text-[#F2E8DE] group-hover:border-[#D9F24F] duration-200"
         } border-b-8 pt-8 pb-4 fivo uppercase font-bold text-md   items-center `}
       >
         <div className="flex flex-col justify-start w-full gap-2">
@@ -65,19 +65,19 @@ const DashboardContent = ({
             </p>
           </Link>
           <Link
-            to="/about"
-            onClick={() => handleOptionClickAndUpdateText("About", "About")}
+            to="/experiences"
+            onClick={() => handleOptionClickAndUpdateText("Experience", "Experience")}
           >
             <p
               className={
-                activeOption === "About"
+                activeOption === "Experience"
                   ? `dash-hover ${
                       theme === "light" ? "text-[#dc143c]" : "text-[#D9F24F]"
                     } animate-pulse`
                   : "dash-hover"
               }
             >
-              About
+              Experiences
             </p>
           </Link>
           <Link

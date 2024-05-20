@@ -1,32 +1,25 @@
 import React, { useState } from "react";
-import logo from "../Assets/name2.png";
 import { Link } from "react-router-dom";
+import logo from "../Assets/name2.png";
 import { RiMenu3Fill } from "react-icons/ri";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/Header/Dashboard";
+import { useRecoilState } from "recoil";
+import { ThemeState } from "../context/atoms/themeState";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(true);
-  const [isAnimating, setAnimating] = useState(false);
+  const themeState = useRecoilState(ThemeState);
 
-  const handleLogoClick = (e) => {
-    setAnimating(true);
-    setTimeout(() => {
-      setAnimating(false);
-    }, 1000);
-  };
+  const theme = themeState[0];
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 flex justify-between items-center lg:px-8 pr-8">
-      <Link onClick={handleLogoClick} className="hidden lg:block">
-        <div className="outline h-12 w-20 rounded-full"></div>
-      </Link>
-      <Link onClick={handleLogoClick} to={"/"}>
-        <img
-          className={`h-24 ${isAnimating ? "heartbeat":""} `}
-          src={logo}
-          alt=""
-        />
-      </Link>
+      <div className={`outline h-10 w-32 rounded-full hidden lg:flex ${theme ==='light' ? "text-[#1f1f1f]":"text-[#f2e8de]"}`}></div>
+      <div className="fixed lg:static">
+        <Link className="draggable-handle cursor-grab" to={"/"}>
+          <img className="h-24" src={logo} alt="Logo" />
+        </Link>
+      </div>
       <Link
         onClick={() => setMenuOpen(!menuOpen)}
         className=" outline outline-1 flex text-white lg:hidden p-2"
