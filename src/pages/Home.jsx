@@ -2,38 +2,49 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef } from "react";
 import react from "../Assets/structure.png";
+import { useRecoilState } from "recoil";
+import { ThemeState } from "../context/atoms/themeState";
 
 const Home = () => {
+  const themeState = useRecoilState(ThemeState);
+  const theme = themeState[0];
+
+  console.log("theme------>", theme);
+  console.log("localstorage----->", localStorage.getItem("theme"));
+
   gsap.registerPlugin(useGSAP);
 
   const textRef = useRef();
-  const rRef = useRef();
 
   useGSAP(() => {
     gsap.from(".text", { y: 100 });
-    setTimeout(() => {
-      gsap.from(".react", { y: 100, opacity:0 });
-    }, 1000);
   });
 
   return (
-    <div className="flex pl-36 min-h-screen">
+    <div className={`flex pl-36 min-h-screen app ${theme}`}>
       <div className=" h-full mt-56 flex flex-col gap-12">
         <div>
           <p
             ref={textRef}
-            className="text text-3xl font-semibold tracking-wide text-white"
+            className="text text-3xl font-semibold tracking-wide"
           >
-            Hi, I am Prince...
+            Hi, I am Prince.
           </p>
         </div>
-        <div className="uppercase text-[#F2E8DE] text-8xl font-bold fivo tracking-wide">
+        <div className="uppercase text-8xl font-bold fivo tracking-wide">
           <div className="flex gap-4 items-center">
-            <div className="relative -rotate-6">
-              <p className="relative bg-[#C5DC4A] text-[#1f1f1f] px-4">Tech</p>
+            <div className="relative skew">
+              <p
+                className={`relative ${
+                  theme === "light" ? "bgAnimaLight" : "bgAnimaDark"
+                } px-4`}
+              >
+                Tech
+              </p>
               <span
-                ref={rRef}
-                className=" react absolute -top-7 -right-5 bg-[#1f1f1f] p-3 rounded-full"
+                className={`show absolute -top-5 -right-4 ${
+                  theme === "light" ? "bg-[#F2E8DE]" : "bg-[#1f1f1f]"
+                }  p-2 rounded-full`}
               >
                 <img className="h-5 animate-spin" src={react} alt="" />
               </span>

@@ -1,9 +1,11 @@
 import React from 'react'
+import { useRecoilState } from 'recoil';
+import { ThemeState } from '../context/atoms/themeState';
 
 const Projects = () => {
-  return (
-    <div className="h-fit max-w-screen w-screen relative ">Projects</div>
-  )
+  const themeState = useRecoilState(ThemeState);
+  const theme = themeState[0];
+  return <div className={`${theme} min-h-screen`}>Projects</div>;
 }
 
 export default Projects

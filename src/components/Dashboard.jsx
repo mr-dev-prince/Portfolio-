@@ -5,7 +5,6 @@ import DashboardContent from "./DashboardContent";
 const Dashboard = () => {
   const [activeOption, setActiveOption] = useState("Profile");
   const [openDashboard, setOpenDashboard] = useState(true);
-  const [darkMode, setDarkMode] = useState(true);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
 
   useEffect(() => {
@@ -46,8 +45,6 @@ const Dashboard = () => {
               activeOption={activeOption}
               handleOptionClick={handleOptionClick}
               openDashboard={openDashboard}
-              darkMode={darkMode}
-              setDarkMode={setDarkMode}
               toggleDashboard={toggleDashboard}
               isLargeScreen={isLargeScreen}
             />
@@ -58,8 +55,6 @@ const Dashboard = () => {
           activeOption={activeOption}
           handleOptionClick={handleOptionClick}
           openDashboard={openDashboard}
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
           toggleDashboard={toggleDashboard}
           isLargeScreen={isLargeScreen}
         />

@@ -22,27 +22,22 @@ html {
   user-select: none;
 }
 
-.bounce {
-  animation: bounce 0.3s;
+/* theme ----- light || dark */
+
+.app {
+  transition: background-color 0.5s, color 0.5s;
 }
 
-@keyframes bounce {
-  0% {
-    scale: 1;
-  }
-  30% {
-    scale: 1.05;
-  }
-  50% {
-    scale: 1.1;
-  }
-  70% {
-    scale: 1.05;
-  }
-  100% {
-    scale: 1;
-  }
+.light {
+  background-color: #f2e8de;
+  color: #1f1f1f;
 }
+
+.dark {
+  background-color: #1f1f1f;
+  color: #f2e8de;
+}
+
 
 .myfont {
   font-family: "Tac One", "sans-serif";
@@ -56,34 +51,68 @@ html {
   @apply hover:pl-2 duration-200;
 }
 
-.active {
-  @apply text-[#D9F24F];
+
+
+@keyframes fadeIn {
+  from {
+    scale: 50%;
+    opacity: 0;
+  }
+  to {
+    scale: 100%;
+    opacity: 1;
+  }
 }
 
-
-/* heartbeat effect */
-
-
-.heartbeat {
-  animation: heartbeat 1s infinite ease-in-out;
+.show {
+  opacity: 0;
+  animation: fadeIn 0.5s 2s forwards;
 }
 
-@keyframes heartbeat {
+@keyframes rotateToNegative6deg {
   0% {
-    transform: scale(1);
+    transform: rotate(0deg);
   }
-  25% {
-    transform: scale(1.01);
+  10% {
+    transform: rotate(-6deg);
   }
-  40% {
-    transform: scale(1);
+  80% {
+    transform: rotate(-4deg);
   }
-  60% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
+  100%{
+    transform: rotate(-6deg);
   }
 }
 
+.skew {
+  animation: rotateToNegative6deg 0.2s 1.5s forwards;
+}
 
+@keyframes bgAnimateDark {
+  from {
+    background-color: transparent;
+  }
+  to {
+    color: #1f1f1f;
+    background-color: #c5dc4a;
+  }
+}
+
+.bgAnimaDark {
+  animation: bgAnimateDark 0.2s ease-out 1s forwards;
+}
+
+
+@keyframes bgAnimateLight {
+  from {
+    background-color: transparent;
+  }
+  to {
+    color: #f2e8de;
+    background-color: #dc143c;
+  }
+}
+
+.bgAnimaLight {
+  animation: bgAnimateLight 0.2s ease-out 1s forwards;
+}
