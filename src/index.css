@@ -20,6 +20,8 @@ body,
 html {
   background: #1f1f1f;
   user-select: none;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* theme ----- light || dark */
@@ -126,5 +128,85 @@ html {
   }
 }
 
-/*  draggable */
+/*  button */
 
+.btn-23,
+.btn-23 *,
+.btn-23 :after,
+.btn-23 :before,
+.btn-23:after,
+.btn-23:before {
+  box-sizing: border-box;
+}
+
+.btn-23 {
+  cursor: pointer;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+  background: transparent;
+  border: none;
+  padding: 1rem;
+}
+
+.btn-23 span {
+  display: grid;
+  inset: 0;
+  place-items: center;
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.btn-23 .marquee {
+  --spacing: 12em;
+  --start: 0em;
+  --end: 12em;
+  -webkit-animation: marquee 2s linear infinite;
+  animation: marquee 2s linear infinite;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  opacity: 0;
+  position: relative;
+  text-shadow: #1f1f1f var(--spacing) 0, #1f1f1f calc(var(--spacing) * -1) 0,
+    #1f1f1f calc(var(--spacing) * -2) 0;
+}
+
+.btn-23:hover .marquee {
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  opacity: 1;
+}
+
+.btn-23:hover .text {
+  opacity: 0;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
+  }
+}
+
+/* grid animation layer */
+
+.gridLayer {
+  background-image: repeating-conic-gradient(#ffffff 0% 25%, #dc143c 0% 50%);
+  background-position: 0 0, 38px 38px;
+  background-size: 76px 76px;
+  background-color: #dc143c;
+}

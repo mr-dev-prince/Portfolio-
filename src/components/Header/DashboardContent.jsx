@@ -22,7 +22,7 @@ const DashboardContent = ({
   };
 
   return (
-    <div className=" group ">
+    <div className="group">
       <div
         className={`w-40 cursor-grab gap-4 relative flex  items-center ${
           theme === "light"

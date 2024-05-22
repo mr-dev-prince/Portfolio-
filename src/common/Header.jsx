@@ -16,7 +16,7 @@ export const Header = () => {
     <div className="fixed top-0 left-0 w-full z-50 flex justify-between items-center lg:px-8 pr-8">
       <div className={`outline h-10 w-32 rounded-full hidden lg:flex ${theme ==='light' ? "text-[#1f1f1f]":"text-[#f2e8de]"}`}></div>
       <div className="fixed lg:static">
-        <Link className="draggable-handle cursor-grab" to={"/"}>
+        <Link className="cursor-grab" to={"/"}>
           <img className="h-24" src={logo} alt="Logo" />
         </Link>
       </div>

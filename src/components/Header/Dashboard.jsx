@@ -4,7 +4,7 @@ import DashboardContent from "./DashboardContent";
 
 const Dashboard = () => {
   const [activeOption, setActiveOption] = useState("Profile");
-  const [openDashboard, setOpenDashboard] = useState(true);
+  const [openDashboard, setOpenDashboard] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
 
   useEffect(() => {

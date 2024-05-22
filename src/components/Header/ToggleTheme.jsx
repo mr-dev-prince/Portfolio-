@@ -30,7 +30,7 @@ const ToggleTheme = () => {
       onClick={toggleTheme}
     >
       <span
-        className={`outline rounded-full flex justify-center items-center text-center p-0.5 z-50 ${
+        className={`outline rounded-full group-hover:animate-spin flex justify-center items-center text-center p-0.5 z-50 ${
           theme === "light" ? "bg-[#f2e8de] text-[#dc143c]" : "bg-[#1f1f1f] text-[#c5dc4a]"
         }`}
       >
@@ -42,7 +42,7 @@ const ToggleTheme = () => {
       </span>
 
       <p
-        className={`uppercase outline outline-1 ${
+        className={`uppercase outline group outline-1 ${
           theme === "dark"
             ? " text-[#c5dc4a]"
             : " text-[#dc143c]"
