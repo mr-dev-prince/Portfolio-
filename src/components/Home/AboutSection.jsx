@@ -16,20 +16,20 @@ const AboutSection = () => {
     setFrontCard(cardTitle);
   };
   return (
-    <div className="min-h-screen w-full max-w-full">
+    <div className="min-h-screen w-full max-w-full px-36">
       <div className="w-full flex">
         <div className="w-[50%] h-[550px] flex flex-col gap-10 items-start justify-end text-md">
           <div className="grid gap-3">
             <p
               className={`${
                 theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
-              } font-bold tracking-widest fivo`}
+              } font-bold tracking-widest `}
             >
               01
             </p>
-            <p className={`fivo text-3xl font-bold tracking-wide `}>About Me</p>
+            <p className={` text-3xl font-bold tracking-wide `}>About Me</p>
           </div>
-          <div className="grid gap-4 fivo tracking-wide">
+          <div className="grid gap-4  tracking-wide w-[90%]">
             <p>
               I'm{" "}
               <span
@@ -64,7 +64,7 @@ const AboutSection = () => {
           </div>
           <Link
             to={"/projects"}
-            className={`fivo ${
+            className={` ${
               theme === "light"
                 ? "bg-[#dc143c] text-white"
                 : " bg-[#c5dc4a] text-[#1f1f1f]"
@@ -72,7 +72,7 @@ const AboutSection = () => {
           >
             <button className="btn-23">
               <span className="text">Explore my work</span>
-              <span className="marquee text-[#1f1f1f]">Explore my work</span>
+              <span className={`marquee text-[#1f1f1f]`}>Explore my work</span>
             </button>
           </Link>
         </div>
@@ -102,5 +102,3 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
-
-// #c5dc4a #dc143c

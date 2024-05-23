@@ -22,6 +22,7 @@ html {
   user-select: none;
   overflow-x: hidden;
   box-sizing: border-box;
+  font-family: 'fivo';
 }
 
 /* theme ----- light || dark */
@@ -202,11 +203,37 @@ html {
   }
 }
 
-/* grid animation layer */
 
-.gridLayer {
-  background-image: repeating-conic-gradient(#ffffff 0% 25%, #dc143c 0% 50%);
-  background-position: 0 0, 38px 38px;
-  background-size: 76px 76px;
-  background-color: #dc143c;
+/* shape css */
+
+.parallelogram {
+  --p: 50px; /* control the shape (can be percentage) */
+  width: 180px;
+  aspect-ratio: 2/3;
+  clip-path: polygon(0 var(--p), 0 100%, 100% calc(100% - var(--p)), 100% 0);
 }
+
+.parallelogram2 {
+  --p: 50px; /* control the shape (can be percentage) */
+  width: 180px;
+  aspect-ratio: 2/3;
+  clip-path: polygon(0 calc(100% - var(--p)), 0 0, 100% var(--p), 100% 100%);
+}
+
+
+
+/* gsap */
+
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-right: 100%; /* Adjust this value to create space between repetitions */
+  white-space: nowrap;
+}
+
