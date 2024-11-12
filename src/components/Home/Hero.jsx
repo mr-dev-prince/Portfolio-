@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import react from "../../Assets/structure.png";
+import react from "../../assets/structure.png";
 import React, { useRef } from "react";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../../context/atoms/themeState";
@@ -17,13 +17,13 @@ const Hero = () => {
   });
 
   return (
-    <div className=" h-full px-36 pt-56 min-h-screen flex flex-col gap-12">
+    <div className=" h-full px-36 pt-96 min-h-screen flex flex-col gap-12 fivo">
       <div>
-        <p ref={textRef} className="text text-3xl font-semibold tracking-wide ">
+        <p ref={textRef} className="text text-3xl font-semibold tracking-wide">
           Hi, I am Prince.
         </p>
       </div>
-      <div className="uppercase text-8xl font-bold  tracking-wide">
+      <div className="uppercase text-8xl font-extrabold tracking-wide">
         <div className="flex gap-4 items-center">
           <div className="relative skew">
             <p

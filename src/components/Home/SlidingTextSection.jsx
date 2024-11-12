@@ -35,9 +35,9 @@ const SlidingTextSection = () => {
     }
   }, []);
   return (
-    <div ref={containerRef} className={`min-h-screen relative`}>
+    <div ref={containerRef} className={`min-h-screen relative fivo`}>
       <div className=" absolute top-36 flex justify-center items-center">
-        <p ref={textRef} className={` text-9xl font-bold uppercase z-30 `}>
+        <p ref={textRef} className={` text-9xl font-bold uppercase z-30`}>
           I Believe in my code.
         </p>
       </div>

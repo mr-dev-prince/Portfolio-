@@ -11,7 +11,7 @@ const Dashboard = () => {
     const handleResize = () => {
       const isLarge = window.innerWidth > 768;
       if (isLarge !== isLargeScreen) {
-        window.location.reload(); // Reload window if screen size changes
+        window.location.reload();
       }
       setIsLargeScreen(isLarge);
     };

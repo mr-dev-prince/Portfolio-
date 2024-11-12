@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../../context/atoms/themeState";
 import { Link } from "react-router-dom";
-import me from "../../Assets/me.jpeg";
-import me2 from "../../Assets/me2.jpg";
+import me from "../../assets/me.jpeg";
+import me2 from "../../assets/me2.jpg";
 import CardComponent from "../fragments/CardComponent";
 
 const AboutSection = () => {
@@ -27,15 +27,15 @@ const AboutSection = () => {
             >
               01
             </p>
-            <p className={` text-3xl font-bold tracking-wide `}>About Me</p>
+            <p className={` text-3xl font-bold tracking-wide fivo uppercase`}>About Me</p>
           </div>
-          <div className="grid gap-4  tracking-wide w-[90%]">
+          <div className="grid gap-4 font-semibold  tracking-wide w-[90%] JetBrains text-justify">
             <p>
-              I'm{" "}
+              Hi, I'm{" "}
               <span
                 className={`${
                   theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
-                } font-extrabold tracking-widest`}
+                } font-extrabold tracking-widest uppercase`}
               >
                 Prince Chaurasia
               </span>
@@ -48,7 +48,6 @@ const AboutSection = () => {
                   theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
                 }`}
               >
-                {" "}
                 My toolkit includes Next.js, React.js, Express, and MongoDB
               </strong>
               , enabling me to craft robust, dynamic web solutions.

@@ -8,7 +8,6 @@ const CardComponent = (props) => {
   const themeState = useRecoilState(ThemeState);
   const theme = themeState[0];
 
-
   const handleClick = () => {
     setOpenCard(!openCard);
   };

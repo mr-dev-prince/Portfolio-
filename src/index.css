@@ -22,7 +22,8 @@ html {
   user-select: none;
   overflow-x: hidden;
   box-sizing: border-box;
-  font-family: 'fivo';
+  font-family: "Roboto Medium", sans-serif;
+  cursor: pointer;
 }
 
 /* theme ----- light || dark */
@@ -41,12 +42,12 @@ html {
   color: #f2e8de;
 }
 
-.myfont {
-  font-family: "Tac One", "sans-serif";
+.JetBrains {
+  font-family: "JetBrains Mono", "Roboto Medium", sans-serif;
 }
 
 .fivo {
-  font-family: "Fivo Sans Modern", sans-serif;
+  font-family: "Fivo Sans", "Roboto Medium", sans-serif;
 }
 
 .dash-hover {
@@ -203,27 +204,21 @@ html {
   }
 }
 
-
-/* shape css */
-
 .parallelogram {
-  --p: 50px; /* control the shape (can be percentage) */
+  --p: 50px;
   width: 180px;
   aspect-ratio: 2/3;
   clip-path: polygon(0 var(--p), 0 100%, 100% calc(100% - var(--p)), 100% 0);
 }
 
 .parallelogram2 {
-  --p: 50px; /* control the shape (can be percentage) */
+  --p: 50px;
   width: 180px;
   aspect-ratio: 2/3;
   clip-path: polygon(0 calc(100% - var(--p)), 0 0, 100% var(--p), 100% 100%);
 }
 
-
-
 /* gsap */
-
 
 .marquee-container {
   overflow: hidden;
@@ -233,7 +228,6 @@ html {
 
 .marquee-content {
   display: inline-block;
-  padding-right: 100%; /* Adjust this value to create space between repetitions */
+  padding-right: 100%;
   white-space: nowrap;
 }
-
