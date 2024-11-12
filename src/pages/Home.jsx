@@ -5,6 +5,7 @@ import Hero from "../components/Home/Hero";
 import AboutSection from "../components/Home/AboutSection";
 import SlidingTextSection from "../components/Home/SlidingTextSection";
 import TechStackSection from "../components/Home/TechStackSection";
+import ActivitySection from "../components/Home/ActivitySection";
 
 const Home = () => {
   const themeState = useRecoilState(ThemeState);
@@ -15,6 +16,7 @@ const Home = () => {
       <AboutSection />
       <SlidingTextSection />
       <TechStackSection />
+      <ActivitySection/>
     </div>
   );
 };

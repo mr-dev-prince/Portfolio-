@@ -3,24 +3,9 @@ import { useRecoilState } from "recoil";
 import { ThemeState } from "../../context/atoms/themeState";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import js from "../../assets/js.png";
-import ts from "../../assets/ts.png";
-import py from "../../assets/py.png";
-import cpp from "../../assets/cpp.png";
-import react from "../../assets/react.png";
-import next from "../../assets/next.png";
-import tailwind from "../../assets/tailwind.png";
-import recoil from "../../assets/recoil.svg";
-import radix from "../../assets/radix.svg";
-import mongo from "../../assets/mongo.png";
-import express from "../../assets/express.png";
-import firebase from "../../assets/firebase.png";
-import prisma from "../../assets/prisma.png";
-import github from "../../assets/github.png";
-import zustand from "../../assets/zustand.png";
-import docker from "../../assets/docker.png";
 import { myTechStack } from "../../constants/tech";
 import { Link } from "react-router-dom";
+import ShowTechDetails from "../fragments/ShowTechDetails";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,7 +15,17 @@ const TechStackSection = () => {
 
   const [details, setDetails] = useState({});
 
-  console.log("details", details);
+  const detailsRef = useRef();
+
+  useEffect(() => {
+    if (Object.keys(details).length !== 0) {
+      gsap.fromTo(
+        detailsRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+      );
+    }
+  }, [details]);
 
   const isEven = (num) => {
     if (num % 2 === 0) return true;
@@ -73,21 +68,32 @@ const TechStackSection = () => {
             </div>
           </div>
         </div>
-        <div />
+        <div className="h-[40%] w-full" ref={detailsRef}>
+          {Object.keys(details).length !== 0 && (
+            <ShowTechDetails details={details}/>
+          )}
+        </div>
       </div>
       <div
-        className={`w-[50%] border-white h-full flex justify-between flex-col items-end`}
+        className={`w-[50%] border-white h-full flex justify-end flex-col items-center`}
       >
         <div
-          className={`h-[60%] w-full rounded-xl grid grid-cols-4 grid-rows-3 gap-5 overflow-hidden`}
+          className={`h-fit w-full rounded-xl grid grid-cols-4 grid-rows-4 gap-5 overflow-hidden`}
         >
           {myTechStack.map((tech, idx) => (
             <Link
               onClick={() => {
+                setDetails({});
                 setDetails(tech);
               }}
-              key={tech.id}
-              className={`bg-[#52525242] w-full p-3 backdrop-blur-xl hover:scale-105 duration-300 z-50`}
+              key={idx}
+              className={`p-7 backdrop-blur-xl duration-300 z-50 h-48 w-48
+                ${
+                  details.name === tech.name
+                    ? theme === "light" ? "bg-[#dc143c]" : "bg-[#c6dc4a]" 
+                    : "bg-[#52525242]" 
+                }
+                hover:scale-105 transition-all `}
             >
               <img
                 src={tech.image}
@@ -97,75 +103,11 @@ const TechStackSection = () => {
             </Link>
           ))}
         </div>
-        <div className="h-[40%] w-full">
-          {Object.keys(details).length !== 0 && (
-            <div className="h-full w-full relative p-3 rounded-2xl border ">
-              <img
-                src={details.image}
-                className="absolute top-0 left-0 object-contain h-full w-full opacity-30 blur-sm"
-                alt=""
-              />
-              <div className="h-full w-full p-2 flex">
-                <div className="w-[40%]">
-                  <div className="flex justify-start items-start space-y-2 flex-col">
-                    <img src={details.image} className="h-24" alt="" />
-                    <p className="JetBrains uppercase">{details.name}</p>
-                  </div>
-                  <div className="flex flex-col w-full justify-start items-start uppercase JetBrains mt-3">
-                    <p>Level:</p>
-                    <p className="font-semibold mt-2">
-                      {details.experienceLevel}
-                    </p>
-                  </div>
-                  <div className="flex flex-col w-full justify-start items-start uppercase JetBrains mt-3">
-                    <p>Projects:</p>
-                    <div className="font-semibold mt-2 flex flex-col">
-                      {details.projects.map((i) => (
-                        <Link className="hover:ml-4 z-50 duration-300">
-                          {i.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="h-full">
-                  <div className="h-[50%]">
-                    <p>Strong Hold Topics:</p>
-                    <div className="font-semibold mt-2 flex flex-col overflow-hidden overflow-y-scroll">
-                      {details.strongHold.map((i) => (
-                        <>
-                          <Link className="hover:ml-4 z-50 duration-300">
-                            {i.topic}
-                          </Link>
-                          <Link className="hover:ml-4 z-50 duration-300">
-                            {i.topic}
-                          </Link>
-                        </>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="h-[50%]">
-                    <p>Strong Hold Topics:</p>
-                    <div className="font-semibold mt-2 flex flex-col">
-                      {details.strongHold.map((i) => (
-                        <Link className="hover:ml-4 z-50 duration-300">
-                          {i.topic}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
       </div>
     </div>
   );
 };
 
-const ShowTechDetails = ({ detail }) => {
-  return <div></div>;
-};
+
 
 export default TechStackSection;
