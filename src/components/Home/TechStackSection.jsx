@@ -33,8 +33,8 @@ const TechStackSection = () => {
   };
 
   return (
-    <div className={`px-36 h-screen overflow-hidden w-full gap-12 flex`}>
-      <div className="flex h-full w-[50%] justify-between flex-col items-center px-4 pb-12">
+    <div className={`px-36 h-screen overflow-hidden w-full gap-12 flex fivo`}>
+      <div className="flex h-fit w-[50%] justify-start flex-col items-center px-4 pb-12">
         <div className={`w-full h-[400px] flex justify-center items-start`}>
           <div className="flex flex-col text-left justify-center items-start">
             <div className={`text-left font-bold tracking-wide space-y-4 `}>
@@ -50,7 +50,7 @@ const TechStackSection = () => {
               </p>
             </div>
             <div>
-              <p className="JetBrains font-semibold text-justify">
+              <p className="font-semibold text-justify text-lg">
                 In my journey as a full-stack web developer, I've mastered a
                 diverse array of technologies that empower me to build robust
                 and dynamic applications from the ground up. Here's a glimpse
@@ -75,10 +75,10 @@ const TechStackSection = () => {
         </div>
       </div>
       <div
-        className={`w-[50%] border-white h-full flex justify-end flex-col items-center`}
+        className={`w-[50%] border-white h-full flex justify-start flex-col items-center`}
       >
         <div
-          className={`h-fit w-full rounded-xl grid grid-cols-4 grid-rows-4 gap-5 overflow-hidden`}
+          className={`h-fit w-fit rounded-xl grid grid-cols-4 grid-rows-4 gap-5 overflow-hidden`}
         >
           {myTechStack.map((tech, idx) => (
             <Link
@@ -87,7 +87,7 @@ const TechStackSection = () => {
                 setDetails(tech);
               }}
               key={idx}
-              className={`p-7 backdrop-blur-xl duration-300 z-50 h-48 w-48
+              className={`p-7 backdrop-blur-xl duration-300 z-50 h-44 w-44
                 ${
                   details.name === tech.name
                     ? theme === "light" ? "bg-[#dc143c]" : "bg-[#c6dc4a]" 

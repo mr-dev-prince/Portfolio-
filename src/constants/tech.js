@@ -1,43 +1,42 @@
 import { assets } from "./images";
 
+export const techStackSectionKeys = {
+  strongHold: "Strong Hold Concepts",
+  summary: "Summary",
+  learning: "Currently Learning",
+  projects: "Projects",
+};
+
 export const myTechStack = [
   {
     id: "1",
-    name: "CSS",
-    image: assets.css,
+    name: "HTML",
+    image: assets.html,
     experienceLevel: "Intermediate",
     strongHold: [
       {
-        id: '1',
-        no: '1',
-        topic: "Component Lifecycle",
+        id: "1",
+        topic: "Structure of an HTML Document",
       },
       {
-        id: '2',
-        no: '2',
-        topic: "React Hooks",
+        id: "2",
+        topic: "Sectioning Elements",
       },
       {
-        id: '3',
-        no: '3',
-        topic: "Context API",
-      },
-    ],
-    learning: [
-      {
-        id: '1',
-        no: '1',
-        topic: "React Suspense",
+        id: "3",
+        topic: "Canvas & Storage API",
       },
       {
-        id: 2,
-        no: 2,
-        topic: "Server Components",
+        id: "4",
+        topic: "SEO Basics",
       },
       {
-        id: 3,
-        no: 3,
-        topic: "Testing with Jest",
+        id: "5",
+        topic: "Viewport Meta Tag",
+      },
+      {
+        id: "6",
+        topic: "Responsive Images",
       },
     ],
     projects: [
@@ -57,11 +56,13 @@ export const myTechStack = [
         link: "https://example.com/e-commerce",
       },
     ],
+    summary:
+      "I have a solid foundation in HTML, with experience in document structure, multimedia, accessible forms, and responsive, SEO-friendly design using semantic elements.",
   },
   {
     id: 2,
-    name: "HTML",
-    image: assets.html,
+    name: "CSS",
+    image: assets.css,
     experienceLevel: "Intermediate",
     strongHold: [
       {

@@ -16,7 +16,7 @@ const AboutSection = () => {
     setFrontCard(cardTitle);
   };
   return (
-    <div className="min-h-screen w-full max-w-full px-36">
+    <div className="min-h-screen w-full max-w-full px-36 fivo">
       <div className="w-full flex">
         <div className="w-[50%] h-[550px] flex flex-col gap-10 items-start justify-end text-md">
           <div className="grid gap-3">
@@ -29,7 +29,7 @@ const AboutSection = () => {
             </p>
             <p className={` text-3xl font-bold tracking-wide fivo uppercase`}>About Me</p>
           </div>
-          <div className="grid gap-4 font-semibold  tracking-wide w-[90%] JetBrains text-justify">
+          <div className="grid gap-4 font-semibold  tracking-wide w-[90%] text-justify">
             <p>
               Hi, I'm{" "}
               <span
@@ -39,7 +39,7 @@ const AboutSection = () => {
               >
                 Prince Chaurasia
               </span>
-              , a sophomore pursuing a Bachelor of Technology in Computer
+              , a pre-final year student pursuing a Bachelor of Technology in Computer
               Science with a fervent passion for web development. Equipped with
               proficiency in C++, JavaScript, and Python, I thrive at the
               intersection of creativity and functionality.

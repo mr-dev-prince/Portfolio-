@@ -41,7 +41,7 @@ const Footer = () => {
     <div
       className={`${
         theme === "light" ? " bg-[#f2e8de]" : " bg-[#1f1f1f] h-fit py-12"
-      } px-24 pb-12 w-full justify-between items-center flex`}
+      } px-24 pb-12 w-full justify-between items-center flex fivo`}
     >
       <div className={`${theme === "light" ? "" : "text-white"} fivo`}>
         <div className="uppercase text-3xl font-extrabold tracking-wide">
@@ -73,10 +73,13 @@ const Footer = () => {
       <div
         className={`space-x-10 ${
           theme === "dark" ? " text-[#f2e8de]" : " text-[#1f1f1f]"
-        } JetBrains uppercase `}
+        } uppercase `}
       >
         {links.map((i) => (
-          <Link className="hover:font-semibold duration-200" to={i.link}>
+          <Link
+            className="hover:scale-105 duration-100 font-semibold"
+            to={i.link}
+          >
             {i.label}
           </Link>
         ))}
@@ -84,7 +87,7 @@ const Footer = () => {
       <div
         className={`space-x-10 ${
           theme === "dark" ? " text-[#f2e8de]" : " text-[#1f1f1f]"
-        } JetBrains uppercase `}
+        } uppercase `}
       >
         <Link
           target="blank"

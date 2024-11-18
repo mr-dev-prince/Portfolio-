@@ -7,9 +7,10 @@ import Contact from "./pages/Contact";
 import { Header } from "./common/Header";
 import Experiences from "./pages/Experiences";
 import Footer from "./common/Footer";
+import Splash from "./pages/Splash";
+import { useEffect, useState } from "react";
 
 function App() {
-  
   // document.addEventListener("keydown", (event) => {
   //   if (event.key === "F12") {
   //     event.preventDefault();
@@ -28,18 +29,43 @@ function App() {
   //   }
   // });
 
+  const [enter, setEnter] = useState(() => {
+    return localStorage.getItem("entered") === "true";
+  });
+
+  const handleEnter = () => {
+    setEnter(true);
+    localStorage.setItem("entered", "true");
+  };
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.setItem("entered", "false");
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/experiences" element={<Experiences />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/journey" element={<Journey />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
+      {enter ? (
+        <>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/experiences" element={<Experiences />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/journey" element={<Journey />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </>
+      ) : (
+        <Splash onEnter={handleEnter} />
+      )}
     </Router>
   );
 }

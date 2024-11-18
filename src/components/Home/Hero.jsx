@@ -1,9 +1,10 @@
+import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import react from "../../assets/structure.png";
-import React, { useRef } from "react";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../../context/atoms/themeState";
+import BackgroundMusic from "../fragments/BackgroundMusic.jsx";
 
 const Hero = () => {
   const themeState = useRecoilState(ThemeState);
@@ -17,7 +18,7 @@ const Hero = () => {
   });
 
   return (
-    <div className=" h-full px-36 pt-96 min-h-screen flex flex-col gap-12 fivo">
+    <div id="trigger-music" className=" h-full px-36 pt-96 min-h-screen flex flex-col gap-12 fivo">
       <div>
         <p ref={textRef} className="text text-3xl font-semibold tracking-wide">
           Hi, I am Prince.
@@ -44,7 +45,9 @@ const Hero = () => {
           <p>savvy</p>
         </div>
         <p>mastering the</p>
-        <p>coding realm<span className=" text-[#dc143c]">.</span></p>
+        <p>
+          coding realm<span className=" text-[#dc143c]">.</span>
+        </p>
       </div>
     </div>
   );

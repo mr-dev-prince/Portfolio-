@@ -1,11 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import DashboardContent from "./DashboardContent";
+import BackgroundMusic from "../fragments/BackgroundMusic";
 
 const Dashboard = () => {
   const [activeOption, setActiveOption] = useState("Profile");
   const [openDashboard, setOpenDashboard] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
+  const [playMusic, setPlayMusic] = useState(false);
+
+  const handleMouseEnter = () => {
+    setPlayMusic(true);
+  };
+
+  useEffect(() => {
+    const el = document.getElementById("trigger-music");
+    if (el) {
+      el.addEventListener("mouseenter", handleMouseEnter);
+    }
+
+    return () => {
+      if (el) {
+        el.removeEventListener("mouseenter", handleMouseEnter);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,7 +59,7 @@ const Dashboard = () => {
     <div>
       {isLargeScreen ? (
         <Draggable>
-          <div>
+          <div id="trigger-music">
             <DashboardContent
               activeOption={activeOption}
               handleOptionClick={handleOptionClick}
@@ -48,6 +67,7 @@ const Dashboard = () => {
               toggleDashboard={toggleDashboard}
               isLargeScreen={isLargeScreen}
             />
+            <BackgroundMusic playMusic={playMusic} />
           </div>
         </Draggable>
       ) : (
