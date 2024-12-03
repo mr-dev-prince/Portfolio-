@@ -15,6 +15,7 @@ import htmlIcon from "../assets/html.png"
 import cssIcon from "../assets/css.png"
 import framerMotionIcon from "../assets/framerMotion.png"
 import awsIcon from "../assets/aws.png"
+import globeIcon from "../assets/globe.png"
 
 
 export const assets = {
@@ -35,4 +36,5 @@ export const assets = {
     firebase:firebaseIcon,
     framermotion:framerMotionIcon,
     aws:awsIcon,
+    globe:globeIcon
 }

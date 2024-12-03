@@ -12,11 +12,15 @@ const Home = () => {
   const theme = themeState[0];
 
   return (
-    <div className={`min-h-screen fivo app ${theme}`}>
+    <div
+      className={`min-h-screen fivo app ${
+        theme === "light" ? "light-mode-bg-gradient" : "dark-mode-bg-gradient"
+      }`}
+    >
       <Hero />
       <AboutSection />
       <SlidingTextSection />
-      <SlidingTechSection/>
+      <SlidingTechSection />
       <ActivitySection />
     </div>
   );

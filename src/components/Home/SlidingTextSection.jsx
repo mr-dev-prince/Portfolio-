@@ -46,40 +46,40 @@ const SlidingTextSection = () => {
           <div className={`flex gap-2`}>
             <div
               className={`parallelogram z-40 ${
-                theme === "light" ? "bg-[#c5dc4a]" : "bg-[#dc143c]"
+                theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}
             ></div>
             <div
               className={`parallelogram2 ${
-                theme === "light" ? "bg-[#c5dc4a]" : "bg-[#dc143c]"
+                theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}
             ></div>
             <div
               className={`parallelogram z-40 ${
-                theme === "light" ? "bg-[#c5dc4a]" : "bg-[#dc143c]"
+                theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}
             ></div>
           </div>
           <div className={`flex gap-2 -mt-10`}>
             <div
               className={`parallelogram z-40 ${
-                theme === "light" ? "bg-[#c5dc4a]" : "bg-[#dc143c]"
+                theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}
             ></div>
             <div className={`parallelogram2 z-40 ${
-                theme === "light" ? "bg-[#c5dc4a]" : "bg-[#dc143c]"
+                theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}></div>
             <div
               className={`parallelogram z-40 ${
-                theme === "light" ? "bg-[#c5dc4a]" : "bg-[#dc143c]"
+                theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}
             ></div>
             <div className={`parallelogram2 z-40 ${
-                theme === "light" ? "bg-[#c5dc4a]" : "bg-[#dc143c]"
+                theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}></div>
             <div
               className={`parallelogram z-40 ${
-                theme === "light" ? "bg-[#c5dc4a]" : "bg-[#dc143c]"
+                theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}
             ></div>
           </div>

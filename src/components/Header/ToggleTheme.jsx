@@ -31,11 +31,11 @@ const ToggleTheme = () => {
     >
       <span
         className={`outline rounded-full group-hover:animate-spin flex justify-center items-center text-center p-0.5 z-50 ${
-          theme === "light" ? "bg-[#f2e8de] text-[#dc143c]" : "bg-[#1f1f1f] text-[#c5dc4a]"
+          theme === "dark" ? "bg-[#1f1f1f] text-[#dc143c]" : "bg-[#f2e8de] text-[#1e649a]"
         }`}
       >
-        {theme === 'dark' ? (
-          <TbMoonStars color="#c5dc4a" size={24} />
+        {theme === 'light' ? (
+          <TbMoonStars color="#1e649a" size={24} />
         ) : (
           <LuSunDim color="#dc143c" size={24} />
         )}
@@ -43,8 +43,8 @@ const ToggleTheme = () => {
 
       <p
         className={`uppercase outline group outline-1 ${
-          theme === "dark"
-            ? " text-[#c5dc4a]"
+          theme === "light"
+            ? " text-[#1e649a]"
             : " text-[#dc143c]"
         }  py-1 -ml-1 rounded-r-full w-28 text-center `}
       >

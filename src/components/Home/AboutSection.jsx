@@ -22,34 +22,34 @@ const AboutSection = () => {
           <div className="grid gap-3">
             <p
               className={`${
-                theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
+                theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
               } font-bold tracking-widest `}
             >
               01
             </p>
             <p className={` text-3xl font-bold tracking-wide fivo uppercase`}>About Me</p>
           </div>
-          <div className="grid gap-4 font-semibold  tracking-wide w-[90%] text-justify">
+          <div className="grid gap-4 font-medium text-xl  tracking-wide w-[90%] text-justify">
             <p>
               Hi, I'm{" "}
               <span
                 className={`${
-                  theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
+                  theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
                 } font-extrabold tracking-widest uppercase`}
               >
                 Prince Chaurasia
               </span>
-              , a pre-final year student pursuing a Bachelor of Technology in Computer
+              , a pre-final year student pursuing Bachelor of Technology in Computer
               Science with a fervent passion for web development. Equipped with
               proficiency in C++, JavaScript, and Python, I thrive at the
-              intersection of creativity and functionality.
-              <strong
+              intersection of creativity and functionality.{' '}
+              <span
                 className={`${
-                  theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
+                  theme === "dark" ? "text-[#dc143c] font-medium" : "text-[#1e649a]"
                 }`}
               >
                 My toolkit includes Next.js, React.js, Express, and MongoDB
-              </strong>
+              </span>
               , enabling me to craft robust, dynamic web solutions.
             </p>
             <p>
@@ -64,9 +64,9 @@ const AboutSection = () => {
           <Link
             to={"/projects"}
             className={` ${
-              theme === "light"
+              theme === "dark"
                 ? "bg-[#dc143c] text-white"
-                : " bg-[#c5dc4a] text-[#1f1f1f]"
+                : " bg-[#1e649a] text-[#1f1f1f]"
             } w-fit font-bold`}
           >
             <button className="btn-23">
@@ -92,6 +92,14 @@ const AboutSection = () => {
               onMouseDown={() => bringToFront("me2")}
               src={me2}
               title="me2"
+            />
+            <CardComponent
+              className={`absolute ${
+                frontCard === "me3" ? "z-50" : "z-40"
+              } left-96 top-64`}
+              onMouseDown={() => bringToFront("me3")}
+              src={me2}
+              title="me3"
             />
           </div>
         </div>

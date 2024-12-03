@@ -5,6 +5,7 @@ import react from "../../assets/structure.png";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../../context/atoms/themeState";
 import BackgroundMusic from "../fragments/BackgroundMusic.jsx";
+import { assets } from "../../constants/images.js";
 
 const Hero = () => {
   const themeState = useRecoilState(ThemeState);
@@ -18,9 +19,15 @@ const Hero = () => {
   });
 
   return (
-    <div id="trigger-music" className=" h-full px-36 pt-96 min-h-screen flex flex-col gap-12 fivo">
-      <div>
-        <p ref={textRef} className="text text-3xl font-semibold tracking-wide">
+    <div
+      id="trigger-music"
+      className=" h-screen px-36 pt-96  flex flex-col fivo relative"
+    >
+      <div className="mb-12">
+        <p
+          ref={textRef}
+          className="text text-3xl font-semibold tracking-wide uppercase"
+        >
           Hi, I am Prince.
         </p>
       </div>
@@ -36,7 +43,7 @@ const Hero = () => {
             </p>
             <span
               className={`show absolute -top-5 -right-4 ${
-                theme === "light" ? "bg-[#F2E8DE]" : "bg-[#1f1f1f]"
+                theme === "light" ? "bg-[#FFFFE4]" : "bg-[#1f1f1f]"
               }  p-2 rounded-full`}
             >
               <img className="h-5 spin" src={react} alt="" />
@@ -44,10 +51,26 @@ const Hero = () => {
           </div>
           <p>savvy</p>
         </div>
-        <p>mastering the</p>
+        <p>surfing the</p>
         <p>
-          coding realm<span className=" text-[#dc143c]">.</span>
+          coding realm
+          <span
+            className={`${
+              theme === "light" ? "text-[#1e649a]" : "text-[#DC143C]"
+            }`}
+          >
+            .
+          </span>
         </p>
+      </div>
+      <div className="absolute bottom-0 left-0 flex justify-center items-center w-full h-24 py-4">
+        <div
+          className={`h-full border-2 ${
+            theme === "light" ? "border-[#1e649a]" : "border-[#DC143C]"
+          }  w-8 rounded-t-full rounded-b-full flex justify-center items-start pt-8 animateUpDown`}
+        >
+          <img src={assets.globe} alt="" className="h-7 w-7" />
+        </div>
       </div>
     </div>
   );

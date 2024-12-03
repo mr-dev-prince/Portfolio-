@@ -13,10 +13,24 @@ export const Header = () => {
   const theme = themeState[0];
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 flex justify-between items-center lg:px-8 pr-8">
+    <div className="fixed top-0 left-0 w-full py-10 z-50 flex justify-between items-center lg:px-36 pr-8">
       <div className="fixed lg:static">
-        <Link className="cursor-grab" to={"/"}>
-          <img className="h-24" src={logo} alt="Logo" />
+        <Link
+          className="cursor-grab fivo text-5xl font-extrabold uppercase"
+          to={"/"}
+        >
+          <p
+            className={`${theme === "light" ? "text-[#081B2A]" : "text-white"}`}
+          >
+            Portfolio
+            <span
+              className={`${
+                theme === "light" ? "text-[#1e649a]" : "text-[#DC143C]"
+              }`}
+            >
+              .
+            </span>
+          </p>
         </Link>
       </div>
       <Link

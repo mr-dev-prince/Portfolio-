@@ -40,8 +40,8 @@ const Footer = () => {
   return (
     <div
       className={`${
-        theme === "light" ? " bg-[#f2e8de]" : " bg-[#1f1f1f] h-fit py-12"
-      } px-24 pb-12 w-full justify-between items-center flex fivo`}
+        theme === "light" ? " bg-[#FFFFE4]" : " bg-[#1f1f1f] h-fit py-12"
+      } px-24 pt-36 pb-12 w-full justify-between items-center flex fivo`}
     >
       <div className={`${theme === "light" ? "" : "text-white"} fivo`}>
         <div className="uppercase text-3xl font-extrabold tracking-wide">
@@ -56,7 +56,7 @@ const Footer = () => {
               </p>
               <span
                 className={`show absolute -top-3 -right-3 ${
-                  theme === "light" ? "bg-[#F2E8DE]" : "bg-[#1f1f1f]"
+                  theme === "light" ? "bg-[#FFFFE4]" : "bg-[#1f1f1f]"
                 }  p-1.5 rounded-full`}
               >
                 <img className="h-3 spin" src={reactIcon} alt="" />
@@ -64,7 +64,7 @@ const Footer = () => {
             </div>
             <p>savvy</p>
           </div>
-          <p>mastering the</p>
+          <p>surfing the</p>
           <p>
             coding realm<span className=" text-[#dc143c]">.</span>
           </p>
@@ -87,25 +87,25 @@ const Footer = () => {
       <div
         className={`space-x-10 ${
           theme === "dark" ? " text-[#f2e8de]" : " text-[#1f1f1f]"
-        } uppercase `}
+        } uppercase font-semibold `}
       >
         <Link
           target="blank"
-          className="hover:font-semibold duration-200"
+          className="hover:font-bold duration-200"
           to="mailto:pkcofficial24@gmail.com"
         >
           Mail
         </Link>
         <Link
           target="blank"
-          className="hover:font-semibold duration-200"
+          className="hover:font-bold duration-200"
           to="https://www.linkedin.com/in/princechaurasia/"
         >
           Linkedin
         </Link>
         <Link
           target="blank"
-          className="hover:font-semibold duration-200"
+          className="hover:font-bold duration-200"
           to="https://www.instagram.com/dev_.prince/"
         >
           Instagram

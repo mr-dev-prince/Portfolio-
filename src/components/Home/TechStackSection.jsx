@@ -50,7 +50,7 @@ const TechStackSection = () => {
               </p>
             </div>
             <div>
-              <p className="font-semibold text-justify text-lg">
+              <p className="font-semibold text-justify text-xl">
                 In my journey as a full-stack web developer, I've mastered a
                 diverse array of technologies that empower me to build robust
                 and dynamic applications from the ground up. Here's a glimpse
@@ -59,7 +59,7 @@ const TechStackSection = () => {
                   className={`underline ${
                     theme === "light"
                       ? ""
-                      : "hover:bg-[#c5dc4a] hover:text-[#1f1f1f] underline-offset-4 cursor-pointer px-2 transition-colors duration-200 "
+                      : "hover:bg-[#1e649a] hover:text-[#1f1f1f] underline-offset-4 cursor-pointer px-2 transition-colors duration-200 "
                   }`}
                 >
                   explore more

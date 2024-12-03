@@ -1,8 +1,10 @@
 import React from "react";
 import { ThemeState } from "../../context/atoms/themeState";
 import { useRecoilState } from "recoil";
+import anime from "animejs/lib/anime.es.js";
 import { assets } from "../../constants/images";
 import { links } from "../../constants/links";
+import ParticleElement from "../fragments/Particle";
 
 const ActivitySection = () => {
   const themeState = useRecoilState(ThemeState);
@@ -11,51 +13,41 @@ const ActivitySection = () => {
   const color = theme === "light" ? "111" : "000";
 
   return (
-    <div className="h-screen w-full flex px-36 fivo">
-      <div className="w-[50%] h-full flex flex-col">
-        <div className="border p-2 rounded-lg flex flex-col justify-center items-center relative px-5">
-          <p className="font-extrabold text-xl mt-1 uppercase">
-            Github Heat-Map
-          </p>
-          <img
-            src={`https://ghchart.rshah.org/${color}/mr-dev-prince`}
-            alt="GitHub Contributions Graph"
-            className="h-52 object-contain z-50"
-          />
-          
+    <div className="h-screen w-full flex justify-between px-36 fivo py-10">
+      <div />
+      <div className="flex flex-col justify-center items-center px-10 h-full w-[60%] p-3">
+        <div className="w-full h-[46%] flex flex-col justify-center items-center">
+          <div className="flex justify-center items-center h-[30%]">
+            <img
+              src={`https://ghchart.rshah.org/${color}/mr-dev-prince`}
+              alt="GitHub Contributions Graph"
+              className="w-full h-full object-contain scale-125 z-50"
+            />
+          </div>
         </div>
-        <div className="flex flex-col justify-center items-center h-[70%] w-full">
-          <p className="font-semibold text-2xl uppercase">
-            Activity Tracking Board
-          </p>
-        </div>
-      </div>
-      <div className="w-[50%] flex px-10">
-        <div className={`w-full h-[400px] flex justify-center items-start`}>
-          <div className="flex flex-col text-left justify-center items-start">
+        <div className={`w-full h-[50%]`}>
+          <div className="flex flex-col h-full text-left items-start text-xl">
             <div className={`text-left font-bold tracking-wide space-y-4 `}>
               <p
                 className={`${
-                  theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
+                  theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
                 }`}
               >
                 03
               </p>
-              <p className={`text-3xl fivo uppercase`}>
-                My <br /> Activity
-              </p>
+              <p className={`text-3xl fivo uppercase`}>Activity</p>
             </div>
             <div>
-              <p className="font-semibold text-justify text-lg">
+              <p className="font-semibold text-justify">
                 In my journey as a full-stack web developer, I've mastered a
                 diverse array of technologies that empower me to build robust
                 and dynamic applications from the ground up. Here's a glimpse
                 into the tools and frameworks I leverage to bring ideas to life.
                 <span
                   className={`underline ${
-                    theme === "light"
-                      ? ""
-                      : "hover:bg-[#c5dc4a] hover:text-[#1f1f1f] underline-offset-4 cursor-pointer px-2 transition-colors duration-200 "
+                    theme === "dark"
+                      ? "hover:bg-[#dc143c] hover:text-[#1f1f1f] underline-offset-4 cursor-pointer px-2 transition-colors duration-200"
+                      : "hover:bg-[#1e649a] hover:text-[#1f1f1f] underline-offset-4 cursor-pointer px-2 transition-colors duration-200 "
                   }`}
                 >
                   explore more

@@ -32,16 +32,6 @@ html {
   transition: background-color 0.5s, color 0.5s;
 }
 
-.light {
-  background-color: #f2e8de;
-  color: #1f1f1f;
-}
-
-.dark {
-  background-color: #1f1f1f;
-  color: #f2e8de;
-}
-
 .JetBrains {
   font-family: "JetBrains Mono", "Roboto Medium", sans-serif;
 }
@@ -95,7 +85,7 @@ html {
   }
   to {
     color: #1f1f1f;
-    background-color: #c5dc4a;
+    background-color: #dc143c;
   }
 }
 
@@ -108,8 +98,8 @@ html {
     background-color: transparent;
   }
   to {
-    color: #f2e8de;
-    background-color: #dc143c;
+    color: #ffffe4;
+    background-color: #1e649a;
   }
 }
 
@@ -230,4 +220,36 @@ html {
   display: inline-block;
   padding-right: 100%;
   white-space: nowrap;
+}
+
+.particle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
+.light-mode-bg-gradient {
+  @apply bg-[#FFFFE4] text-[#081B2A];
+}
+
+.dark-mode-bg-gradient {
+  @apply bg-[#1f1f1f] text-[#FFFFE4];
+}
+
+/* scroll indicator animation */
+
+.animateUpDown {
+  animation: upDown forwards ease-in 1.5s infinite;
+}
+
+@keyframes upDown {
+  0% {
+    padding-top: 2rem;
+  }
+  100% {
+    padding-top: 0.2rem;
+  }
 }
