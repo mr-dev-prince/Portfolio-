@@ -1,33 +1,33 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
-import Journey from "./pages/Journey";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import { Header } from "./common/Header";
 import Experiences from "./pages/Experiences";
 import Footer from "./common/Footer";
 import Splash from "./pages/Splash";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  // document.addEventListener("keydown", (event) => {
-  //   if (event.key === "F12") {
-  //     event.preventDefault();
-  //   }
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "F12") {
+      event.preventDefault();
+    }
 
-  //   if (event.ctrlKey && event.shiftKey && event.key === "I") {
-  //     event.preventDefault();
-  //   }
+    if (event.ctrlKey && event.shiftKey && event.key === "I") {
+      event.preventDefault();
+    }
 
-  //   if (event.ctrlKey && event.shiftKey && event.key === "J") {
-  //     event.preventDefault();
-  //   }
+    if (event.ctrlKey && event.shiftKey && event.key === "J") {
+      event.preventDefault();
+    }
 
-  //   if (event.ctrlKey && event.key === "U") {
-  //     event.preventDefault();
-  //   }
-  // });
+    if (event.ctrlKey && event.key === "U") {
+      event.preventDefault();
+    }
+  });
 
   const [enter, setEnter] = useState(() => {
     return localStorage.getItem("entered") === "true";
@@ -35,29 +35,20 @@ function App() {
 
   const handleEnter = () => {
     setEnter(true);
+    window.location.href = "/";
     localStorage.setItem("entered", "true");
   };
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.setItem("entered", "false");
-    };
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, []);
 
   return (
     <Router>
       {enter ? (
         <>
+          <ScrollToTop />
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/experiences" element={<Experiences />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/journey" element={<Journey />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

@@ -48,7 +48,7 @@ const ToggleTheme = () => {
             : " text-[#dc143c]"
         }  py-1 -ml-1 rounded-r-full w-28 text-center `}
       >
-        {theme === "dark" ? "Dark Mode" : "Light Mode"}
+        {theme === "dark" ? "Light Mode" : "Dark Mode"}
       </p>
     </button>
   );

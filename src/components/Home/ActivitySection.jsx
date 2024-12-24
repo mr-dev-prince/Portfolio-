@@ -1,16 +1,13 @@
 import React from "react";
 import { ThemeState } from "../../context/atoms/themeState";
 import { useRecoilState } from "recoil";
-import anime from "animejs/lib/anime.es.js";
-import { assets } from "../../constants/images";
-import { links } from "../../constants/links";
-import ParticleElement from "../fragments/Particle";
+
 
 const ActivitySection = () => {
   const themeState = useRecoilState(ThemeState);
   const theme = themeState[0];
 
-  const color = theme === "light" ? "111" : "000";
+  const color = theme === "light" ? "1e649a" : "dc143c";
 
   return (
     <div className="h-screen w-full flex justify-between px-36 fivo py-10">

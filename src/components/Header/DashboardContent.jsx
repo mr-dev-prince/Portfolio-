@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ToggleTheme from "./ToggleTheme";
 import { useRecoilState } from "recoil";
@@ -9,32 +9,34 @@ const DashboardContent = ({
   handleOptionClick,
   openDashboard,
   toggleDashboard,
-  isLargeScreen,
 }) => {
-  const [selectedOptionText, setSelectedOptionText] = useState("Dashboard");
+  const [theme] = useRecoilState(ThemeState);
 
-  const themeState = useRecoilState(ThemeState);
-  const theme = themeState[0];
-
-  const handleOptionClickAndUpdateText = (option, optionText) => {
+  const handleOptionClickAndUpdateText = (option) => {
     handleOptionClick(option);
-    setSelectedOptionText(optionText);
+    localStorage.setItem("selectedOption", option);
   };
+
+  const getOptionClassName = (option) =>
+    `dash-hover ${
+      activeOption === option
+        ? theme === "dark"
+          ? "text-[#dc143c] animate-pulse"
+          : "text-[#1e649a] animate-pulse"
+        : ""
+    }`;
 
   return (
     <div className="group z-50">
       <div
-        className={`w-40 cursor-grab gap-4 relative flex  items-center ${
+        className={`w-40 cursor-grab gap-4 relative flex items-center ${
           theme === "dark"
             ? "bg-[#F2E8DE] text-[#1f1f1f] group-hover:bg-[#dc143c] duration-200"
-            : "bg-[#1f1f1f]  text-[#F2E8DE] group-hover:bg-[#1e649a] duration-200"
+            : "bg-[#1f1f1f] text-[#F2E8DE] group-hover:bg-[#1e649a] duration-200"
         } justify-center fivo uppercase font-bold p-2`}
       >
-        <p>{isLargeScreen ? "Dashboard" : selectedOptionText}</p>
-        <p
-          className="cursor-pointer w-7 text-center "
-          onClick={toggleDashboard}
-        >
+        <p>Dashboard</p>
+        <p className="cursor-pointer w-7 text-center" onClick={toggleDashboard}>
           {openDashboard ? "-" : "+"}
         </p>
       </div>
@@ -45,109 +47,24 @@ const DashboardContent = ({
           theme === "dark"
             ? "border-[#F2E8DE] text-[#F2E8DE] group-hover:border-[#dc143c] duration-200"
             : "border-[#1f1f1f] text-[#1f1f1f] group-hover:border-[#1e649a] duration-200"
-        } border-b-8 pt-8 pb-4 fivo uppercase font-bold text-md   items-center `}
+        } border-b-8 pt-8 pb-4 fivo uppercase font-bold text-md items-center`}
       >
         <div className="flex flex-col justify-start w-full gap-2">
-          <Link
-            to="/"
-            onClick={() => handleOptionClickAndUpdateText("Profile", "Profile")}
-          >
-            <p
-              className={
-                activeOption === "Profile"
-                  ? `dash-hover ${
-                      theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
-                    } animate-pulse`
-                  : "dash-hover"
-              }
+          {[
+            { path: "/", label: "Profile" },
+            { path: "/experiences", label: "Experience" },
+            { path: "/projects", label: "Projects" },
+            { path: "/resume", label: "Resume" },
+            { path: "/contact", label: "Contact" },
+          ].map(({ path, label }) => (
+            <Link
+              key={label}
+              to={path}
+              onClick={() => handleOptionClickAndUpdateText(label)}
             >
-              Profile
-            </p>
-          </Link>
-          <Link
-            to="/experiences"
-            onClick={() =>
-              handleOptionClickAndUpdateText("Experience", "Experience")
-            }
-          >
-            <p
-              className={
-                activeOption === "Experience"
-                  ? `dash-hover ${
-                      theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
-                    } animate-pulse`
-                  : "dash-hover"
-              }
-            >
-              Experience
-            </p>
-          </Link>
-          <Link
-            to="/projects"
-            onClick={() =>
-              handleOptionClickAndUpdateText("Projects", "Projects")
-            }
-          >
-            <p
-              className={
-                activeOption === "Projects"
-                  ? `dash-hover ${
-                      theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
-                    } animate-pulse`
-                  : "dash-hover"
-              }
-            >
-              Projects
-            </p>
-          </Link>
-          <Link
-            to="/journey"
-            onClick={() => handleOptionClickAndUpdateText("Journey", "Journey")}
-          >
-            <p
-              className={
-                activeOption === "Journey"
-                  ? `dash-hover ${
-                      theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
-                    } animate-pulse`
-                  : "dash-hover"
-              }
-            >
-              Journey
-            </p>
-          </Link>
-          <Link
-            to="/resume"
-            onClick={() => handleOptionClickAndUpdateText("Resume", "Resume")}
-          >
-            <p
-              className={
-                activeOption === "Resume"
-                  ? `dash-hover ${
-                      theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
-                    } animate-pulse`
-                  : "dash-hover"
-              }
-            >
-              Resume
-            </p>
-          </Link>
-          <Link
-            to="/contact"
-            onClick={() => handleOptionClickAndUpdateText("Contact", "Contact")}
-          >
-            <p
-              className={
-                activeOption === "Contact"
-                  ? `dash-hover ${
-                      theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
-                    } animate-pulse`
-                  : "dash-hover"
-              }
-            >
-              Contact
-            </p>
-          </Link>
+              <p className={getOptionClassName(label)}>{label}</p>
+            </Link>
+          ))}
         </div>
         <div className="w-full -ml-5 text-center">
           <ToggleTheme />

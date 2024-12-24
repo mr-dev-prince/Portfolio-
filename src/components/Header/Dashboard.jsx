@@ -4,9 +4,10 @@ import DashboardContent from "./DashboardContent";
 import BackgroundMusic from "../fragments/BackgroundMusic";
 
 const Dashboard = () => {
-  const [activeOption, setActiveOption] = useState("Profile");
+  const [activeOption, setActiveOption] = useState(
+    localStorage.getItem("selectedOption")
+  );
   const [openDashboard, setOpenDashboard] = useState(false);
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
   const [playMusic, setPlayMusic] = useState(false);
 
   const handleMouseEnter = () => {
@@ -26,29 +27,8 @@ const Dashboard = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const isLarge = window.innerWidth > 768;
-      if (isLarge !== isLargeScreen) {
-        window.location.reload();
-      }
-      setIsLargeScreen(isLarge);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isLargeScreen]);
-
   const handleOptionClick = (option) => {
     setActiveOption(option);
-    if (!isLargeScreen) {
-      toggleDashboard();
-    }
   };
 
   const toggleDashboard = () => {
@@ -57,28 +37,17 @@ const Dashboard = () => {
 
   return (
     <div>
-      {isLargeScreen ? (
-        <Draggable>
-          <div id="trigger-music">
-            <DashboardContent
-              activeOption={activeOption}
-              handleOptionClick={handleOptionClick}
-              openDashboard={openDashboard}
-              toggleDashboard={toggleDashboard}
-              isLargeScreen={isLargeScreen}
-            />
-            <BackgroundMusic playMusic={playMusic} />
-          </div>
-        </Draggable>
-      ) : (
-        <DashboardContent
-          activeOption={activeOption}
-          handleOptionClick={handleOptionClick}
-          openDashboard={openDashboard}
-          toggleDashboard={toggleDashboard}
-          isLargeScreen={isLargeScreen}
-        />
-      )}
+      <Draggable>
+        <div id="trigger-music">
+          <DashboardContent
+            activeOption={activeOption}
+            handleOptionClick={handleOptionClick}
+            openDashboard={openDashboard}
+            toggleDashboard={toggleDashboard}
+          />
+          <BackgroundMusic playMusic={playMusic} />
+        </div>
+      </Draggable>
     </div>
   );
 };

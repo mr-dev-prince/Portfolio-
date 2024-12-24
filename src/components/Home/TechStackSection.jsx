@@ -40,7 +40,7 @@ const TechStackSection = () => {
             <div className={`text-left font-bold tracking-wide space-y-4 `}>
               <p
                 className={`${
-                  theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
+                  theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
                 }`}
               >
                 02

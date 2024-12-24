@@ -18,7 +18,7 @@ const CardComponent = (props) => {
         bounds={{ left: -9999, right: 9999, top: -9999, bottom: 9999 }}
       >
         <div className="w-80 h-96">
-          <div className={`cursor-grab flex justify-between ${ theme ==="dark" ? "hover:bg-[#dc143c] bg-[#1f1f1f] text-white hover:text-[#1f1f1f]":"hover:bg-[#1e649a] bg-[#f2e8de]] text-[#1f1f1f] hover:text-white"} w-full p-2 fivo`}>
+          <div className={`cursor-grab flex justify-between ${ theme ==="dark" ? "hover:bg-[#dc143c] bg-[#1f1f1f] text-white hover:text-[#1f1f1f]":"hover:bg-[#1e649a] bg-[#FFFFE4] text-[#1f1f1f] hover:text-white"} w-full p-2 fivo`}>
             <p className="uppercase font-bold tracking-wide ">{props.title}</p>
             <p onClick={handleClick} className="text-xl cursor-pointer">
               {openCard ? "-" : "+"}

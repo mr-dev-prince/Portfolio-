@@ -49,6 +49,7 @@ const SlidingTechSection = () => {
       );
     }
   }, []);
+  
   return (
     <div ref={containerRef} className={`h-screen relative fivo`}>
       <div className=" absolute top-28 flex justify-center items-center">
@@ -122,21 +123,17 @@ const SlidingTechSection = () => {
         </div>
       </div>
       <div className="w-full h-[35%] flex justify-between">
-        <div
-          className={`w-[50%] h-full flex justify-center items-center`}
-        >
+        <div className={`w-[50%] h-full flex justify-center items-center`}>
           <div className="flex flex-col text-left text-lg justify-center items-start px-32">
             <div className={`text-left font-bold tracking-wide space-y-4 `}>
               <p
                 className={`${
-                  theme === "light" ? "text-[#dc143c]" : "text-[#c5dc4a]"
+                  theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
                 }`}
               >
                 02
               </p>
-              <p className={`text-3xl fivo uppercase`}>
-                Tech stack
-              </p>
+              <p className={`text-3xl fivo uppercase`}>Tech stack</p>
             </div>
             <div>
               <p className="font-semibold text-justify text-lg">

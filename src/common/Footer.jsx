@@ -1,7 +1,4 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import reactIcon from "../assets/structure.png";
-import React, { useRef } from "react";
+import React from "react";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../context/atoms/themeState";
 import { Link } from "react-router-dom";
@@ -22,17 +19,12 @@ const Footer = () => {
       link: "/projects",
     },
     {
-      id: 1,
-      label: "journey",
-      link: "/journey",
-    },
-    {
-      id: 1,
+      id: 3,
       label: "resume",
       link: "/resume",
     },
     {
-      id: 1,
+      id: 4,
       label: "contact",
       link: "/contact",
     },
@@ -40,36 +32,9 @@ const Footer = () => {
   return (
     <div
       className={`${
-        theme === "light" ? " bg-[#FFFFE4]" : " bg-[#1f1f1f] h-fit py-12"
-      } px-24 pt-36 pb-12 w-full justify-between items-center flex fivo`}
+        theme === "light" ? "bg-[#FFFFE4]" : "bg-[#1f1f1f] h-fit py-5"
+      }  py-12 w-full justify-center items-center flex fivo relative`}
     >
-      <div className={`${theme === "light" ? "" : "text-white"} fivo`}>
-        <div className="uppercase text-3xl font-extrabold tracking-wide">
-          <div className="flex gap-4 items-center">
-            <div className="relative skew">
-              <p
-                className={`relative ${
-                  theme === "light" ? "bgAnimaLight" : "bgAnimaDark"
-                } px-4`}
-              >
-                Tech
-              </p>
-              <span
-                className={`show absolute -top-3 -right-3 ${
-                  theme === "light" ? "bg-[#FFFFE4]" : "bg-[#1f1f1f]"
-                }  p-1.5 rounded-full`}
-              >
-                <img className="h-3 spin" src={reactIcon} alt="" />
-              </span>
-            </div>
-            <p>savvy</p>
-          </div>
-          <p>surfing the</p>
-          <p>
-            coding realm<span className=" text-[#dc143c]">.</span>
-          </p>
-        </div>
-      </div>
       <div
         className={`space-x-10 ${
           theme === "dark" ? " text-[#f2e8de]" : " text-[#1f1f1f]"
@@ -77,39 +42,13 @@ const Footer = () => {
       >
         {links.map((i) => (
           <Link
+            key={i.id}
             className="hover:scale-105 duration-100 font-semibold"
             to={i.link}
           >
             {i.label}
           </Link>
         ))}
-      </div>
-      <div
-        className={`space-x-10 ${
-          theme === "dark" ? " text-[#f2e8de]" : " text-[#1f1f1f]"
-        } uppercase font-semibold `}
-      >
-        <Link
-          target="blank"
-          className="hover:font-bold duration-200"
-          to="mailto:pkcofficial24@gmail.com"
-        >
-          Mail
-        </Link>
-        <Link
-          target="blank"
-          className="hover:font-bold duration-200"
-          to="https://www.linkedin.com/in/princechaurasia/"
-        >
-          Linkedin
-        </Link>
-        <Link
-          target="blank"
-          className="hover:font-bold duration-200"
-          to="https://www.instagram.com/dev_.prince/"
-        >
-          Instagram
-        </Link>
       </div>
     </div>
   );

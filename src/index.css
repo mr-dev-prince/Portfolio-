@@ -12,7 +12,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d9f24f;
+  background: #1e649a;
   border-radius: 5px;
 }
 
@@ -252,4 +252,20 @@ html {
   100% {
     padding-top: 0.2rem;
   }
+}
+
+.heading {
+  @apply text-2xl font-semibold uppercase tracking-wide;
+}
+
+.description {
+  @apply mt-1 text-lg font-light;
+}
+
+.topic {
+  @apply mt-1 text-xl font-semibold;
+}
+
+.subTopic {
+  @apply mt-0.5 text-lg font-medium;
 }

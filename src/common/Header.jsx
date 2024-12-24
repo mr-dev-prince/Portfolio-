@@ -22,7 +22,7 @@ export const Header = () => {
           <p
             className={`${theme === "light" ? "text-[#081B2A]" : "text-white"}`}
           >
-            Portfolio
+            My Portfolio
             <span
               className={`${
                 theme === "light" ? "text-[#1e649a]" : "text-[#DC143C]"
