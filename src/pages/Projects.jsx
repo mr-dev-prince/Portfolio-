@@ -4,7 +4,6 @@ import { ThemeState } from "../context/atoms/themeState";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { projects } from "../constants/projects";
-import { assets } from "../constants/images";
 import ScrollButton from "../components/fragments/ScrollButton";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,8 +19,6 @@ const Projects = () => {
 
   const bgColor = theme === "light" ? "bg-[#FFFFE4]" : "bg-[#1f1f1f]";
   const textColor = theme === "light" ? "text-black" : "text-white";
-  const accentTextColor =
-    theme === "light" ? "text-[#1e649a]" : "text-[#dc143c]";
   const accentBgColor = theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]";
 
   useEffect(() => {

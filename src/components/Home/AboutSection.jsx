@@ -3,7 +3,6 @@ import { useRecoilState } from "recoil";
 import { ThemeState } from "../../context/atoms/themeState";
 import { Link } from "react-router-dom";
 import me from "../../assets/me.jpeg";
-import me2 from "../../assets/me2.jpg";
 import CardComponent from "../fragments/CardComponent";
 
 const AboutSection = () => {
@@ -27,7 +26,9 @@ const AboutSection = () => {
             >
               01
             </p>
-            <p className={` text-3xl font-bold tracking-wide fivo uppercase`}>About Me</p>
+            <p className={` text-3xl font-bold tracking-wide fivo uppercase`}>
+              About Me
+            </p>
           </div>
           <div className="grid gap-4 font-medium text-xl  tracking-wide w-[90%] text-justify">
             <p>
@@ -39,13 +40,15 @@ const AboutSection = () => {
               >
                 Prince Chaurasia
               </span>
-              , a pre-final year student pursuing Bachelor of Technology in Computer
-              Science with a fervent passion for web development. Equipped with
-              proficiency in C++, JavaScript, and Python, I thrive at the
-              intersection of creativity and functionality.{' '}
+              , a pre-final year student pursuing Bachelor of Technology in
+              Computer Science with a fervent passion for web development.
+              Equipped with proficiency in C++, JavaScript, and Python, I thrive
+              at the intersection of creativity and functionality.{" "}
               <span
                 className={`${
-                  theme === "dark" ? "text-[#dc143c] font-medium" : "text-[#1e649a]"
+                  theme === "dark"
+                    ? "text-[#dc143c] font-medium"
+                    : "text-[#1e649a]"
                 }`}
               >
                 My toolkit includes Next.js, React.js, Express, and MongoDB
@@ -76,30 +79,12 @@ const AboutSection = () => {
           </Link>
         </div>
         <div className="w-[50%] relative ">
-          <div className=" relative">
+          <div className="relative w-full h-full flex justify-center items-center ">
             <CardComponent
-              className={`absolute ${
-                frontCard === "me" ? "z-50" : "z-40"
-              } left-20 top-10`}
+              className={` ${frontCard === "me" ? "z-50" : "z-40"}`}
               onMouseDown={() => bringToFront("me")}
               src={me}
               title="me"
-            />
-            <CardComponent
-              className={`absolute ${
-                frontCard === "me2" ? "z-50" : "z-40"
-              } left-64 top-32`}
-              onMouseDown={() => bringToFront("me2")}
-              src={me2}
-              title="me2"
-            />
-            <CardComponent
-              className={`absolute ${
-                frontCard === "me3" ? "z-50" : "z-40"
-              } left-96 top-64`}
-              onMouseDown={() => bringToFront("me3")}
-              src={me2}
-              title="me3"
             />
           </div>
         </div>

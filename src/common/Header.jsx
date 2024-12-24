@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/name2.png";
 import { RiMenu3Fill } from "react-icons/ri";
 import Dashboard from "../components/Header/Dashboard";
 import { useRecoilState } from "recoil";
