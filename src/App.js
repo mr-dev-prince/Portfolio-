@@ -11,23 +11,23 @@ import { useState } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "F12") {
-      event.preventDefault();
-    }
+  // document.addEventListener("keydown", (event) => {
+  //   if (event.key === "F12") {
+  //     event.preventDefault();
+  //   }
 
-    if (event.ctrlKey && event.shiftKey && event.key === "I") {
-      event.preventDefault();
-    }
+  //   if (event.ctrlKey && event.shiftKey && event.key === "I") {
+  //     event.preventDefault();
+  //   }
 
-    if (event.ctrlKey && event.shiftKey && event.key === "J") {
-      event.preventDefault();
-    }
+  //   if (event.ctrlKey && event.shiftKey && event.key === "J") {
+  //     event.preventDefault();
+  //   }
 
-    if (event.ctrlKey && event.key === "U") {
-      event.preventDefault();
-    }
-  });
+  //   if (event.ctrlKey && event.key === "U") {
+  //     event.preventDefault();
+  //   }
+  // });
 
   const [enter, setEnter] = useState(() => {
     return localStorage.getItem("entered") === "true";

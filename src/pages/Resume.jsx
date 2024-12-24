@@ -18,10 +18,7 @@ const Resume = () => {
   const textColor = theme === "light" ? "text-black" : "text-white";
   const accentBgColor = theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]";
 
-  const heroContainerRef = useRef(null);
-  const resumeContainerRef = useRef(null);
-  const textRef = useRef(null);
-  const gradientRef = useRef(null);
+  const titleRef = useRef(null);
 
   const headerRef = useRef(null);
   const summaryRef = useRef(null);
@@ -33,67 +30,43 @@ const Resume = () => {
   const linksRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      gradientRef.current,
-      {
-        height: "0vh",
-        width: "0vh",
-      },
-      {
-        height: "50vh",
-        width: "50vh",
-        ease: "expo.in",
-        scrollTrigger: {
-          trigger: heroContainerRef.current,
-          start: "top top",
-          end: "+=250%",
-          pin: true,
-          scrub: true,
-        },
-      }
-    );
+    if (!titleRef.current) return;
+
+    const letters = titleRef.current.querySelectorAll("span");
 
     gsap.fromTo(
-      textRef.current,
+      letters,
+      { y: 50, opacity: 0 },
       {
-        y: "300%",
-        opacity: 0,
-      },
-      {
-        y: "0%",
+        y: 0,
         opacity: 1,
-        ease: "expo.inOut",
-        scrollTrigger: {
-          trigger: heroContainerRef.current,
-          start: "top center",
-          end: "bottom top",
-          scrub: true,
-        },
+        duration: 1,
+        stagger: 0.1,
+        ease: "power3.out",
       }
     );
-    
   }, []);
 
   return (
     <div
-      ref={heroContainerRef}
       className={`${bgColor} ${textColor} min-h-screen w-full justify-center items-center flex flex-col fivo`}
     >
       <div className="h-screen flex justify-center items-center w-full relative">
-        <h1
-          ref={textRef}
-          className="text-8xl font-extrabold uppercase tracking-widest z-50"
+        <p
+          ref={titleRef}
+          className="text-8xl font-extrabold uppercase tracking-wide"
         >
-          Resume
-        </h1>
-        <span
-          ref={gradientRef}
-          className={`absolute h-12 w-12 rounded-full ${accentBgColor} blur-xl`}
-        />
+          <span>
+            {"Resume".split("").map((char, index) => (
+              <span key={`resume-${index}`} className="inline-block">
+                {char}
+              </span>
+            ))}
+          </span>
+        </p>
         <ScrollButton />
       </div>
       <div
-        ref={resumeContainerRef}
         className={`h-fit w-[50%] mt-12 flex flex-col justify-center items-center relative text-justify font-medium p-4 py-10 mb-24 bg-slate-500/20 backdrop-blur-lg shadow-lg ${
           theme === "light" ? "shadow-[#1e649a]" : "shadow-[#dc143c]"
         }   `}

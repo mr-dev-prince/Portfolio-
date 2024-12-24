@@ -10,22 +10,22 @@ const Footer = () => {
   const links = [
     {
       id: 1,
-      label: "experiences",
+      label: "Experiences",
       link: "/experiences",
     },
     {
       id: 2,
-      label: "projects",
+      label: "Projects",
       link: "/projects",
     },
     {
       id: 3,
-      label: "resume",
+      label: "Resume",
       link: "/resume",
     },
     {
       id: 4,
-      label: "contact",
+      label: "Contact",
       link: "/contact",
     },
   ];
@@ -45,6 +45,7 @@ const Footer = () => {
             key={i.id}
             className="hover:scale-105 duration-100 font-semibold"
             to={i.link}
+            onClick={() => localStorage.setItem("selectedOption", i.label)}
           >
             {i.label}
           </Link>

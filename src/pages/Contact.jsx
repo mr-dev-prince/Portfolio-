@@ -15,61 +15,57 @@ const Contact = () => {
 
   const bgColor = theme === "light" ? "bg-[#FFFFE4]" : "bg-[#1f1f1f]";
   const textColor = theme === "light" ? "text-black" : "text-white";
-  const accentTextColor =
-    theme === "light" ? "text-[#1e649a]" : "text-[#dc143c]";
-  const accentBgColor = theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]";
 
   const titleRef = useRef(null);
   const contactInfoRef = useRef([]);
   const socialIconsRef = useRef([]);
 
   useEffect(() => {
-    // Title Animation: Each character comes from the left
-    gsap.fromTo(
-      titleRef.current.children,
-      {
-        x: -50,
-        opacity: 0,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1.2,
-        stagger: 0.1,
-        ease: "power3.out",
-        delay: 0.5,
-      }
-    );
+    const ctx = gsap.context(() => {
+      const letters = titleRef.current.querySelectorAll("span");
 
-    // Animate Contact Information (Phone, Email)
-    contactInfoRef.current.forEach((item, index) => {
       gsap.fromTo(
-        item,
-        { opacity: 0, y: 100 },
+        letters,
+        { y: 50, opacity: 0 },
         {
-          opacity: 1,
           y: 0,
+          opacity: 1,
           duration: 1,
-          delay: index * 0.4,
+          stagger: 0.1,
           ease: "power3.out",
         }
       );
+
+      contactInfoRef.current.forEach((item, index) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, y: 100 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: index * 0.4,
+            ease: "power3.out",
+          }
+        );
+      });
+
+      socialIconsRef.current.forEach((icon, index) => {
+        gsap.fromTo(
+          icon,
+          { opacity: 0, x: -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            delay: index * 0.3 + 0.7,
+            ease: "power3.out",
+          }
+        );
+      });
     });
 
-    // Animate Social Icons (Slide In & Hover Animation)
-    socialIconsRef.current.forEach((icon, index) => {
-      gsap.fromTo(
-        icon,
-        { opacity: 0, x: -50 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1.2,
-          delay: index * 0.3 + 0.7,
-          ease: "power3.out",
-        }
-      );
-    });
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -82,14 +78,14 @@ const Contact = () => {
           >
             <span className="inline-block">
               {"Contact".split("").map((char, index) => (
-                <span key={index} className="inline-block">
+                <span key={`contact-${index}`} className="inline-block">
                   {char}
                 </span>
               ))}
             </span>
             <span className="inline-block ml-8">
               {"Me".split("").map((char, index) => (
-                <span key={index} className="inline-block">
+                <span key={`me-${index}`} className="inline-block">
                   {char}
                 </span>
               ))}

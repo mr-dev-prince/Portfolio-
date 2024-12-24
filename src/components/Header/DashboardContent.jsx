@@ -4,22 +4,16 @@ import ToggleTheme from "./ToggleTheme";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../../context/atoms/themeState";
 
-const DashboardContent = ({
-  activeOption,
-  handleOptionClick,
-  openDashboard,
-  toggleDashboard,
-}) => {
+const DashboardContent = ({ openDashboard, toggleDashboard }) => {
   const [theme] = useRecoilState(ThemeState);
 
   const handleOptionClickAndUpdateText = (option) => {
-    handleOptionClick(option);
     localStorage.setItem("selectedOption", option);
   };
 
   const getOptionClassName = (option) =>
     `dash-hover ${
-      activeOption === option
+      localStorage.getItem("selectedOption") === option
         ? theme === "dark"
           ? "text-[#dc143c] animate-pulse"
           : "text-[#1e649a] animate-pulse"
@@ -52,7 +46,7 @@ const DashboardContent = ({
         <div className="flex flex-col justify-start w-full gap-2">
           {[
             { path: "/", label: "Profile" },
-            { path: "/experiences", label: "Experience" },
+            { path: "/experiences", label: "Experiences" },
             { path: "/projects", label: "Projects" },
             { path: "/resume", label: "Resume" },
             { path: "/contact", label: "Contact" },

@@ -1,22 +1,27 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { RiMenu3Fill } from "react-icons/ri";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import Dashboard from "../components/Header/Dashboard";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../context/atoms/themeState";
 
 export const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(true);
   const themeState = useRecoilState(ThemeState);
 
   const theme = themeState[0];
 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    localStorage.setItem("selectedOption", "Profile");
+    navigate("/");
+  };
+
   return (
     <div className="fixed top-0 left-0 w-full py-10 z-50 flex justify-between items-center lg:px-36 pr-8">
       <div className="fixed lg:static">
-        <Link
+        <button
           className="cursor-grab fivo text-5xl font-extrabold uppercase"
-          to={"/"}
+          onClick={handleClick}
         >
           <p
             className={`${theme === "light" ? "text-[#081B2A]" : "text-white"}`}
@@ -30,19 +35,9 @@ export const Header = () => {
               .
             </span>
           </p>
-        </Link>
+        </button>
       </div>
-      <Link
-        onClick={() => setMenuOpen(!menuOpen)}
-        className=" outline outline-1 flex text-white lg:hidden p-2"
-      >
-        <RiMenu3Fill size={20} />
-      </Link>
-      <div
-        className={`${
-          menuOpen ? "block" : "hidden"
-        } fixed lg:static right-7 top-20`}
-      >
+      <div className={`fixed lg:static right-7 top-20`}>
         <Dashboard />
       </div>
     </div>
