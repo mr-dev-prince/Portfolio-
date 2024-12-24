@@ -7,27 +7,27 @@ import { Header } from "./common/Header";
 import Experiences from "./pages/Experiences";
 import Footer from "./common/Footer";
 import Splash from "./pages/Splash";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  // document.addEventListener("keydown", (event) => {
-  //   if (event.key === "F12") {
-  //     event.preventDefault();
-  //   }
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "F12") {
+      event.preventDefault();
+    }
 
-  //   if (event.ctrlKey && event.shiftKey && event.key === "I") {
-  //     event.preventDefault();
-  //   }
+    if (event.ctrlKey && event.shiftKey && event.key === "I") {
+      event.preventDefault();
+    }
 
-  //   if (event.ctrlKey && event.shiftKey && event.key === "J") {
-  //     event.preventDefault();
-  //   }
+    if (event.ctrlKey && event.shiftKey && event.key === "J") {
+      event.preventDefault();
+    }
 
-  //   if (event.ctrlKey && event.key === "U") {
-  //     event.preventDefault();
-  //   }
-  // });
+    if (event.ctrlKey && event.key === "U") {
+      event.preventDefault();
+    }
+  });
 
   const [enter, setEnter] = useState(() => {
     return localStorage.getItem("entered") === "true";
@@ -38,6 +38,18 @@ function App() {
     window.location.href = "/";
     localStorage.setItem("entered", "true");
   };
+
+  useEffect(() => {
+    const clearLocalStorageOnUnload = () => {
+      localStorage.clear();
+    };
+
+    window.addEventListener("beforeunload", clearLocalStorageOnUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", clearLocalStorageOnUnload);
+    };
+  }, []);
 
   return (
     <Router>
