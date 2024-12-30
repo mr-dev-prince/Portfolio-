@@ -22,6 +22,9 @@ import flower from "../assets/flower.jpeg";
 import waterfall from "../assets/wallpaper.jpeg";
 import snow from "../assets/snow.jpeg";
 import resume from "../assets/resume.jpg";
+import xcrypto from "../assets/x-crypto.png";
+import porfolio from "../assets/portfolio.png";
+import artArena from "../assets/artArena.png";
 
 export const assets = {
   react: reactIcon,
@@ -31,7 +34,7 @@ export const assets = {
   js: javascriptIcon,
   nodejs: nodeJsIcon,
   reactNative: reactNativeIcon,
-  monogDb: mongoDbIcon,
+  mongoDbIcon: mongoDbIcon,
   sql: sqlIcon,
   tailwind: tailwindIcon,
   html: htmlIcon,
@@ -48,4 +51,7 @@ export const assets = {
   waterfall: waterfall,
   roses: roses,
   resume: resume,
+  xcrypto: xcrypto,
+  portfolio: porfolio,
+  artArena: artArena,
 };

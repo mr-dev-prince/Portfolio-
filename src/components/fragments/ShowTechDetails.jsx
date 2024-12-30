@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CgPentagonRight } from "react-icons/cg";
 
 const ShowTechDetails = ({ details }) => {
   const containerVariant = {
@@ -29,7 +27,7 @@ const ShowTechDetails = ({ details }) => {
         alt="image"
       />
       <div className="h-full w-full p-2 flex">
-        <div className="w-[20%] flex flex-col justify-start">
+        <div className="w-[30%] flex flex-col justify-start">
           <div className="flex justify-center items-start gap-3 flex-col w-full">
             <motion.img
               src={details.image}
@@ -51,11 +49,13 @@ const ShowTechDetails = ({ details }) => {
             </motion.p>
           </div>
         </div>
-        <div className="h-full w-[40%] p-1">
-          <div className="h-[60%]">
-            <p className="uppercase font-semibold text-xl">Concepts I am good at</p>
+        <div className="h-full grid grid-cols-2 w-[70%] p-1">
+          <div>
+            <p className="uppercase font-semibold text-xl">
+              Concepts I am good at
+            </p>
             <div className="font-medium mt-2 h-[50%]">
-              {details.strongHold.map((i) => (
+              {details?.strongHold?.map((i) => (
                 <motion.div
                   key={i.id}
                   className="flex justify-start items-center mb-0.5"
@@ -66,21 +66,21 @@ const ShowTechDetails = ({ details }) => {
               ))}
             </div>
           </div>
-        </div>
-        <div className="w-[40%]">
-          <div className="flex flex-col w-full justify-start items-start">
-            <p className="font-semibold text-xl uppercase">Projects</p>
-            <div className="font-medium mt-2 flex flex-col z-50">
-              {details.projects.map((i) => (
-                <motion.div key={i.id} variants={itemVariant} className="hover:bg-blue-600 w-56 duration-200 hover:pl-5">
-                  <Link className="text-lg">{i.name}</Link>
+          <div className="h-[60%]">
+            <p className="uppercase font-semibold text-xl">
+              Concepts I learning 
+            </p>
+            <div className="font-medium mt-2 h-[50%]">
+              {details?.learning?.map((i) => (
+                <motion.div
+                  key={i.id}
+                  className="flex justify-start items-center mb-0.5"
+                  variants={itemVariant}
+                >
+                  <p className="text-lg font-medium">{i.topic}</p>
                 </motion.div>
               ))}
             </div>
-          </div>
-          <div className="mt-2">
-            <p className="font-semibold text-xl uppercase">Short Summary </p>
-            <p className="font-medium ">{details.summary}</p>
           </div>
         </div>
       </div>
