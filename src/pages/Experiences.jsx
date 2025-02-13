@@ -175,7 +175,7 @@ const Experiences = () => {
                     key={index}
                     className={`${
                       index === 0
-                        ? "text-6xl font-extrabold tracking-wider"
+                        ? "text-[5vh] font-extrabold tracking-wider"
                         : index === 1
                         ? "text-xl font-semibold"
                         : index === 2
@@ -198,13 +198,13 @@ const Experiences = () => {
           <div className="flex h-full w-[50%] justify-end items-center">
             <div
               ref={(el) => (rightBoxRefs.current[idx] = el)}
-              className={`h-[40%] w-[90%] ${
+              className={`h-fit py-2 w-[90%] ${
                 theme === "light" ? "bg-[#1e649a]/10" : "bg-[#dc143c]/10"
               } hover:${
                 theme === "light" ? "bg-[#1e649a]/60" : "bg-[#dc143c]/60"
               } duration-1000 backdrop-blur-sm rounded-l-3xl z-50`}
             >
-              <div className="flex flex-col justify-center group items-start pl-10 px-5 text-pretty h-full w-full gap-6 text-xl">
+              <div className="flex flex-col justify-center group items-start pl-10 px-5 text-pretty h-full w-full gap-6">
                 {ex.details.map((detail, index) => (
                   <p
                     key={index}
