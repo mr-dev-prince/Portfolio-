@@ -67,7 +67,7 @@ const Resume = () => {
         <ScrollButton />
       </div>
       <div
-        className={`h-fit w-[50%] mt-12 flex flex-col justify-center items-center relative text-justify font-medium p-4 py-10 mb-24 bg-slate-500/20 backdrop-blur-lg shadow-lg ${
+        className={`h-fit w-[50%] border border-gray-400 rounded-xl mt-12 flex flex-col justify-center items-center relative text-justify font-medium p-4 py-10 mb-24 bg-slate-500/20 backdrop-blur-lg shadow-lg ${
           theme === "light" ? "shadow-[#1e649a]" : "shadow-[#dc143c]"
         }   `}
       >
@@ -75,13 +75,13 @@ const Resume = () => {
           ref={headerRef}
           className="flex flex-col justify-center items-center gap-5 w-full"
         >
-          <h1 className="underline text-4xl fivo font-semibold uppercase">
+          <h1 className="underline text-[4vh] fivo font-semibold uppercase">
             Prince Chaurasia
           </h1>
-          <div className="flex justify-center items-center gap-5 ">
+          <div className="grid grid-cols-4 gap-4 ">
             <span className="flex justify-center items-center gap-2">
               <FaLocationPin />
-              <p>Banglore, Karnataka, India</p>
+              <p className="text-[1.5vh]">Banglore, Karnataka, India</p>
             </span>
             <Link
               to={"mailto:pkcofficial24@gmail.com"}
@@ -89,7 +89,7 @@ const Resume = () => {
               className="flex justify-center items-center gap-2"
             >
               <GoMail />
-              <p>pkcofficial24@gmail.com</p>
+              <p className="text-[1.5vh]">pkcofficial24@gmail.com</p>
             </Link>
             <Link
               to={"https://wa.link/5lk0rp"}
@@ -97,7 +97,7 @@ const Resume = () => {
               className="flex justify-center items-center gap-2"
             >
               <BiPhone />
-              <p>+91 8090900602</p>
+              <p className="text-[1.5vh]">+91 8090900602</p>
             </Link>
             <Link
               target="_blank"
@@ -105,7 +105,7 @@ const Resume = () => {
               className="flex justify-center items-center gap-2"
             >
               <FaLinkedin />
-              <p>@princechaurasia</p>
+              <p className="text-[1.5vh]">@princechaurasia</p>
             </Link>
           </div>
           <span className={`h-0.5 w-full ${accentBgColor}/50 -mt-4`} />

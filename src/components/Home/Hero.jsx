@@ -1,10 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import react from "../../assets/structure.png";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../../context/atoms/themeState";
-import BackgroundMusic from "../fragments/BackgroundMusic.jsx";
 import { assets } from "../../constants/images.js";
 
 const Hero = () => {

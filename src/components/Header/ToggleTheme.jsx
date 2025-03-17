@@ -46,7 +46,7 @@ const ToggleTheme = () => {
           theme === "light"
             ? " text-[#1e649a]"
             : " text-[#dc143c]"
-        }  py-1 -ml-1 rounded-r-full w-28 text-center `}
+        }  py-1 -ml-2 rounded-r-full w-28 text-center `}
       >
         {theme === "dark" ? "Light Mode" : "Dark Mode"}
       </p>
