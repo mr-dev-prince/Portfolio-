@@ -1,76 +1,117 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects";
-import Resume from "./pages/Resume";
-import Contact from "./pages/Contact";
-import { Header } from "./common/Header";
-import Experiences from "./pages/Experiences";
-import Footer from "./common/Footer";
-import Splash from "./pages/Splash";
+// src/App.jsx
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import { useEffect, useState } from "react";
 import ScrollToTop from "./components/ScrollToTop";
+import Splash from "./pages/Splash";
 
-function App() {
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "F12") {
-      event.preventDefault();
-    }
+// ---- v1 pages -----
+import LegacyHome from "./pages/Home";
+import LegacyExperiences from "./pages/Experiences";
+import LegacyContact from "./pages/Contact";
+import LegacyResume from "./pages/Resume";
+import LegacyProjects from "./pages/Projects";
 
-    if (event.ctrlKey && event.shiftKey && event.key === "I") {
-      event.preventDefault();
-    }
+// ---- v2 pages -----
+import Home from "./v2/pages/Home";
+import About from "./v2/pages/About";
+import Work from "./v2/pages/Work";
+import Contact from "./v2/pages/Contact";
+import Blogs from "./v2/pages/Blogs";
 
-    if (event.ctrlKey && event.shiftKey && event.key === "J") {
-      event.preventDefault();
-    }
+// ---- Layouts -----
+import V2Layout from "./layouts/V2Layout";
+import V1Layout from "./layouts/V1Layout";
 
-    if (event.ctrlKey && event.key === "U") {
-      event.preventDefault();
-    }
-  });
+function InnerApp({ entered, setEntered }) {
+  const navigate = useNavigate();
 
-  const [enter, setEnter] = useState(() => {
-    return localStorage.getItem("entered") === "true";
-  });
-
-  const handleEnter = () => {
-    setEnter(true);
-    window.location.href = "/";
+  const handleEnter = (ver = "v2") => {
+    setEntered(true);
     localStorage.setItem("entered", "true");
+    localStorage.setItem("portfolioVersion", ver);
+    navigate(ver === "v1" ? "/legacy" : "/");
   };
 
   useEffect(() => {
-    const clearLocalStorageOnUnload = () => {
-      localStorage.clear();
-    };
+    const remembered = localStorage.getItem("portfolioVersion");
+    if (
+      remembered === "v1" &&
+      !window.location.pathname.startsWith("/legacy")
+    ) {
+      navigate("/legacy", { replace: true });
+    } else if (
+      (!remembered || remembered === "v2") &&
+      window.location.pathname.startsWith("/legacy")
+    ) {
+      navigate("/", { replace: true });
+    }
+  }, [entered, navigate]);
 
-    window.addEventListener("beforeunload", clearLocalStorageOnUnload);
+  if (!entered) return <Splash onEnter={handleEnter} />;
 
-    return () => {
-      window.removeEventListener("beforeunload", clearLocalStorageOnUnload);
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        {/* Legacy (v1) routes */}
+        <Route
+          path="/legacy/*"
+          element={<V1Layout onSwitch={() => handleEnter("v2")} />}
+        >
+          <Route index element={<LegacyHome />} />
+          <Route path="projects" element={<LegacyProjects />} />
+          <Route path="resume" element={<LegacyResume />} />
+          <Route path="contact" element={<LegacyContact />} />
+          <Route path="experiences" element={<LegacyExperiences />} />
+          <Route path="*" element={<Navigate to="/legacy" replace />} />
+        </Route>
+
+        {/* v2 routes */}
+        <Route
+          path="/"
+          element={<V2Layout onSwitch={() => handleEnter("v1")} />}
+        >
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="work" element={<Work />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </>
+  );
+}
+
+export default function App() {
+  const [entered, setEntered] = useState(
+    () => localStorage.getItem("entered") === "true"
+  );
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === "F12") event.preventDefault();
+      if (
+        event.ctrlKey &&
+        event.shiftKey &&
+        (event.key === "I" || event.key === "J")
+      )
+        event.preventDefault();
+      if (event.ctrlKey && event.key === "U") event.preventDefault();
     };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
   return (
     <Router>
-      {enter ? (
-        <>
-          <ScrollToTop />
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/experiences" element={<Experiences />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-          <Footer />
-        </>
-      ) : (
-        <Splash onEnter={handleEnter} />
-      )}
+      <InnerApp entered={entered} setEntered={setEntered} />
     </Router>
   );
 }
-
-export default App;
