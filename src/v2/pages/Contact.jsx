@@ -2,7 +2,7 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div className='min-h-screen bg-[#1e1e1e]'>Contact</div>
   )
 }
 

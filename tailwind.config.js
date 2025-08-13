@@ -9,6 +9,9 @@ module.exports = {
       gridTemplateRows: {
         18: "repeat(18, minmax(0, 1fr))",
       },
+      fontFamily: {
+        slabo: ['"Slabo 27px"', "serif"],
+      },
     },
   },
   plugins: [],

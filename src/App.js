@@ -59,7 +59,6 @@ function InnerApp({ entered, setEntered }) {
     <>
       <ScrollToTop />
       <Routes>
-        {/* Legacy (v1) routes */}
         <Route
           path="/legacy/*"
           element={<V1Layout onSwitch={() => handleEnter("v2")} />}
@@ -71,8 +70,6 @@ function InnerApp({ entered, setEntered }) {
           <Route path="experiences" element={<LegacyExperiences />} />
           <Route path="*" element={<Navigate to="/legacy" replace />} />
         </Route>
-
-        {/* v2 routes */}
         <Route
           path="/"
           element={<V2Layout onSwitch={() => handleEnter("v1")} />}
@@ -89,25 +86,27 @@ function InnerApp({ entered, setEntered }) {
   );
 }
 
+{/* <a href="https://lordicon.com/">Icons by Lordicon.com</a> */}
+
 export default function App() {
   const [entered, setEntered] = useState(
     () => localStorage.getItem("entered") === "true"
   );
 
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if (event.key === "F12") event.preventDefault();
-      if (
-        event.ctrlKey &&
-        event.shiftKey &&
-        (event.key === "I" || event.key === "J")
-      )
-        event.preventDefault();
-      if (event.ctrlKey && event.key === "U") event.preventDefault();
-    };
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, []);
+  // useEffect(() => {
+  //   const onKeyDown = (event) => {
+  //     if (event.key === "F12") event.preventDefault();
+  //     if (
+  //       event.ctrlKey &&
+  //       event.shiftKey &&
+  //       (event.key === "I" || event.key === "J")
+  //     )
+  //       event.preventDefault();
+  //     if (event.ctrlKey && event.key === "U") event.preventDefault();
+  //   };
+  //   document.addEventListener("keydown", onKeyDown);
+  //   return () => document.removeEventListener("keydown", onKeyDown);
+  // }, []);
 
   return (
     <Router>

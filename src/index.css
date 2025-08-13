@@ -269,3 +269,9 @@ html {
 .subTopic {
   @apply mt-0.5 text-lg font-medium;
 }
+
+/* v2 styles */
+
+.home{
+  @apply bg-slate-100
+}

@@ -1,57 +1,59 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import homeIcon from "../assets/home.json";
+import homeIconBlue from "../assets/home-blue.json";
+import workIcon from "../assets/work.json";
+import workIconBlue from "../assets/work-blue.json";
+import blogIcon from "../assets/blogs.json";
+import blogIconBlue from "../assets/blog-blue.json";
+import contactIcon from "../assets/contact.json";
+import contactIconBlue from "../assets/contact-blue.json";
+import aboutIcon from "../assets/about.json";
+import aboutIconBlue from "../assets/about-blue.json";
+import NavButton from "../components/NavButton";
+
+const icons = [
+  {
+    id: 1,
+    icon: homeIcon,
+    iconBlue: homeIconBlue,
+    text: "home",
+    href: ".",
+  },
+  {
+    id: 2,
+    icon: aboutIcon,
+    iconBlue: aboutIconBlue,
+    text: "about",
+    href: "about",
+  },
+  {
+    id: 3,
+    icon: workIcon,
+    iconBlue: workIconBlue,
+    text: "work",
+    href: "work",
+  },
+  {
+    id: 4,
+    icon: blogIcon,
+    iconBlue: blogIconBlue,
+    text: "blog",
+    href: "blogs",
+  },
+  {
+    id: 5,
+    icon: contactIcon,
+    iconBlue: contactIconBlue,
+    text: "contact",
+    href: "contact",
+  },
+];
 
 const Navbar = ({ onSwitch }) => {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <NavLink
-          to="/"
-          className="text-2xl font-bold tracking-wide text-gray-900 dark:text-white"
-        >
-          My Portfolio<span className="text-blue-500">.</span>
-        </NavLink>
-        <div className="hidden md:flex gap-6">
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `hover:text-blue-500 ${isActive ? "text-blue-500" : ""}`
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/work"
-            className={({ isActive }) =>
-              `hover:text-blue-500 ${isActive ? "text-blue-500" : ""}`
-            }
-          >
-            Work
-          </NavLink>
-          <NavLink
-            to="/blogs"
-            className={({ isActive }) =>
-              `hover:text-blue-500 ${isActive ? "text-blue-500" : ""}`
-            }
-          >
-            Blogs
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `hover:text-blue-500 ${isActive ? "text-blue-500" : ""}`
-            }
-          >
-            Contact
-          </NavLink>
-        </div>
-        <button
-          onClick={onSwitch}
-          className="px-4 py-2 text-sm font-semibold rounded-md border border-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          View Classic Version
-        </button>
-      </div>
+    <nav className=" fixed top-[30%] rounded-lg left-12 bg-gray-600 hover:bg-gray-700 duration-200 transition-all w-[4%] h-fit shadow-md z-50 flex flex-col gap-3 justify-start items-center py-2 px-2">
+      {icons.map((i) => (
+        <NavButton key={i.id} {...i} />
+      ))}
     </nav>
   );
 };
