@@ -9,6 +9,8 @@ import contactIconBlue from "../assets/contact-blue.json";
 import aboutIcon from "../assets/about.json";
 import aboutIconBlue from "../assets/about-blue.json";
 import NavButton from "../components/NavButton";
+import experienceIcon from "../assets/experience.json";
+import experienceIconBlue from "../assets/experience-blue.json";
 
 const icons = [
   {
@@ -33,6 +35,13 @@ const icons = [
     href: "work",
   },
   {
+    id: 6,
+    icon: experienceIcon,
+    iconBlue: experienceIconBlue,
+    text: "experience",
+    href: "experience",
+  },
+  {
     id: 4,
     icon: blogIcon,
     iconBlue: blogIconBlue,
@@ -54,6 +63,14 @@ const Navbar = ({ onSwitch }) => {
       {icons.map((i) => (
         <NavButton key={i.id} {...i} />
       ))}
+      <div>
+        <button
+          onClick={onSwitch}
+          className="text-white bg-blue-500/50 hover:bg-blue-500 duration-300 hover:scale-90 px-2 py-1 rounded-xl transition-colors"
+        >
+          v1
+        </button>
+      </div>
     </nav>
   );
 };

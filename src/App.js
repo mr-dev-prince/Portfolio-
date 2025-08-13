@@ -23,6 +23,8 @@ import About from "./v2/pages/About";
 import Work from "./v2/pages/Work";
 import Contact from "./v2/pages/Contact";
 import Blogs from "./v2/pages/Blogs";
+import Experience from "./v2/pages/Experience";
+import BlogDetails from "./v2/pages/BlogDetails";
 
 // ---- Layouts -----
 import V2Layout from "./layouts/V2Layout";
@@ -30,30 +32,44 @@ import V1Layout from "./layouts/V1Layout";
 
 function InnerApp({ entered, setEntered }) {
   const navigate = useNavigate();
+  const [showSplash, setShowSplash] = useState(false);
 
   const handleEnter = (ver = "v2") => {
     setEntered(true);
     localStorage.setItem("entered", "true");
     localStorage.setItem("portfolioVersion", ver);
-    navigate(ver === "v1" ? "/legacy" : "/");
+
+    if (ver === "v1") {
+      // Show Splash only when switching to legacy
+      setShowSplash(false);
+      navigate("/legacy");
+    } else {
+      navigate("/");
+    }
   };
 
   useEffect(() => {
     const remembered = localStorage.getItem("portfolioVersion");
+
+    // First-time visitors go directly to v2
+    if (!entered && (!remembered || remembered === "v2")) {
+      setEntered(true);
+      localStorage.setItem("entered", "true");
+      localStorage.setItem("portfolioVersion", "v2");
+      navigate("/", { replace: true });
+      return;
+    }
+
+    // Show Splash if user previously used v1 but not on /legacy path
     if (
       remembered === "v1" &&
       !window.location.pathname.startsWith("/legacy")
     ) {
-      navigate("/legacy", { replace: true });
-    } else if (
-      (!remembered || remembered === "v2") &&
-      window.location.pathname.startsWith("/legacy")
-    ) {
-      navigate("/", { replace: true });
+      setShowSplash(true);
     }
-  }, [entered, navigate]);
+  }, [entered, navigate, setEntered]);
 
-  if (!entered) return <Splash onEnter={handleEnter} />;
+  if (showSplash) return <Splash onEnter={handleEnter} />;
 
   return (
     <>
@@ -70,6 +86,7 @@ function InnerApp({ entered, setEntered }) {
           <Route path="experiences" element={<LegacyExperiences />} />
           <Route path="*" element={<Navigate to="/legacy" replace />} />
         </Route>
+
         <Route
           path="/"
           element={<V2Layout onSwitch={() => handleEnter("v1")} />}
@@ -77,8 +94,10 @@ function InnerApp({ entered, setEntered }) {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="blogs" element={<Blogs />} />
+          <Route path="blogs/:slug" element={<BlogDetails />} />
           <Route path="work" element={<Work />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="experience" element={<Experience />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
@@ -86,27 +105,25 @@ function InnerApp({ entered, setEntered }) {
   );
 }
 
-{/* <a href="https://lordicon.com/">Icons by Lordicon.com</a> */}
-
 export default function App() {
   const [entered, setEntered] = useState(
     () => localStorage.getItem("entered") === "true"
   );
 
-  // useEffect(() => {
-  //   const onKeyDown = (event) => {
-  //     if (event.key === "F12") event.preventDefault();
-  //     if (
-  //       event.ctrlKey &&
-  //       event.shiftKey &&
-  //       (event.key === "I" || event.key === "J")
-  //     )
-  //       event.preventDefault();
-  //     if (event.ctrlKey && event.key === "U") event.preventDefault();
-  //   };
-  //   document.addEventListener("keydown", onKeyDown);
-  //   return () => document.removeEventListener("keydown", onKeyDown);
-  // }, []);
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === "F12") event.preventDefault();
+      if (
+        event.ctrlKey &&
+        event.shiftKey &&
+        (event.key === "I" || event.key === "J")
+      )
+        event.preventDefault();
+      if (event.ctrlKey && event.key === "U") event.preventDefault();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <Router>

@@ -1,8 +1,5 @@
-// src/api.js
 import axios from "axios";
 import { API_TOKEN, API_URL } from "./helper";
-
-console.log("api url-->", API_URL, API_TOKEN);
 
 const apiClient = axios.create({
   baseURL: API_URL,
@@ -23,4 +20,7 @@ apiClient.interceptors.response.use(
 
 export const api = {
   getBlogs: () => apiClient.get(`/blogs?populate=*`),
+  getWorks: () => apiClient.get("/works?populate=*"),
+  getExperiences: () => apiClient.get("/experiences?populate=*"),
+  getBlog: (id) => apiClient.get(`/blogs/${id}?populate=*`),
 };

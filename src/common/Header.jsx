@@ -36,9 +36,9 @@ export const Header = ({ onSwitch }) => {
         <Dashboard />
         <button
           onClick={onSwitch}
-          className="px-4 py-2 text-sm font-semibold rounded-md border border-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
+          className="px-4 py-2 text-sm font-semibold border border-gray-400 hover:bg-gray-200 dark:hover:bg-blue-700 duration-500 text-white"
         >
-          View New Version
+          v2
         </button>
       </div>
     </div>

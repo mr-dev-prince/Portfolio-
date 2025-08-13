@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Draggable from "react-draggable";
 import DashboardContent from "./DashboardContent";
 
 const Dashboard = () => {
-
   const [openDashboard, setOpenDashboard] = useState(false);
 
   const toggleDashboard = () => {

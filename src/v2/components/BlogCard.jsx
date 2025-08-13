@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const BlogCard = ({ blog }) => {
   const previewText =
     blog?.content
@@ -8,7 +10,10 @@ const BlogCard = ({ blog }) => {
   const imageUrl = blog?.cover_image?.url;
 
   return (
-    <div className="rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-gray-800/60 p-3">
+    <Link
+      to={`/blogs/${blog.slug}?id=${blog.documentId}`}
+      className="rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-gray-800/60 p-3"
+    >
       <div className="h-[400px] w-full">
         {imageUrl && (
           <img
@@ -26,10 +31,12 @@ const BlogCard = ({ blog }) => {
             year: "numeric",
           })}
         </p>
-        <h2 className="text-2xl font-bold font-sans tracking-wide text-white">{blog?.title}</h2>
+        <h2 className="text-2xl font-bold font-sans tracking-wide text-white">
+          {blog?.title}
+        </h2>
         <p className="text-gray-600 text-sm line-clamp-3">{previewText}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

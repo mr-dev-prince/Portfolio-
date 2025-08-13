@@ -49,7 +49,7 @@ const Splash = ({ onEnter }) => {
               console.log("i was clicked");
               onEnter();
             }}
-            className="px-24 py-3 bg-slate-400/5 rounded-lg backdrop-blur-2xl JetBrains uppercase hover:scale-95 duration-500 transition-all"
+            className="px-24 py-3 bg-slate-400/5 rounded-lg backdrop-blur-2xl font-mono uppercase hover:scale-95 duration-500 transition-all"
           >
             Show portfolio
           </button>

@@ -23,7 +23,7 @@ const DownloadResume = () => {
   return (
     <div className="p-4">
       <div className="w-full flex justify-between items-center">
-        <p className="font-slabo text-4xl text-white">Are You Hiring?</p>
+        <p className="font-slabo text-4xl text-white">Are You Hiring ?</p>
         <Link
           to="mailto:pkcofficial24@gmail.com"
           className="bg-gray-600 text-gray-300 px-3 py-1 rounded-md
@@ -36,7 +36,7 @@ const DownloadResume = () => {
 
       <div className="mt-6 flex justify-start items-start flex-col">
         <div ref={containerRef} className="w-32 h-32"></div>
-        <p className="text-gray-400 text-sm mt-4 JetBrains">
+        <p className="text-gray-400 text-lg mt-4 font-slabo">
           Bringing strong problem-solving skills, a passion for clean code, and
           just the right amount of caffeine. Whether it’s building from scratch
           or improving existing systems — I’m ready to deliver.
@@ -50,7 +50,7 @@ const DownloadResume = () => {
           <FaCloudDownloadAlt />
           Download Resume
         </a>
-        <p className="text-gray-500 text-xs mt-3 italic text-center">
+        <p className="text-gray-500 text-xs mt-3 font-mono text-center">
           A quick PDF — no fuss, no fluff. Just my experience and skills in one
           neat package.
         </p>

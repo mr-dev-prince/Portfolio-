@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useBlogs } from "../../queries/blogs";
 import BlogCard from "./BlogCard";
-import BlogCardShimmer from "./Shimmers/BlogCardShimmer";
+import CardShimmer from "./Shimmers/CardShimmer";
 import ErrorCard from "./Shimmers/ErrorCard";
 
 const RecentBlogs = () => {
@@ -17,7 +17,7 @@ const RecentBlogs = () => {
     return (
       <div className="flex flex-col gap-8">
         {Array.from({ length: 3 }, (_, index) => (
-          <BlogCardShimmer key={index} />
+          <CardShimmer key={index} />
         ))}
       </div>
     );
@@ -35,7 +35,7 @@ const RecentBlogs = () => {
         <p className="font-slabo text-4xl text-white">Recent Blogs</p>
         <Link
           to="/work"
-          className="text-xs JetBrains text-gray-300 bg-gray-600 px-3 py-1 rounded-md 
+          className="text-xs font-mono text-gray-300 bg-gray-600 px-3 py-1 rounded-md 
              hover:scale-110 transition-transform duration-200
              hover:bg-gray-800 hover:text-blue-500 cursor-pointer"
           style={{ display: "inline-block" }}

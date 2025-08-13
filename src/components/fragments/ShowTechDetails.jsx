@@ -24,7 +24,7 @@ const ShowTechDetails = ({ details }) => {
       <img
         src={details.image}
         className="absolute top-0 left-0 object-contain h-full w-full opacity-30 blur-md fivo"
-        alt="image"
+        alt="details"
       />
       <div className="h-full w-full p-2 flex">
         <div className="w-[30%] flex flex-col justify-start">
@@ -68,7 +68,7 @@ const ShowTechDetails = ({ details }) => {
           </div>
           <div className="h-[60%]">
             <p className="uppercase font-semibold text-xl">
-              Concepts I learning 
+              Concepts I learning
             </p>
             <div className="font-medium mt-2 h-[50%]">
               {details?.learning?.map((i) => (

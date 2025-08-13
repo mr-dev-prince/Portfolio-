@@ -7,7 +7,7 @@ const IntroSection = () => {
           Welcome to my little dev world on the internet.
         </p>
       </div>
-      <div className=" JetBrains text-gray-300">
+      <div className=" font-mono text-gray-300">
         <p className="mt-4">
           I'm a software engineer with a passion for building things that live
           on the internet. I enjoy creating delightful user experiences and

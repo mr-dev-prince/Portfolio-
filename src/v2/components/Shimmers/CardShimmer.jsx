@@ -1,4 +1,4 @@
-const BlogCardShimmer = () => {
+const CardShimmer = () => {
   return (
     <div className="rounded-xl shadow-md overflow-hidden bg-gray-800/60 p-3 animate-pulse">
       <div className="h-[400px] w-full bg-gray-700 rounded-lg" />
@@ -14,4 +14,4 @@ const BlogCardShimmer = () => {
   );
 };
 
-export default BlogCardShimmer;
+export default CardShimmer;
