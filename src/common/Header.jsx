@@ -4,11 +4,8 @@ import Dashboard from "../components/Header/Dashboard";
 import { useRecoilState } from "recoil";
 import { ThemeState } from "../context/atoms/themeState";
 
-export const Header = () => {
-  const themeState = useRecoilState(ThemeState);
-
-  const theme = themeState[0];
-
+export const Header = ({ onSwitch }) => {
+  const [theme] = useRecoilState(ThemeState);
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -23,22 +20,26 @@ export const Header = () => {
           className="cursor-grab fivo text-5xl font-extrabold uppercase"
           onClick={handleClick}
         >
-          <p
-            className={`${theme === "light" ? "text-[#081B2A]" : "text-white"}`}
-          >
+          <p className={theme === "light" ? "text-[#081B2A]" : "text-white"}>
             My Portfolio
             <span
-              className={`${
+              className={
                 theme === "light" ? "text-[#1e649a]" : "text-[#DC143C]"
-              }`}
+              }
             >
               .
             </span>
           </p>
         </button>
       </div>
-      <div className={`fixed lg:static right-7 top-20`}>
+      <div className="flex items-center gap-4 fixed lg:static right-7 top-20">
         <Dashboard />
+        <button
+          onClick={onSwitch}
+          className="px-4 py-2 text-sm font-semibold border border-gray-400 hover:bg-gray-200 dark:hover:bg-blue-700 duration-500 text-white"
+        >
+          v2
+        </button>
       </div>
     </div>
   );

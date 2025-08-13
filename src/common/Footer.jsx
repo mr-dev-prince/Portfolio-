@@ -11,22 +11,22 @@ const Footer = () => {
     {
       id: 1,
       label: "Experiences",
-      link: "/experiences",
+      link: "experiences",
     },
     {
       id: 2,
       label: "Projects",
-      link: "/projects",
+      link: "projects",
     },
     {
       id: 3,
       label: "Resume",
-      link: "/resume",
+      link: "resume",
     },
     {
       id: 4,
       label: "Contact",
-      link: "/contact",
+      link: "contact",
     },
   ];
   return (

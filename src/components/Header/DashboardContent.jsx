@@ -45,11 +45,11 @@ const DashboardContent = ({ openDashboard, toggleDashboard }) => {
       >
         <div className="flex flex-col justify-start w-full gap-2">
           {[
-            { path: "/", label: "Profile" },
-            { path: "/experiences", label: "Experiences" },
-            { path: "/projects", label: "Projects" },
-            { path: "/resume", label: "Resume" },
-            { path: "/contact", label: "Contact" },
+            { path: ".", label: "Profile" },
+            { path: "experiences", label: "Experiences" },
+            { path: "projects", label: "Projects" },
+            { path: "resume", label: "Resume" },
+            { path: "contact", label: "Contact" },
           ].map(({ path, label }) => (
             <Link
               key={label}

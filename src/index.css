@@ -19,7 +19,6 @@
 body,
 html {
   background: #1f1f1f;
-  user-select: none;
   overflow-x: hidden;
   box-sizing: border-box;
   font-family: "Roboto Medium", sans-serif;
