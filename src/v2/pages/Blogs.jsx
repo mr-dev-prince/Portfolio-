@@ -1,13 +1,37 @@
+import { useEffect } from "react";
 import { useBlogs } from "../../queries/blogs";
+import BlogCard from "../components/BlogCard";
 import CardShimmer from "../components/Shimmers/CardShimmer";
 import ErrorCard from "../components/Shimmers/ErrorCard";
-import BlogCard from "../components/BlogCard";
 
 const Blogs = () => {
-  const { data, isLoading, error } = useBlogs();
+  const {
+    data,
+    error,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useBlogs(5);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 200 &&
+        hasNextPage &&
+        !isFetchingNextPage
+      ) {
+        fetchNextPage();
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
   return (
     <div className="mx-[5%] min-h-screen md:mx-[25%] md:pl-6">
-      <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-2 md:mt-28">
+      <div className="mt-40 flex flex-col gap-2 md:mt-28">
         <p className="font-slabo text-4xl text-white">
           Mildly Entertaining Code Tales.
         </p>
@@ -15,6 +39,7 @@ const Blogs = () => {
           May contain bugs, coffee-fueled rants, and random tech adventures.
         </p>
       </div>
+
       <div className="my-8 flex flex-col gap-8">
         {isLoading && (
           <>
@@ -23,24 +48,18 @@ const Blogs = () => {
             <CardShimmer />
           </>
         )}
-
         {error && (
-          <ErrorCard
-            text={"Blogs refused to load ! They need some coffee..."}
-          />
+          <ErrorCard text="Blogs took an unexpected coffee break. Try again later!" />
+        )}
+        {data?.pages?.flatMap((page) =>
+          page.data.map((b) => <BlogCard key={b.documentId} blog={b} />)
         )}
 
-        {!isLoading &&
-          !error &&
-          data?.length > 0 &&
-          data.map((b) => <BlogCard key={b.documentId} blog={b} />)}
-
-        {!isLoading && !error && data?.length === 0 && (
-          <ErrorCard
-            text={
-              "I think I forgot that I have a blogs section on my portfolio."
-            }
-          />
+        {isFetchingNextPage && (
+          <>
+            <CardShimmer />
+            <CardShimmer />
+          </>
         )}
       </div>
       <div className="mb-8 border-t-2 border-dashed border-gray-600 pt-6">

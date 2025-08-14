@@ -12,8 +12,6 @@ const ShowTechDetails = ({ details }) => {
     visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
   };
 
-  console.log("details", details);
-
   return (
     <motion.div
       className="fivo relative h-full w-full rounded-xl border-2 p-3"

@@ -110,20 +110,20 @@ export default function App() {
     () => localStorage.getItem("entered") === "true"
   );
 
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if (event.key === "F12") event.preventDefault();
-      if (
-        event.ctrlKey &&
-        event.shiftKey &&
-        (event.key === "I" || event.key === "J")
-      )
-        event.preventDefault();
-      if (event.ctrlKey && event.key === "U") event.preventDefault();
-    };
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, []);
+  // useEffect(() => {
+  //   const onKeyDown = (event) => {
+  //     if (event.key === "F12") event.preventDefault();
+  //     if (
+  //       event.ctrlKey &&
+  //       event.shiftKey &&
+  //       (event.key === "I" || event.key === "J")
+  //     )
+  //       event.preventDefault();
+  //     if (event.ctrlKey && event.key === "U") event.preventDefault();
+  //   };
+  //   document.addEventListener("keydown", onKeyDown);
+  //   return () => document.removeEventListener("keydown", onKeyDown);
+  // }, []);
 
   return (
     <Router>
