@@ -1,14 +1,23 @@
 import { useSearchParams } from "react-router-dom";
 import { useBlogById } from "../../queries/blogs";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import Loader from "../components/Shimmers/Loader";
+import ErrorCard from "../components/Shimmers/ErrorCard";
 
 const BlogDetails = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   const { data, isLoading, error } = useBlogById(id);
 
-  if (isLoading) return <p className="text-white">Loading...</p>;
-  if (error) return <p className="text-red-500">Error loading blog</p>;
+  if (isLoading) return <Loader />;
+  if (error)
+    return (
+      <div className="mx-[25%] pl-6">
+        <div className="w-full h-full flex mt-28 flex-col justify-center items-center">
+          <ErrorCard text={"Uh..Uhh!... Server refused to repond."} />
+        </div>
+      </div>
+    );
 
   const content = data?.content || [];
   const firstParagraph = content.find((block) => block.type === "paragraph");
