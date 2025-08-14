@@ -5,10 +5,10 @@ import ErrorCard from "../components/Shimmers/ErrorCard";
 const Experience = () => {
   const { data, isLoading, error } = useExperiences();
   return (
-    <div className="min-h-screen mx-[25%] pl-6">
-      <div className="w-full h-full flex mt-28 flex-col justify-start items-start gap-2">
-        <p className="font-slabo text-white text-4xl">My Experiences.</p>
-        <p className="text-2xl mt-2 text-gray-400 font-slabo">
+    <div className="mx-[5%] min-h-screen md:mx-[25%] md:pl-6">
+      <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-2 md:mt-28">
+        <p className="font-slabo text-4xl text-white">My Experiences.</p>
+        <p className="mt-2 font-slabo text-lg text-gray-400 md:text-2xl">
           Places I showed up, did stuff, and occasionally coffee-ed.
         </p>
       </div>
@@ -41,7 +41,7 @@ const Experience = () => {
         )}
       </div>
       <div className="pb-8">
-        <p className=" font-slabo text-lg text-gray-400">
+        <p className="font-slabo text-lg text-gray-400">
           Thanks for reading ! Rumor has it, footers increase coding skills by
           0.01%.
         </p>
@@ -54,16 +54,16 @@ export const ExperienceCard = ({ experience }) => {
   const { org_name, start_date, end_date, description, org_logo } = experience;
 
   return (
-    <div className="text-white p-3 flex flex-col gap-4 transition-transform duration-300 font-slabo border-b border-dashed border-gray-500">
+    <div className="flex flex-col gap-4 border-b border-dashed border-gray-500 p-3 font-slabo text-white transition-transform duration-300">
       <div className="flex items-center gap-4">
         <img
           src={org_logo.url}
           alt={`${org_name} logo`}
-          className="w-16 h-16 object-contain rounded-md bg-white p-1"
+          className="h-16 w-16 rounded-md bg-white object-contain p-1"
         />
         <div>
-          <h3 className="text-2xl font-slabo">{org_name}</h3>
-          <p className="text-gray-400 text-sm">
+          <h3 className="font-slabo text-2xl">{org_name}</h3>
+          <p className="text-sm text-gray-400">
             {new Date(start_date).toLocaleDateString("en-US", {
               month: "short",
               year: "numeric",
@@ -81,7 +81,7 @@ export const ExperienceCard = ({ experience }) => {
         {description.map((block, index) => {
           if (block.type === "paragraph") {
             return (
-              <p key={index} className="text-gray-300 text-lg">
+              <p key={index} className="text-lg text-gray-300">
                 {block.children.map((child) => child.text).join(" ")}
               </p>
             );
@@ -91,7 +91,7 @@ export const ExperienceCard = ({ experience }) => {
             return (
               <ul
                 key={index}
-                className="list-disc list-outside text-gray-300 text-lg space-y-2 pl-4"
+                className="list-outside list-disc space-y-2 pl-4 text-lg text-gray-300"
               >
                 {block.children.map((item, idx) => (
                   <li key={idx}>

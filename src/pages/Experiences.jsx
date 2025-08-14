@@ -57,7 +57,7 @@ const Experiences = () => {
           scrub: 2,
           pin: true,
         },
-      }
+      },
     );
   }, []);
 
@@ -80,7 +80,7 @@ const Experiences = () => {
             scrub: true,
             pin: true,
           },
-        }
+        },
       );
 
       if (leftTexts.length) {
@@ -98,7 +98,7 @@ const Experiences = () => {
               end: "+=250%",
               scrub: true,
             },
-          }
+          },
         );
       }
 
@@ -115,7 +115,7 @@ const Experiences = () => {
             end: "+=150%",
             scrub: true,
           },
-        }
+        },
       );
     });
   }, []);
@@ -123,20 +123,20 @@ const Experiences = () => {
   return (
     <div
       onMouseMove={handleMouseMove}
-      className={`h-fit relative ${
+      className={`relative h-fit ${
         theme === "light" ? "light-mode-bg-gradient" : "dark-mode-bg-gradient"
       }`}
     >
       <div
-        className={`h-screen w-full overflow-hidden ${bgColor} fixed top-0 left-0`}
+        className={`h-screen w-full overflow-hidden ${bgColor} fixed left-0 top-0`}
       >
-        <div className="w-full h-full grid grid-cols-30 grid-rows-18 gap-0.5 absolute top-0 left-0">
+        <div className="absolute left-0 top-0 grid h-full w-full grid-cols-30 grid-rows-18 gap-0.5">
           {Array.from({ length: 30 * 18 }).map((_, i) => (
             <span key={i} className={`${bgColor} z-10`} />
           ))}
         </div>
         <div
-          className={`h-64 w-64 bg-gradient-to-br animate-pulse ${bubble} rounded-full blur-3xl absolute pointer-events-none -z-0`}
+          className={`h-64 w-64 animate-pulse bg-gradient-to-br ${bubble} pointer-events-none absolute -z-0 rounded-full blur-3xl`}
           style={{ top: `${cursor.y - 128}px`, left: `${cursor.x - 128}px` }}
         />
         <ScrollButton />
@@ -144,7 +144,7 @@ const Experiences = () => {
 
       <div
         ref={containerRef}
-        className={`h-screen flex items-center justify-center w-full uppercase ${textColor} text-9xl font-extrabold fivo`}
+        className={`flex h-screen w-full items-center justify-center uppercase ${textColor} fivo text-9xl font-extrabold`}
       >
         {["ex", "p", "eri", "en", "ce"].map((item, index) => (
           <span
@@ -161,15 +161,15 @@ const Experiences = () => {
         <div
           ref={(el) => (sectionRefs.current[idx] = el)}
           key={idx}
-          className="h-screen flex justify-between items-center px-36"
+          className="flex h-screen items-center justify-between px-36"
         >
-          <div className="w-[50%] h-full flex justify-start items-center relative overflow-hidden">
+          <div className="relative flex h-full w-[50%] items-center justify-start overflow-hidden">
             <div
               ref={(el) => (gradientCircleRefs.current[idx] = el)}
-              className={`h-96 w-96 ${accentBgColor} rounded-full absolute -left-[30%] blur-3xl`}
+              className={`h-96 w-96 ${accentBgColor} absolute -left-[30%] rounded-full blur-3xl`}
             />
-            <div className="w-full h-full flex justify-start items-center ml-5 fivo">
-              <div className="flex flex-col gap-5 z-50">
+            <div className="fivo ml-5 flex h-full w-full items-center justify-start">
+              <div className="z-50 flex flex-col gap-5">
                 {ex.experience.map((text, index) => (
                   <p
                     key={index}
@@ -177,10 +177,10 @@ const Experiences = () => {
                       index === 0
                         ? "text-[5vh] font-extrabold tracking-wider"
                         : index === 1
-                        ? "text-xl font-semibold"
-                        : index === 2
-                        ? "text-2xl font-semibold"
-                        : "text-lg font-medium"
+                          ? "text-xl font-semibold"
+                          : index === 2
+                            ? "text-2xl font-semibold"
+                            : "text-lg font-medium"
                     }`}
                     ref={(el) => {
                       if (!leftTextRefs.current[idx]) {
@@ -195,20 +195,20 @@ const Experiences = () => {
               </div>
             </div>
           </div>
-          <div className="flex h-full w-[50%] justify-end items-center">
+          <div className="flex h-full w-[50%] items-center justify-end">
             <div
               ref={(el) => (rightBoxRefs.current[idx] = el)}
-              className={`h-fit py-2 w-[90%] ${
+              className={`h-fit w-[90%] py-2 ${
                 theme === "light" ? "bg-[#1e649a]/10" : "bg-[#dc143c]/10"
               } hover:${
                 theme === "light" ? "bg-[#1e649a]/60" : "bg-[#dc143c]/60"
-              } duration-1000 backdrop-blur-sm rounded-l-3xl z-50`}
+              } z-50 rounded-l-3xl backdrop-blur-sm duration-1000`}
             >
-              <div className="flex flex-col justify-center group items-start pl-10 px-5 text-pretty h-full w-full gap-6">
+              <div className="group flex h-full w-full flex-col items-start justify-center gap-6 text-pretty px-5 pl-10">
                 {ex.details.map((detail, index) => (
                   <p
                     key={index}
-                    className="flex justify-center items-start gap-2 font-medium"
+                    className="flex items-start justify-center gap-2 font-medium"
                   >
                     <VscTerminalUbuntu
                       size={32}

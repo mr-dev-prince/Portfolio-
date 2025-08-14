@@ -17,10 +17,10 @@ const Loader = () => {
     return () => animation.destroy();
   }, []);
   return (
-    <div className="min-h-screen mx-[25%] pl-6">
-      <div className="w-full h-full flex mt-28 flex-col justify-center items-center">
-        <div ref={containerRef} className="h-24 " />
-        <p className="font-slabo text-white text-lg">
+    <div className="min-h-screen pl-6 md:mx-[25%]">
+      <div className="mt-28 flex h-full w-full flex-col items-center justify-center">
+        <div ref={containerRef} className="h-24" />
+        <p className="font-slabo text-lg text-white">
           Wait... my server having a coffee.
         </p>
       </div>

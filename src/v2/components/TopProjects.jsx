@@ -7,16 +7,14 @@ const TopProjects = () => {
   const { data, isLoading, error } = useWorks();
   return (
     <>
-      <div className="w-full flex justify-between items-center">
+      <div className="flex w-full items-center justify-between">
         <p className="font-slabo text-4xl text-white">Top Projects.</p>
         <Link
           to="/work"
-          className="text-xs font-mono text-gray-300 bg-gray-600 px-3 py-1 rounded-md 
-             hover:scale-110 transition-transform duration-200
-             hover:bg-gray-800 hover:text-blue-500 cursor-pointer"
+          className="cursor-pointer rounded-md bg-gray-600 px-3 py-1 font-mono text-xs text-gray-300 transition-transform duration-200 hover:scale-110 hover:bg-gray-800 hover:text-blue-500"
           style={{ display: "inline-block" }}
         >
-          <p className="text-sm transform-none">View more</p>
+          <p className="transform-none text-sm">View more</p>
         </Link>
       </div>
       <div className="mt-6 flex flex-col gap-8">
@@ -38,7 +36,7 @@ const TopProjects = () => {
           data.map((e) => <ProjectCard key={e.documentId} {...e} />)}
 
         {!isLoading && !error && data?.length === 0 && (
-          <p className="text-gray-400 text-center">
+          <p className="text-center text-gray-400">
             I built projects, I swear.
           </p>
         )}
@@ -54,7 +52,7 @@ export const ProjectCard = ({ cover_image, title, deployed_link }) => {
       to={deployed_link}
       className="h-fit w-full rounded-lg bg-gray-800/60 p-3"
     >
-      <div className="h-[400px] rounded-lg overflow-hidden">
+      <div className="overflow-hidden rounded-lg md:h-[400px]">
         <img
           src={cover_image.formats.large.url}
           alt={cover_image.alternativeText}
@@ -62,10 +60,12 @@ export const ProjectCard = ({ cover_image, title, deployed_link }) => {
         />
       </div>
       <div className="mt-3">
-        <p className="font-sans tracking-wide px-2 text-gray-400">
+        <p className="px-2 font-sans tracking-wide text-gray-400">
           Personal Software Project
         </p>
-        <p className="px-2 text-2xl text-white font-bold mt-2">{title}</p>
+        <p className="mt-2 px-2 text-xl font-bold text-white md:text-2xl">
+          {title}
+        </p>
       </div>
     </Link>
   );

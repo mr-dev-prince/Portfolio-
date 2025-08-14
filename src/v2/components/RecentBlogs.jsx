@@ -25,22 +25,20 @@ const RecentBlogs = () => {
 
   if (!data?.length) {
     return (
-      <ErrorCard text="No blogs found. Maybe it’s time to write the first one?" />
+      <ErrorCard text="No blogs found. Maybe it's time to write the first one?" />
     );
   }
 
   return (
     <section>
-      <div className="w-full flex justify-between items-center">
+      <div className="flex w-full items-center justify-between">
         <p className="font-slabo text-4xl text-white">Recent Blogs</p>
         <Link
           to="/work"
-          className="text-xs font-mono text-gray-300 bg-gray-600 px-3 py-1 rounded-md 
-             hover:scale-110 transition-transform duration-200
-             hover:bg-gray-800 hover:text-blue-500 cursor-pointer"
+          className="cursor-pointer rounded-md bg-gray-600 px-3 py-1 font-mono text-xs text-gray-300 transition-transform duration-200 hover:scale-110 hover:bg-gray-800 hover:text-blue-500"
           style={{ display: "inline-block" }}
         >
-          <p className="text-sm transform-none">View more</p>
+          <p className="transform-none text-sm">View more</p>
         </Link>
       </div>
       <div className="mt-6 flex flex-col gap-8">

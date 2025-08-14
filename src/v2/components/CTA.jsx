@@ -21,10 +21,10 @@ const CTA = () => {
 
   return (
     <>
-      <div className="font-slabo flex gap-4 items-center justify-start w-full h-fit mt-8">
+      <div className="mt-8 flex h-fit w-full items-center justify-start gap-4 font-slabo">
         <button
           onClick={openModal}
-          className="flex items-center gap-2 px-5 h-12 bg-white text-black hover:text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+          className="flex h-12 items-center gap-2 rounded-lg bg-white px-5 text-black transition-colors duration-300 hover:bg-blue-700 hover:text-white"
         >
           <RiSendPlaneFill size={16} />
           Reach Out
@@ -33,7 +33,7 @@ const CTA = () => {
         <Link
           to={"https://github.com/mr-dev-prince"}
           target="_blank"
-          className="flex items-center justify-center gap-2 h-12 w-12 bg-gray-800 text-gray-400 hover:text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+          className="flex h-12 w-12 items-center justify-center gap-2 rounded-lg bg-gray-800 text-gray-400 transition-colors duration-300 hover:bg-blue-700 hover:text-white"
         >
           <FaGithub size={20} />
         </Link>
@@ -41,7 +41,7 @@ const CTA = () => {
         <Link
           to={"https://linkedin.com/in/princechaurasia"}
           target="_blank"
-          className="flex items-center justify-center gap-2 h-12 w-12 bg-gray-800 text-gray-400 hover:text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+          className="flex h-12 w-12 items-center justify-center gap-2 rounded-lg bg-gray-800 text-gray-400 transition-colors duration-300 hover:bg-blue-700 hover:text-white"
         >
           <FaLinkedin size={20} />
         </Link>
@@ -49,33 +49,33 @@ const CTA = () => {
         <Link
           to={"https://x.com/shutup_prince"}
           target="_blank"
-          className="flex items-center justify-center gap-2 h-12 w-12 bg-gray-800 text-gray-400 hover:text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+          className="flex h-12 w-12 items-center justify-center gap-2 rounded-lg bg-gray-800 text-gray-400 transition-colors duration-300 hover:bg-blue-700 hover:text-white"
         >
           <FaXTwitter size={20} />
         </Link>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
-          <div className="bg-gray-900 p-6 rounded-lg w-1.5/4 relative border border-blue-500">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+          <div className="w-1.5/4 relative rounded-lg border border-blue-500 bg-gray-900 p-6">
             <button
               onClick={closeModal}
-              className="absolute -top-8 -right-8 bg-gray-600 h-8 w-8 text-gray-400 hover:text-white text-xl flex justify-center items-center rounded-full transition-colors duration-300"
+              className="absolute -right-8 -top-8 flex h-8 w-8 items-center justify-center rounded-full bg-gray-600 text-xl text-gray-400 transition-colors duration-300 hover:text-white"
             >
               &times;
             </button>
             <div>
-              <p className="text-4xl font-slabo text-orange-700">
+              <p className="font-slabo text-4xl text-orange-700">
                 Let's Connect
               </p>
-              <p className="text-gray-400 mt-2 font-slabo">
+              <p className="mt-2 font-slabo text-gray-400">
                 I'm always open to new opportunities and collaborations. Feel
                 free to reach out !
               </p>
-              <div className="flex items-center justify-between p-3 bg-gray-800 rounded-lg w-full mt-6">
-                <span className="text-white font-mono">{email}</span>
+              <div className="mt-6 flex w-full items-center justify-between rounded-lg bg-gray-800 p-3">
+                <span className="font-mono text-white">{email}</span>
                 <button
                   onClick={handleCopy}
-                  className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white transition-colors duration-200 flex items-center gap-2"
+                  className="flex items-center gap-2 rounded-lg bg-blue-500 px-4 py-2 text-white transition-colors duration-200 hover:bg-blue-600"
                 >
                   <IoCopy />
                   {copied ? "Copied" : "Copy"}

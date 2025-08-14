@@ -15,29 +15,29 @@ const AboutSection = () => {
     setFrontCard(cardTitle);
   };
   return (
-    <div className="min-h-screen h-screen w-full max-w-full px-36 fivo">
-      <div className="w-full h-full flex">
-        <div className="w-[50%] flex items-end justify-center text-md h-full">
+    <div className="fivo h-screen min-h-screen w-full max-w-full px-36">
+      <div className="flex h-full w-full">
+        <div className="text-md flex h-full w-[50%] items-end justify-center">
           <div className="flex flex-col gap-10">
             <div className="grid gap-3">
               <p
                 className={`${
                   theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
-                } font-bold tracking-widest `}
+                } font-bold tracking-widest`}
               >
                 01
               </p>
-              <p className={`text-3xl font-bold tracking-wide fivo uppercase`}>
+              <p className={`fivo text-3xl font-bold uppercase tracking-wide`}>
                 About Me
               </p>
             </div>
-            <div className="grid gap-4 font-medium text-base tracking-wide w-[90%] text-justify">
+            <div className="grid w-[90%] gap-4 text-justify text-base font-medium tracking-wide">
               <p>
                 Hi, I'm{" "}
                 <span
                   className={`${
                     theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
-                  } font-extrabold tracking-widest uppercase`}
+                  } font-extrabold uppercase tracking-widest`}
                 >
                   Prince Chaurasia
                 </span>
@@ -48,7 +48,7 @@ const AboutSection = () => {
                 <span
                   className={`${
                     theme === "dark"
-                      ? "text-[#dc143c] font-medium"
+                      ? "font-medium text-[#dc143c]"
                       : "text-[#1e649a]"
                   }`}
                 >
@@ -70,7 +70,7 @@ const AboutSection = () => {
               className={` ${
                 theme === "dark"
                   ? "bg-[#dc143c] text-white"
-                  : " bg-[#1e649a] text-[#1f1f1f]"
+                  : "bg-[#1e649a] text-[#1f1f1f]"
               } w-fit font-bold`}
             >
               <button className="btn-23 text-white">
@@ -82,8 +82,8 @@ const AboutSection = () => {
             </Link>
           </div>
         </div>
-        <div className="w-[50%] relative ">
-          <div className="relative w-full h-full flex justify-center items-center ">
+        <div className="relative w-[50%]">
+          <div className="relative flex h-full w-full items-center justify-center">
             <CardComponent
               className={` ${frontCard === "me" ? "z-50" : "z-40"}`}
               onMouseDown={() => bringToFront("me")}

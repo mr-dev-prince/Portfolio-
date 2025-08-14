@@ -26,15 +26,17 @@ const ToggleTheme = () => {
 
   return (
     <button
-      className="flex justify-center items-center text-sm text-center"
+      className="flex items-center justify-center text-center text-sm"
       onClick={toggleTheme}
     >
       <span
-        className={`outline rounded-full group-hover:animate-spin flex justify-center items-center text-center p-0.5 z-50 ${
-          theme === "dark" ? "bg-[#1f1f1f] text-[#dc143c]" : "bg-[#f2e8de] text-[#1e649a]"
+        className={`z-50 flex items-center justify-center rounded-full p-0.5 text-center outline group-hover:animate-spin ${
+          theme === "dark"
+            ? "bg-[#1f1f1f] text-[#dc143c]"
+            : "bg-[#f2e8de] text-[#1e649a]"
         }`}
       >
-        {theme === 'light' ? (
+        {theme === "light" ? (
           <TbMoonStars color="#1e649a" size={24} />
         ) : (
           <LuSunDim color="#dc143c" size={24} />
@@ -42,11 +44,9 @@ const ToggleTheme = () => {
       </span>
 
       <p
-        className={`uppercase outline group outline-1 ${
-          theme === "light"
-            ? " text-[#1e649a]"
-            : " text-[#dc143c]"
-        }  py-1 -ml-2 rounded-r-full w-28 text-center `}
+        className={`group uppercase outline outline-1 ${
+          theme === "light" ? "text-[#1e649a]" : "text-[#dc143c]"
+        } -ml-2 w-28 rounded-r-full py-1 text-center`}
       >
         {theme === "dark" ? "Light Mode" : "Dark Mode"}
       </p>

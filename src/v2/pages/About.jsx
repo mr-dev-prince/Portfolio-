@@ -2,18 +2,18 @@ import me from "../assets/me.jpg";
 
 const About = () => {
   return (
-    <div className="min-h-screen mx-[25%] pl-6">
-      <div className="w-full h-full flex mt-28 flex-col justify-start items-start gap-2 font-slabo">
-        <p className="text-white text-4xl">About Me.</p>
-        <p className="text-xl text-gray-400 mt-2">Software Engineering</p>
-        <p className="text-gray-400 font-slabo mt-2">
+    <div className="mx-[5%] min-h-screen md:mx-[25%] md:pl-6">
+      <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-2 font-slabo md:mt-28">
+        <p className="text-4xl text-white">About Me.</p>
+        <p className="mt-2 text-xl text-gray-400">Software Engineering</p>
+        <p className="mt-2 font-slabo text-gray-400">
           Interned, debugged, survived… and so did the databases.
         </p>
       </div>
       <div className="mt-8">
         <img src={me} alt="" className="rounded-3xl" />
       </div>
-      <section className="mt-8 text-gray-300 font-slabo text-lg">
+      <section className="mt-8 font-slabo text-lg text-gray-300">
         <p className="mb-4">
           My journey into technology started earlier than I expected. What began
           as curiosity about how things work quickly became a habit of building
@@ -71,7 +71,7 @@ const About = () => {
           time.
         </p>
       </section>
-      <div className="border-t-2 border-gray-500 border-dashed pt-8 text-gray-400 font-slabo flex flex-col gap-3 pb-8">
+      <div className="flex flex-col gap-3 border-t-2 border-dashed border-gray-500 pb-8 pt-8 font-slabo text-gray-400">
         <p>
           You made it to the bottom ! Congratulations, you're officially a
           curiosity detective.

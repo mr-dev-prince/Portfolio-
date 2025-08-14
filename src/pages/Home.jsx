@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div
-      className={`min-h-screen fivo app ${
+      className={`fivo app min-h-screen ${
         theme === "light" ? "light-mode-bg-gradient" : "dark-mode-bg-gradient"
       }`}
     >

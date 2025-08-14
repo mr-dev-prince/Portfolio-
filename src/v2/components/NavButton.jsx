@@ -25,7 +25,7 @@ const NavButton = ({ icon, iconBlue, href, text }) => {
   }, [hovered, active, icon, iconBlue]);
 
   return (
-    <div className="relative group">
+    <div className="group relative">
       <NavLink to={href}>
         {({ isActive }) => {
           if (active !== isActive) {
@@ -36,7 +36,7 @@ const NavButton = ({ icon, iconBlue, href, text }) => {
 
           return (
             <div
-              className={`overflow-hidden duration-200 p-2 rounded-lg block relative ${
+              className={`relative block overflow-hidden rounded-lg p-2 duration-200 ${
                 isActive ? "bg-slate-800" : "hover:bg-slate-700"
               }`}
               onMouseEnter={() => {
@@ -49,10 +49,10 @@ const NavButton = ({ icon, iconBlue, href, text }) => {
               }}
             >
               <span
-                className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full blur-md transition-opacity duration-300 ${
+                className={`absolute bottom-1 left-1/2 h-6 w-6 -translate-x-1/2 rounded-full blur-md transition-opacity duration-300 ${
                   isBlue
-                    ? "opacity-90 bg-blue-500"
-                    : "opacity-0 group-hover:opacity-50 bg-blue-400"
+                    ? "bg-blue-500 opacity-90"
+                    : "bg-blue-400 opacity-0 group-hover:opacity-50"
                 }`}
               />
               <div
@@ -60,25 +60,19 @@ const NavButton = ({ icon, iconBlue, href, text }) => {
                 style={{ width: 30, height: 30, cursor: "pointer", zIndex: 10 }}
               ></div>
               <span
-                className={`absolute h-[3px] w-[3px] bottom-1 left-1/2 -translate-x-1/2 rounded-full transition-all duration-300 ${
+                className={`absolute bottom-1 left-1/2 h-[3px] w-[3px] -translate-x-1/2 rounded-full transition-all duration-300 ${
                   isBlue
-                    ? "bg-blue-400 scale-100"
-                    : "bg-transparent scale-0 group-hover:bg-blue-400 group-hover:scale-100"
+                    ? "scale-100 bg-blue-400"
+                    : "scale-0 bg-transparent group-hover:scale-100 group-hover:bg-blue-400"
                 }`}
               />
             </div>
           );
         }}
       </NavLink>
-      <div
-        className="absolute left-[140%] top-1/2 -translate-y-1/2 
-          bg-gray-800 text-white text-sm font-medium rounded-lg px-3 py-1.5
-          opacity-0 scale-90 translate-x-2
-          group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0
-          transition-all duration-300 ease-out shadow-lg whitespace-nowrap capitalize"
-      >
+      <div className="absolute left-[140%] top-1/2 hidden -translate-y-1/2 translate-x-2 scale-90 whitespace-nowrap rounded-lg bg-gray-800 px-3 py-1.5 text-sm font-medium capitalize text-white opacity-0 shadow-lg transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100 md:block">
         {text}
-        <div className="absolute top-1/2 -left-1 w-2 h-2 bg-gray-800 rotate-45"></div>
+        <div className="absolute -left-1 top-1/2 h-2 w-2 rotate-45 bg-gray-800"></div>
       </div>
     </div>
   );

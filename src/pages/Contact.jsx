@@ -33,7 +33,7 @@ const Contact = () => {
           duration: 1,
           stagger: 0.1,
           ease: "power3.out",
-        }
+        },
       );
 
       contactInfoRef.current.forEach((item, index) => {
@@ -46,7 +46,7 @@ const Contact = () => {
             duration: 1,
             delay: index * 0.4,
             ease: "power3.out",
-          }
+          },
         );
       });
 
@@ -60,7 +60,7 @@ const Contact = () => {
             duration: 1.2,
             delay: index * 0.3 + 0.7,
             ease: "power3.out",
-          }
+          },
         );
       });
     });
@@ -70,8 +70,8 @@ const Contact = () => {
 
   return (
     <div className={`${bgColor} ${textColor} h-fit px-36`}>
-      <div className="h-screen flex flex-col justify-center items-center fivo">
-        <div className="h-[90vh] flex justify-center items-center">
+      <div className="fivo flex h-screen flex-col items-center justify-center">
+        <div className="flex h-[90vh] items-center justify-center">
           <p
             ref={titleRef}
             className="text-8xl font-extrabold uppercase tracking-wide"
@@ -83,7 +83,7 @@ const Contact = () => {
                 </span>
               ))}
             </span>
-            <span className="inline-block ml-8">
+            <span className="ml-8 inline-block">
               {"Me".split("").map((char, index) => (
                 <span key={`me-${index}`} className="inline-block">
                   {char}
@@ -92,37 +92,37 @@ const Contact = () => {
             </span>
           </p>
         </div>
-        <div className="flex w-full h-[10vh] justify-between items-center p-5">
+        <div className="flex h-[10vh] w-full items-center justify-between p-5">
           <span
             ref={(el) => (contactInfoRef.current[0] = el)}
-            className="flex justify-center items-center gap-4 opacity-0"
+            className="flex items-center justify-center gap-4 opacity-0"
           >
             <MdOutlinePhoneInTalk size={32} />
-            <p className="font-semibold text-xl">+91 8090900602</p>
+            <p className="text-xl font-semibold">+91 8090900602</p>
           </span>
           <span
             ref={(el) => (contactInfoRef.current[1] = el)}
-            className="flex justify-center items-center gap-4 opacity-0"
+            className="flex items-center justify-center gap-4 opacity-0"
           >
             <IoIosMail size={32} />
-            <p className="font-semibold text-xl">pkcofficial24@gmail.com</p>
+            <p className="text-xl font-semibold">pkcofficial24@gmail.com</p>
           </span>
           <span className="flex overflow-hidden">
             <span
               ref={(el) => (socialIconsRef.current[0] = el)}
-              className="mx-3 text-3xl hover:scale-110 transition-all duration-300 transform"
+              className="mx-3 transform text-3xl transition-all duration-300 hover:scale-110"
             >
               <FaLinkedin size={32} />
             </span>
             <span
               ref={(el) => (socialIconsRef.current[1] = el)}
-              className="mx-3 text-3xl hover:scale-110 transition-all duration-300 transform"
+              className="mx-3 transform text-3xl transition-all duration-300 hover:scale-110"
             >
               <FaSquareInstagram size={32} />
             </span>
             <span
               ref={(el) => (socialIconsRef.current[2] = el)}
-              className="mx-3 text-3xl hover:scale-110 transition-all duration-300 transform"
+              className="mx-3 transform text-3xl transition-all duration-300 hover:scale-110"
             >
               <FaSquareXTwitter size={32} />
             </span>

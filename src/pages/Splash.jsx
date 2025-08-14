@@ -12,28 +12,28 @@ const Splash = ({ onEnter }) => {
   return (
     <div
       onMouseMove={handleMouseMove}
-      className="h-screen w-full overflow-hidden bg-[#1f1f1f] relative flex justify-center items-center z-10"
+      className="relative z-10 flex h-screen w-full items-center justify-center overflow-hidden bg-[#1f1f1f]"
     >
-      <div className="w-full h-full overflow-hidden grid grid-cols-30 grid-rows-18 gap-0.5 absolute top-0 left-0">
+      <div className="absolute left-0 top-0 grid h-full w-full grid-cols-30 grid-rows-18 gap-0.5 overflow-hidden">
         {Array.from({ length: 30 * 18 }).map((_, i) => (
-          <span key={i} className="bg-[#1f1f1f] z-10" />
+          <span key={i} className="z-10 bg-[#1f1f1f]" />
         ))}
       </div>
       <div
-        className="h-64 w-64 bg-gradient-to-br animate-pulse from-sky-300 to-green-300 via-amber-300 rounded-full blur-3xl absolute pointer-events-none -z-0"
+        className="pointer-events-none absolute -z-0 h-64 w-64 animate-pulse rounded-full bg-gradient-to-br from-sky-300 via-amber-300 to-green-300 blur-3xl"
         style={{
           top: `${cursor.y - 128}px`,
           left: `${cursor.x - 126}px`,
         }}
       />
-      <div className="w-full h-full flex justify-center items-start px-44 flex-col gap-20   z-50 text-white">
+      <div className="z-50 flex h-full w-full flex-col items-start justify-center gap-20 px-44 text-white">
         <AnimatedComponent delay={0}>
           <p className="fivo text-6xl font-light uppercase">Hi,</p>
         </AnimatedComponent>
         <AnimatedComponent delay={1}>
           <p className="fivo text-6xl font-medium uppercase">
             I am{" "}
-            <span className="font-extrabold hover:text-[#c5dc4a] transition-all duration-1000">
+            <span className="font-extrabold transition-all duration-1000 hover:text-[#c5dc4a]">
               prince chaurasia.
             </span>
           </p>
@@ -49,7 +49,7 @@ const Splash = ({ onEnter }) => {
               console.log("i was clicked");
               onEnter();
             }}
-            className="px-24 py-3 bg-slate-400/5 rounded-lg backdrop-blur-2xl font-mono uppercase hover:scale-95 duration-500 transition-all"
+            className="rounded-lg bg-slate-400/5 px-24 py-3 font-mono uppercase backdrop-blur-2xl transition-all duration-500 hover:scale-95"
           >
             Show portfolio
           </button>

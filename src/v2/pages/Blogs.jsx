@@ -6,12 +6,12 @@ import BlogCard from "../components/BlogCard";
 const Blogs = () => {
   const { data, isLoading, error } = useBlogs();
   return (
-    <div className="min-h-screen mx-[25%] pl-6">
-      <div className="w-full h-full flex mt-28 flex-col justify-start items-start gap-2">
-        <p className="font-slabo text-white text-4xl">
+    <div className="mx-[5%] min-h-screen md:mx-[25%] md:pl-6">
+      <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-2 md:mt-28">
+        <p className="font-slabo text-4xl text-white">
           Mildly Entertaining Code Tales.
         </p>
-        <p className="text-2xl mt-2 text-gray-400 font-slabo">
+        <p className="mt-2 font-slabo text-2xl text-gray-400">
           May contain bugs, coffee-fueled rants, and random tech adventures.
         </p>
       </div>
@@ -43,7 +43,7 @@ const Blogs = () => {
           />
         )}
       </div>
-      <div className="border-t-2 border-gray-600 border-dashed pt-6 mb-8">
+      <div className="mb-8 border-t-2 border-dashed border-gray-600 pt-6">
         <p className="font-slabo text-lg text-gray-400">
           I keep writing, hoping one day my code will write itself. Until then,
           enjoy the chaos!

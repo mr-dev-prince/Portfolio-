@@ -1,13 +1,13 @@
 const IntroSection = () => {
   return (
     <>
-      <div className="font-slabo mt-8">
-        <p className="text-4xl text-white font-bold">Hey, I'm Prince,</p>
-        <p className="text-2xl text-white font-bold mt-3">
+      <div className="mt-8 font-slabo">
+        <p className="text-4xl font-bold text-white">Hey, I'm Prince,</p>
+        <p className="mt-3 text-2xl font-bold text-white">
           Welcome to my little dev world on the internet.
         </p>
       </div>
-      <div className=" font-mono text-gray-300">
+      <div className="font-mono text-gray-300">
         <p className="mt-4">
           I'm a software engineer with a passion for building things that live
           on the internet. I enjoy creating delightful user experiences and

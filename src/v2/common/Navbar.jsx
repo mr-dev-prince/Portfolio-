@@ -59,14 +59,14 @@ const icons = [
 
 const Navbar = ({ onSwitch }) => {
   return (
-    <nav className=" fixed top-[30%] rounded-lg left-12 bg-gray-600 hover:bg-gray-700 duration-200 transition-all w-[4%] h-fit shadow-md z-50 flex flex-col gap-3 justify-start items-center py-2 px-2">
+    <nav className="fixed top-8 z-[999] flex h-fit items-center justify-start gap-3 rounded-lg bg-gray-600 px-2 py-2 shadow-md transition-all duration-200 hover:bg-gray-700 md:left-12 md:top-[30%] md:w-[4%] md:flex-col">
       {icons.map((i) => (
         <NavButton key={i.id} {...i} />
       ))}
       <div>
         <button
           onClick={onSwitch}
-          className="text-white bg-blue-500/50 hover:bg-blue-500 duration-300 hover:scale-90 px-2 py-1 rounded-xl transition-colors"
+          className="hidden rounded-xl bg-blue-500/50 px-2 py-1 text-white transition-colors duration-300 hover:scale-90 hover:bg-blue-500 md:block"
         >
           v1
         </button>

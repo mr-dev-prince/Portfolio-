@@ -14,10 +14,10 @@ export const Header = ({ onSwitch }) => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full py-10 z-50 flex justify-between items-center lg:px-36 pr-8">
+    <div className="fixed left-0 top-0 z-50 flex w-full items-center justify-between py-10 pr-8 lg:px-36">
       <div className="fixed lg:static">
         <button
-          className="cursor-grab fivo text-5xl font-extrabold uppercase"
+          className="fivo cursor-grab text-5xl font-extrabold uppercase"
           onClick={handleClick}
         >
           <p className={theme === "light" ? "text-[#081B2A]" : "text-white"}>
@@ -32,11 +32,11 @@ export const Header = ({ onSwitch }) => {
           </p>
         </button>
       </div>
-      <div className="flex items-center gap-4 fixed lg:static right-7 top-20">
+      <div className="fixed right-7 top-20 flex items-center gap-4 lg:static">
         <Dashboard />
         <button
           onClick={onSwitch}
-          className="px-4 py-2 text-sm font-semibold border border-gray-400 hover:bg-gray-200 dark:hover:bg-blue-700 duration-500 text-white"
+          className="border border-gray-400 px-4 py-2 text-sm font-semibold text-white duration-500 hover:bg-gray-200 dark:hover:bg-blue-700"
         >
           v2
         </button>

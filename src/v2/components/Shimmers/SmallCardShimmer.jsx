@@ -1,8 +1,8 @@
 const SmallCardShimmer = () => {
   return (
-    <div className="flex justify-center items-center flex-col border border-gray-700 py-8 rounded-xl gap-4 animate-pulse">
-      <div className="border-4 border-blue-500/80 p-1 rounded-full h-24 w-24 bg-gray-700" />
-      <div className="h-4 w-20 bg-gray-700 rounded" />
+    <div className="flex animate-pulse flex-col items-center justify-center gap-4 rounded-xl border border-gray-700 py-8">
+      <div className="h-24 w-24 rounded-full border-4 border-blue-500/80 bg-gray-700 p-1" />
+      <div className="h-4 w-20 rounded bg-gray-700" />
     </div>
   );
 };

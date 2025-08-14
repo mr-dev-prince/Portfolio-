@@ -4,7 +4,9 @@ import Navbar from "../v2/common/Navbar";
 export default function V2Layout({ onSwitch }) {
   return (
     <div className="relative">
-      <Navbar onSwitch={onSwitch} />
+      <div className="flex w-full items-center justify-center">
+        <Navbar onSwitch={onSwitch} />
+      </div>
       <main>
         <Outlet />
       </main>

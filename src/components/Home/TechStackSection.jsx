@@ -22,22 +22,17 @@ const TechStackSection = () => {
       gsap.fromTo(
         detailsRef.current,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
       );
     }
   }, [details]);
 
-  const isEven = (num) => {
-    if (num % 2 === 0) return true;
-    return false;
-  };
-
   return (
-    <div className={`px-36 h-screen overflow-hidden w-full gap-12 flex fivo`}>
-      <div className="flex h-fit w-[50%] justify-start flex-col items-center px-4 pb-12">
-        <div className={`w-full h-[400px] flex justify-center items-start`}>
-          <div className="flex flex-col text-left justify-center items-start">
-            <div className={`text-left font-bold tracking-wide space-y-4 `}>
+    <div className={`fivo flex h-screen w-full gap-12 overflow-hidden px-36`}>
+      <div className="flex h-fit w-[50%] flex-col items-center justify-start px-4 pb-12">
+        <div className={`flex h-[400px] w-full items-start justify-center`}>
+          <div className="flex flex-col items-start justify-center text-left">
+            <div className={`space-y-4 text-left font-bold tracking-wide`}>
               <p
                 className={`${
                   theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
@@ -45,12 +40,12 @@ const TechStackSection = () => {
               >
                 02
               </p>
-              <p className={`text-3xl fivo uppercase`}>
+              <p className={`fivo text-3xl uppercase`}>
                 My <br /> Tech stack
               </p>
             </div>
             <div>
-              <p className="font-semibold text-justify text-xl">
+              <p className="text-justify text-xl font-semibold">
                 In my journey as a full-stack web developer, I've mastered a
                 diverse array of technologies that empower me to build robust
                 and dynamic applications from the ground up. Here's a glimpse
@@ -59,7 +54,7 @@ const TechStackSection = () => {
                   className={`underline ${
                     theme === "light"
                       ? ""
-                      : "hover:bg-[#1e649a] hover:text-[#1f1f1f] underline-offset-4 cursor-pointer px-2 transition-colors duration-200 "
+                      : "cursor-pointer px-2 underline-offset-4 transition-colors duration-200 hover:bg-[#1e649a] hover:text-[#1f1f1f]"
                   }`}
                 >
                   explore more
@@ -70,15 +65,15 @@ const TechStackSection = () => {
         </div>
         <div className="h-[40%] w-full" ref={detailsRef}>
           {Object.keys(details).length !== 0 && (
-            <ShowTechDetails details={details}/>
+            <ShowTechDetails details={details} />
           )}
         </div>
       </div>
       <div
-        className={`w-[50%] border-white h-full flex justify-start flex-col items-center`}
+        className={`flex h-full w-[50%] flex-col items-center justify-start border-white`}
       >
         <div
-          className={`h-fit w-fit rounded-xl grid grid-cols-4 grid-rows-4 gap-5 overflow-hidden`}
+          className={`grid h-fit w-fit grid-cols-4 grid-rows-4 gap-5 overflow-hidden rounded-xl`}
         >
           {myTechStack.map((tech, idx) => (
             <Link
@@ -87,17 +82,17 @@ const TechStackSection = () => {
                 setDetails(tech);
               }}
               key={idx}
-              className={`p-7 backdrop-blur-xl duration-300 z-50 h-44 w-44
-                ${
-                  details.name === tech.name
-                    ? theme === "light" ? "bg-[#dc143c]" : "bg-[#c6dc4a]" 
-                    : "bg-[#52525242]" 
-                }
-                hover:scale-105 transition-all `}
+              className={`z-50 h-44 w-44 p-7 backdrop-blur-xl duration-300 ${
+                details.name === tech.name
+                  ? theme === "light"
+                    ? "bg-[#dc143c]"
+                    : "bg-[#c6dc4a]"
+                  : "bg-[#52525242]"
+              } transition-all hover:scale-105`}
             >
               <img
                 src={tech.image}
-                className="h-full w-full object-contain "
+                className="h-full w-full object-contain"
                 alt="react"
               />
             </Link>
@@ -107,7 +102,5 @@ const TechStackSection = () => {
     </div>
   );
 };
-
-
 
 export default TechStackSection;

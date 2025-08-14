@@ -33,41 +33,41 @@ const Contact = () => {
       icon: <FaXTwitter />,
       label: "Twitter",
       link: "https://x.com/shutup_prince",
-      text: "If you want to chat about tech, trends, or just say hi, Twitter is where I hang out.",
+      text: "If you want to chat about tech, trends, or just say hi.",
     },
   ];
 
   return (
-    <div className="min-h-screen mx-[25%] mt-28 flex flex-col gap-6">
-      <p className="font-slabo text-white text-4xl">Contact Me.</p>
-      <p className="text-2xl text-gray-400 font-slabo">
+    <div className="mx-[5%] mt-40 flex min-h-screen flex-col gap-6 md:mx-[25%] md:mt-28">
+      <p className="font-slabo text-4xl text-white">Contact Me.</p>
+      <p className="font-slabo text-2xl text-gray-400">
         Available everywhere humans communicate – let's talk about jobs,
         projects, or random ideas!
       </p>
-      <div className="flex flex-col gap-8 mt-6 w-full">
+      <div className="mt-6 flex w-full flex-col gap-8">
         {contacts.map((contact, index) => (
           <Link
             key={index}
             to={contact.link}
             target="_blank"
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-6 w-full hover:bg-gray-600/50 duration-300 transition-all p-2 rounded-3xl"
+            className="flex w-full items-start gap-6 rounded-3xl p-2 transition-all duration-300 hover:bg-gray-600/50"
           >
-            <span className="text-4xl text-blue-400 h-24 w-24 flex justify-center items-center bg-gray-800 rounded-2xl ">
+            <span className="flex h-24 w-24 items-center justify-center rounded-2xl bg-gray-800 text-4xl text-blue-400">
               {contact.icon}
             </span>
             <div className="flex flex-col">
-              <span className="text-white font-bold font-sans text-xl">
+              <span className="font-sans text-xl font-bold text-white">
                 {contact.label}
               </span>
-              <span className="text-gray-300 mt-2 text-lg font-slabo ">
+              <span className="mt-2 font-slabo text-lg text-gray-300">
                 {contact.text}
               </span>
             </div>
           </Link>
         ))}
       </div>
-      <div className="border-t-2 border-gray-600 border-dashed pt-6 mb-8">
-        <p className="text-gray-400 font-slabo text-lg tracking-wide">
+      <div className="mb-8 border-t-2 border-dashed border-gray-600 pt-6">
+        <p className="font-slabo text-lg tracking-wide text-gray-400">
           Thanks for reaching out ! I'll reply faster than a hot reload after
           saving your code.
         </p>
