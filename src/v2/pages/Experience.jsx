@@ -4,6 +4,7 @@ import ErrorCard from "../components/Shimmers/ErrorCard";
 
 const Experience = () => {
   const { data, isLoading, error } = useExperiences();
+  const { data: experiences } = data || {};
   return (
     <div className="mx-[5%] min-h-screen md:mx-[25%] md:pl-6">
       <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-2 md:mt-28">
@@ -29,8 +30,10 @@ const Experience = () => {
 
         {!isLoading &&
           !error &&
-          data?.length > 0 &&
-          data.map((e) => <ExperienceCard key={e.documentId} experience={e} />)}
+          experiences?.length > 0 &&
+          experiences.map((e) => (
+            <ExperienceCard key={e.documentId} experience={e} />
+          ))}
 
         {!isLoading && !error && data?.length === 0 && (
           <ErrorCard

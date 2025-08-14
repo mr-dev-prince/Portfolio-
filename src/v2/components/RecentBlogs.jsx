@@ -5,7 +5,8 @@ import CardShimmer from "./Shimmers/CardShimmer";
 import ErrorCard from "./Shimmers/ErrorCard";
 
 const RecentBlogs = () => {
-  const { data, isLoading, error } = useBlogs();
+  const { data, isLoading, error } = useBlogs(5);
+  const blogs = data?.pages[0].data || [];
 
   if (error) {
     return (
@@ -23,7 +24,7 @@ const RecentBlogs = () => {
     );
   }
 
-  if (!data?.length) {
+  if (!blogs?.length) {
     return (
       <ErrorCard text="No blogs found. Maybe it's time to write the first one?" />
     );
@@ -42,7 +43,7 @@ const RecentBlogs = () => {
         </Link>
       </div>
       <div className="mt-6 flex flex-col gap-8">
-        {data.map((blog) => (
+        {blogs.map((blog) => (
           <BlogCard key={blog.documentId} blog={blog} />
         ))}
       </div>

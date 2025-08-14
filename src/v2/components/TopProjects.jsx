@@ -5,6 +5,7 @@ import ErrorCard from "./Shimmers/ErrorCard";
 
 const TopProjects = () => {
   const { data, isLoading, error } = useWorks();
+  const { data: projects } = data || {};
   return (
     <>
       <div className="flex w-full items-center justify-between">
@@ -32,8 +33,8 @@ const TopProjects = () => {
 
         {!isLoading &&
           !error &&
-          data?.length > 0 &&
-          data.map((e) => <ProjectCard key={e.documentId} {...e} />)}
+          projects?.length > 0 &&
+          projects.map((e) => <ProjectCard key={e.documentId} {...e} />)}
 
         {!isLoading && !error && data?.length === 0 && (
           <p className="text-center text-gray-400">

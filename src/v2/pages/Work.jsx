@@ -6,7 +6,7 @@ import CardShimmer from "../components/Shimmers/CardShimmer";
 
 const Work = () => {
   const { data, isLoading, error } = useWorks();
-
+  const { data: projects } = data || {};
   return (
     <div className="mx-[5%] min-h-screen md:mx-[25%] md:pl-6">
       <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-2 md:mt-28">
@@ -32,10 +32,10 @@ const Work = () => {
 
         {!isLoading &&
           !error &&
-          data?.length > 0 &&
-          data.map((e) => <ProjectCard key={e.documentId} {...e} />)}
+          projects?.length > 0 &&
+          projects.map((e) => <ProjectCard key={e.documentId} {...e} />)}
 
-        {!isLoading && !error && data?.length === 0 && (
+        {!isLoading && !error && projects?.length === 0 && (
           <ErrorCard
             text={
               "I think I forgot that I have a blogs section on my portfolio."

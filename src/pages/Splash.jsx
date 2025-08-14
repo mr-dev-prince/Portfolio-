@@ -46,7 +46,6 @@ const Splash = ({ onEnter }) => {
         <AnimatedComponent delay={3}>
           <button
             onClick={() => {
-              console.log("i was clicked");
               onEnter();
             }}
             className="rounded-lg bg-slate-400/5 px-24 py-3 font-mono uppercase backdrop-blur-2xl transition-all duration-500 hover:scale-95"

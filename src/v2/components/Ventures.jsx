@@ -5,6 +5,7 @@ import SmallCardShimmer from "./Shimmers/SmallCardShimmer";
 
 const Ventures = () => {
   const { data, isLoading, error } = useExperiences();
+  const { data: experiences } = data || {};
   return (
     <>
       <div className="flex w-full items-center justify-between">
@@ -34,8 +35,8 @@ const Ventures = () => {
 
         {!isLoading &&
           !error &&
-          data?.length > 0 &&
-          data.map((e) => <Card key={e.documentId} {...e} />)}
+          experiences?.length > 0 &&
+          experiences.map((e) => <Card key={e.documentId} {...e} />)}
 
         {!isLoading && !error && data?.length === 0 && (
           <ErrorCard

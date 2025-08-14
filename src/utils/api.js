@@ -10,7 +10,7 @@ const apiClient = axios.create({
 });
 
 apiClient.interceptors.response.use(
-  (response) => response.data.data,
+  (response) => response.data,
   (error) => {
     const message =
       error.response?.data?.message || error.message || "Something went wrong";
@@ -19,7 +19,10 @@ apiClient.interceptors.response.use(
 );
 
 export const api = {
-  getBlogs: () => apiClient.get(`/blogs?populate=*`),
+  getBlogs: (page, pageSize) =>
+    apiClient.get(
+      `/blogs?populate=*&sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
+    ),
   getWorks: () => apiClient.get("/works?populate=*"),
   getExperiences: () => apiClient.get("/experiences?populate=*"),
   getBlog: (id) => apiClient.get(`/blogs/${id}?populate=*`),

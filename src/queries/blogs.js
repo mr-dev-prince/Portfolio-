@@ -1,10 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../utils/api";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
-export function useBlogs() {
-  return useQuery({
-    queryKey: ["blogs"],
-    queryFn: () => api.getBlogs(),
+export function useBlogs(pageSize = 5) {
+  return useInfiniteQuery({
+    queryKey: ["blogs", pageSize],
+    queryFn: ({ pageParam = 1 }) => api.getBlogs(pageParam, pageSize),
+    getNextPageParam: (lastPage, allPages) => {
+      const totalPages = lastPage.meta.pagination.pageCount;
+      const currentPage = lastPage.meta.pagination.page;
+      return currentPage < totalPages ? currentPage + 1 : undefined;
+    },
     keepPreviousData: true,
   });
 }
