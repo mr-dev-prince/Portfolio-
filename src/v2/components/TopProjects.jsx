@@ -14,7 +14,7 @@ const TopProjects = () => {
           className="cursor-pointer rounded-md bg-gray-600 px-3 py-1 font-mono text-xs text-gray-300 transition-transform duration-200 hover:scale-110 hover:bg-gray-800 hover:text-blue-500"
           style={{ display: "inline-block" }}
         >
-          <p className="transform-none text-sm">View more</p>
+          <p className="transform-none text-sm">View More</p>
         </Link>
       </div>
       <div className="mt-6 flex flex-col gap-8">
