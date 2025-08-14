@@ -11,11 +11,10 @@ import RevealOnScroll from "../components/RevealOnScroll.jsx";
 
 const Home = () => {
   return (
-    <div className="min-h-screen mx-[25%] pl-6">
-      <div className="w-full h-full flex items-center justify-start mt-28">
+    <div className="mx-[5%] min-h-screen md:mx-[25%] md:pl-6">
+      <div className="mt-40 flex h-full w-full items-center justify-start md:mt-28">
         <Circles />
       </div>
-
       <RevealOnScroll>
         <IntroSection />
       </RevealOnScroll>

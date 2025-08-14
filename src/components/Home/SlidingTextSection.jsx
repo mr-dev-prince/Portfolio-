@@ -30,19 +30,19 @@ const SlidingTextSection = () => {
             scrub: 2,
             pin: true,
           },
-        }
+        },
       );
     }
   }, []);
   return (
-    <div ref={containerRef} className={`min-h-screen relative fivo`}>
-      <div className=" absolute top-36 flex justify-center items-center">
-        <p ref={textRef} className={` text-[15vh] font-bold uppercase z-30`}>
+    <div ref={containerRef} className={`fivo relative min-h-screen`}>
+      <div className="absolute top-36 flex items-center justify-center">
+        <p ref={textRef} className={`z-30 text-[15vh] font-bold uppercase`}>
           I Believe in my code.
         </p>
       </div>
-      <div className={` flex gap-2 justify-end items-end w-full`}>
-        <div className={`flex flex-col items-end `}>
+      <div className={`flex w-full items-end justify-end gap-2`}>
+        <div className={`flex flex-col items-end`}>
           <div className={`flex gap-2`}>
             <div
               className={`parallelogram z-40 ${
@@ -60,23 +60,27 @@ const SlidingTextSection = () => {
               }`}
             ></div>
           </div>
-          <div className={`flex gap-2 -mt-10`}>
+          <div className={`-mt-10 flex gap-2`}>
             <div
               className={`parallelogram z-40 ${
                 theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}
             ></div>
-            <div className={`parallelogram2 z-40 ${
+            <div
+              className={`parallelogram2 z-40 ${
                 theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
-              }`}></div>
+              }`}
+            ></div>
             <div
               className={`parallelogram z-40 ${
                 theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
               }`}
             ></div>
-            <div className={`parallelogram2 z-40 ${
+            <div
+              className={`parallelogram2 z-40 ${
                 theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
-              }`}></div>
+              }`}
+            ></div>
             <div
               className={`parallelogram z-40 ${
                 theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"

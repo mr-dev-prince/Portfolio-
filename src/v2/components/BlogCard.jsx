@@ -12,29 +12,29 @@ const BlogCard = ({ blog }) => {
   return (
     <Link
       to={`/blogs/${blog.slug}?id=${blog.documentId}`}
-      className="rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-gray-800/60 p-3"
+      className="overflow-hidden rounded-xl bg-gray-800/60 p-3 shadow-md transition-shadow duration-300 hover:shadow-lg"
     >
-      <div className="h-[400px] w-full">
+      <div className="w-full md:h-[400px]">
         {imageUrl && (
           <img
             src={imageUrl}
             alt={blog?.cover_image?.alternativeText || blog?.title}
-            className="w-full h-full object-cover rounded-lg"
+            className="h-full w-full rounded-lg object-cover"
           />
         )}
       </div>
-      <div className="p-3 flex flex-col gap-2">
-        <p className="text-gray-500 text-xs">
+      <div className="flex flex-col gap-2 p-3">
+        <p className="text-xs text-gray-500">
           {new Date(blog?.publishedAt).toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
             year: "numeric",
           })}
         </p>
-        <h2 className="text-2xl font-bold font-sans tracking-wide text-white">
+        <h2 className="font-sans text-xl font-bold tracking-wide text-white md:text-2xl">
           {blog?.title}
         </h2>
-        <p className="text-gray-600 text-sm line-clamp-3">{previewText}</p>
+        <p className="line-clamp-3 text-sm text-gray-600">{previewText}</p>
       </div>
     </Link>
   );

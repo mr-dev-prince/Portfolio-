@@ -20,20 +20,20 @@ const Hero = () => {
   return (
     <div
       id="trigger-music"
-      className="min-h-screen px-36 pb-10 flex flex-col justify-end fivo relative"
+      className="fivo relative flex min-h-screen flex-col justify-end px-36 pb-10"
     >
       <div>
         <div className="mb-12">
           <p
             ref={textRef}
-            className="text text-3xl font-semibold tracking-wide uppercase"
+            className="text text-3xl font-semibold uppercase tracking-wide"
           >
             Hi, I am Prince.
           </p>
         </div>
-        <div className="uppercase text-[8vh] font-extrabold tracking-wide">
-          <div className="flex gap-4 items-center">
-            <div className="relative skew">
+        <div className="text-[8vh] font-extrabold uppercase tracking-wide">
+          <div className="flex items-center gap-4">
+            <div className="skew relative">
               <p
                 className={`relative ${
                   theme === "light" ? "bgAnimaLight" : "bgAnimaDark"
@@ -42,11 +42,11 @@ const Hero = () => {
                 Tech
               </p>
               <span
-                className={`show absolute -top-5 -right-4 ${
+                className={`show absolute -right-4 -top-5 ${
                   theme === "light" ? "bg-[#FFFFE4]" : "bg-[#1f1f1f]"
-                }  p-2 rounded-full`}
+                } rounded-full p-2`}
               >
-                <img className="h-5 spin" src={react} alt="" />
+                <img className="spin h-5" src={react} alt="" />
               </span>
             </div>
             <p>savvy</p>
@@ -64,11 +64,11 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 flex justify-center items-center w-full h-24 py-4">
+      <div className="absolute bottom-0 left-0 flex h-24 w-full items-center justify-center py-4">
         <div
           className={`h-full border-2 ${
             theme === "light" ? "border-[#1e649a]" : "border-[#DC143C]"
-          }  w-8 rounded-t-full rounded-b-full flex justify-center items-start pt-8 animateUpDown`}
+          } animateUpDown flex w-8 items-start justify-center rounded-b-full rounded-t-full pt-8`}
         >
           <img src={assets.globe} alt="" className="h-7 w-7" />
         </div>

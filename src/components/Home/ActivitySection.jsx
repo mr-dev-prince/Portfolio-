@@ -2,7 +2,6 @@ import React from "react";
 import { ThemeState } from "../../context/atoms/themeState";
 import { useRecoilState } from "recoil";
 
-
 const ActivitySection = () => {
   const themeState = useRecoilState(ThemeState);
   const theme = themeState[0];
@@ -10,21 +9,21 @@ const ActivitySection = () => {
   const color = theme === "light" ? "1e649a" : "dc143c";
 
   return (
-    <div className="h-screen w-full flex justify-between px-36 fivo py-10">
+    <div className="fivo flex h-screen w-full justify-between px-36 py-10">
       <div />
-      <div className="flex flex-col justify-center items-center px-10 h-full w-[60%] p-3">
-        <div className="w-full h-[46%] flex flex-col justify-center items-center">
-          <div className="flex justify-center items-center h-[30%]">
+      <div className="flex h-full w-[60%] flex-col items-center justify-center p-3 px-10">
+        <div className="flex h-[46%] w-full flex-col items-center justify-center">
+          <div className="flex h-[30%] items-center justify-center">
             <img
               src={`https://ghchart.rshah.org/${color}/mr-dev-prince`}
               alt="GitHub Contributions Graph"
-              className="w-full h-full object-contain scale-125 z-50"
+              className="z-50 h-full w-full scale-125 object-contain"
             />
           </div>
         </div>
-        <div className={`w-full h-[50%]`}>
-          <div className="flex flex-col h-full text-left items-start text-xl">
-            <div className={`text-left font-bold tracking-wide space-y-4 `}>
+        <div className={`h-[50%] w-full`}>
+          <div className="flex h-full flex-col items-start text-left text-xl">
+            <div className={`space-y-4 text-left font-bold tracking-wide`}>
               <p
                 className={`${
                   theme === "dark" ? "text-[#dc143c]" : "text-[#1e649a]"
@@ -32,10 +31,10 @@ const ActivitySection = () => {
               >
                 03
               </p>
-              <p className={`text-3xl fivo uppercase`}>Activity</p>
+              <p className={`fivo text-3xl uppercase`}>Activity</p>
             </div>
             <div>
-              <p className="font-semibold text-justify">
+              <p className="text-justify font-semibold">
                 In my journey as a full-stack web developer, I've mastered a
                 diverse array of technologies that empower me to build robust
                 and dynamic applications from the ground up. Here's a glimpse
@@ -43,8 +42,8 @@ const ActivitySection = () => {
                 <span
                   className={`underline ${
                     theme === "dark"
-                      ? "hover:bg-[#dc143c] hover:text-[#1f1f1f] underline-offset-4 cursor-pointer px-2 transition-colors duration-200"
-                      : "hover:bg-[#1e649a] hover:text-[#1f1f1f] underline-offset-4 cursor-pointer px-2 transition-colors duration-200 "
+                      ? "cursor-pointer px-2 underline-offset-4 transition-colors duration-200 hover:bg-[#dc143c] hover:text-[#1f1f1f]"
+                      : "cursor-pointer px-2 underline-offset-4 transition-colors duration-200 hover:bg-[#1e649a] hover:text-[#1f1f1f]"
                   }`}
                 >
                   explore more

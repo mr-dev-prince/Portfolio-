@@ -12,8 +12,8 @@ const BlogDetails = () => {
   if (isLoading) return <Loader />;
   if (error)
     return (
-      <div className="mx-[25%] pl-6">
-        <div className="w-full h-full flex mt-28 flex-col justify-center items-center">
+      <div className="pl-6 md:mx-[25%]">
+        <div className="mt-28 flex h-full w-full flex-col items-center justify-center">
           <ErrorCard text={"Uh..Uhh!... Server refused to repond."} />
         </div>
       </div>
@@ -24,24 +24,24 @@ const BlogDetails = () => {
   const remainingContent = content.filter((block) => block !== firstParagraph);
 
   return (
-    <div className="min-h-screen mx-[25%] pl-6">
-      <div className="w-full h-full flex mt-28 flex-col justify-start items-start gap-6">
-        <p className="text-gray-400 font-slabo text-2xl">
+    <div className="mx-[6%] min-h-screen md:mx-[25%] md:pl-6">
+      <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-6 md:mt-28">
+        <p className="font-slabo text-2xl text-gray-400">
           {new Date(data?.publishedAt).toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
             year: "numeric",
           })}
         </p>
-        <h1 className="font-slabo text-white text-4xl">{data?.title}</h1>
+        <h1 className="font-slabo text-4xl text-white">{data?.title}</h1>
         {firstParagraph && (
-          <p className="text-gray-400 font-slabo text-lg">
+          <p className="font-slabo text-lg text-gray-400">
             {firstParagraph.children.map((child, i) => {
               if (child.bold) return <strong key={i}>{child.text}</strong>;
               if (child.code)
                 return (
                   <code
-                    className="bg-gray-800 text-yellow-400 p-2 rounded"
+                    className="rounded bg-gray-800 p-2 text-yellow-400"
                     key={i}
                   >
                     {child.text}
@@ -55,15 +55,15 @@ const BlogDetails = () => {
           <img
             src={data?.cover_image?.url}
             alt="Blog Cover"
-            className="w-full h-auto rounded-lg my-4"
+            className="my-4 h-auto w-full rounded-lg"
           />
         )}
-        <div className="mb-8 pl-4 text-white prose font-slabo text-lg">
+        <div className="prose mb-6 max-w-full break-words px-2 font-slabo text-base text-white sm:mb-8 sm:pl-4 sm:text-lg lg:text-xl">
           <BlocksRenderer
             content={remainingContent}
             modifiers={{
               bold: ({ children }) => (
-                <strong className="text-white font-sans font-bold tracking-wide">
+                <strong className="font-sans font-bold tracking-wide text-white">
                   {children}
                 </strong>
               ),
@@ -72,7 +72,7 @@ const BlogDetails = () => {
               ),
               code: ({ children }) => {
                 return (
-                  <span className="bg-gray-500 text-yellow-500 px-2 py-[2px] rounded">
+                  <span className="break-words rounded bg-gray-500 px-1 py-[2px] text-yellow-500 sm:px-2">
                     {children}
                   </span>
                 );

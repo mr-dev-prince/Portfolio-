@@ -1,11 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
 const Footer = () => {
   return (
-    <footer className="py-4 border-gray-700 font-slabo tracking-wide text-gray-400 text-md border-t-2 border-dashed mt-10 text-left flex justify-between items-center px-6">
+    <footer className="text-md mt-10 flex items-center justify-start border-t-2 border-dashed border-gray-700 py-4 text-left font-slabo tracking-wide text-gray-400">
       <p>Made with ❤︎ and way too many console.logs();</p>
-      <Link to={"legacy"} className="hover:underline">Checkout v1 of this portfolio </Link>
     </footer>
   );
 };

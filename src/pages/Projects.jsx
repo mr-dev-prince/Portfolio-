@@ -41,7 +41,7 @@ const Projects = () => {
             scrub: 2,
             pin: true,
           },
-        }
+        },
       );
     }
 
@@ -67,7 +67,7 @@ const Projects = () => {
           height: "60vh",
           width: "60vw",
           ease: "power3.out",
-        }
+        },
       );
 
       timeline.fromTo(
@@ -81,19 +81,19 @@ const Projects = () => {
           opacity: 1,
           ease: "power3.out",
         },
-        "<"
+        "<",
       );
     });
   }, []);
 
   return (
-    <div className={`${bgColor} h-fit relative`}>
+    <div className={`${bgColor} relative h-fit`}>
       <div
         ref={containerRef}
-        className="h-screen flex flex-col justify-center items-center relative overflow-hidden fivo"
+        className="fivo relative flex h-screen flex-col items-center justify-center overflow-hidden"
       >
         <div
-          className={`uppercase ${textColor} text-8xl tracking-wider font-extrabold flex space-x-1`}
+          className={`uppercase ${textColor} flex space-x-1 text-8xl font-extrabold tracking-wider`}
         >
           {"projects".split("").map((char, index) => (
             <span
@@ -111,24 +111,24 @@ const Projects = () => {
         <div
           key={index}
           ref={(el) => (sectionRefs.current[index] = el)}
-          className={`h-screen w-full flex justify-center items-center relative overflow-hidden`}
+          className={`relative flex h-screen w-full items-center justify-center overflow-hidden`}
         >
           <div
             ref={(el) => (imgRefs.current[index] = el)}
-            className={`w-full overflow-hidden flex justify-center items-center h-full`}
+            className={`flex h-full w-full items-center justify-center overflow-hidden`}
           >
             <img
               src={project.url}
               alt={`project_img_${index}`}
-              className="w-full h-full object-cover rounded-md"
+              className="h-full w-full rounded-md object-cover"
             />
           </div>
           <div
             ref={(el) => (detailsRefs.current[index] = el)}
-            className={`absolute top-[60vh] rounded-l-md right-0 w-1/2 h-[30vh] flex flex-col justify-center items-start  ${accentBgColor} text-white p-8 shadow-lg`}
+            className={`absolute right-0 top-[60vh] flex h-[30vh] w-1/2 flex-col items-start justify-center rounded-l-md ${accentBgColor} p-8 text-white shadow-lg`}
           >
-            <p className="text-2xl font-bold mb-2">{project.details[0]}</p>
-            <p className="text-lg mb-4">{project.details[1]}</p>
+            <p className="mb-2 text-2xl font-bold">{project.details[0]}</p>
+            <p className="mb-4 text-lg">{project.details[1]}</p>
             <p className="text-sm">{project.details[2]}</p>
           </div>
         </div>

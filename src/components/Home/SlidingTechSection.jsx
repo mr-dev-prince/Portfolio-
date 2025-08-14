@@ -21,7 +21,7 @@ const SlidingTechSection = () => {
       gsap.fromTo(
         detailsRef.current,
         { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
       );
     }
   }, [details]);
@@ -45,7 +45,7 @@ const SlidingTechSection = () => {
             pin: conRef,
             pinSpacing: true,
           },
-        }
+        },
       );
     }
   }, []);
@@ -54,74 +54,74 @@ const SlidingTechSection = () => {
     theme === "light" ? lightClass : darkClass;
 
   return (
-    <div ref={containerRef} className="h-screen relative fivo">
-      <div className="absolute top-28 flex justify-center items-center">
+    <div ref={containerRef} className="fivo relative h-screen">
+      <div className="absolute top-28 flex items-center justify-center">
         <div ref={techRef} className="flex flex-row-reverse">
           {myTechStack?.map((tech, idx) => (
             <Link
               onClick={() => setDetails(tech)}
               key={tech.id}
-              className="p-7 duration-300 group z-40 h-44 w-44 hover:scale-105 transition-all relative"
+              className="group relative z-40 h-44 w-44 p-7 transition-all duration-300 hover:scale-105"
             >
               <img
                 src={tech.image}
                 className="h-full w-full object-contain"
                 alt="tech"
               />
-              <span className="hidden group-hover:flex duration-100 delay-100 text-xl font-semibold absolute -top-2 rounded right-8 bg-red-600 text-white px-2 py-1">
+              <span className="absolute -top-2 right-8 hidden rounded bg-red-600 px-2 py-1 text-xl font-semibold text-white delay-100 duration-100 group-hover:flex">
                 Click me
               </span>
             </Link>
           ))}
         </div>
       </div>
-      <div className="flex gap-2 h-[65%] pt-24 justify-start items-start w-full">
+      <div className="flex h-[65%] w-full items-start justify-start gap-2 pt-24">
         <div className="flex flex-col-reverse items-start">
-          <div className="flex gap-2 -mt-10">
+          <div className="-mt-10 flex gap-2">
             <div
               className={`parallelogram z-40 ${getThemeClass(
                 "bg-[#1e649a]",
-                "bg-[#dc143c]"
+                "bg-[#dc143c]",
               )}`}
             />
             <div
               className={`parallelogram2 ${getThemeClass(
                 "bg-[#1e649a]",
-                "bg-[#dc143c]"
+                "bg-[#dc143c]",
               )}`}
             />
             <div
               className={`parallelogram z-40 ${getThemeClass(
                 "bg-[#1e649a]",
-                "bg-[#dc143c]"
+                "bg-[#dc143c]",
               )}`}
             />
             <div
               className={`parallelogram2 ${getThemeClass(
                 "bg-[#1e649a]",
-                "bg-[#dc143c]"
+                "bg-[#dc143c]",
               )}`}
             />
             <div
               className={`parallelogram z-40 ${getThemeClass(
                 "bg-[#1e649a]",
-                "bg-[#dc143c]"
+                "bg-[#dc143c]",
               )}`}
             />
           </div>
         </div>
       </div>
-      <div className="w-full h-[35%] flex justify-between">
-        <div className="w-[50%] h-full flex justify-center items-center">
-          <div className="flex flex-col text-left text-lg justify-center items-start px-32">
-            <div className="text-left font-bold tracking-wide space-y-4">
+      <div className="flex h-[35%] w-full justify-between">
+        <div className="flex h-full w-[50%] items-center justify-center">
+          <div className="flex flex-col items-start justify-center px-32 text-left text-lg">
+            <div className="space-y-4 text-left font-bold tracking-wide">
               <p className={getThemeClass("text-[#1e649a]", "text-[#dc143c]")}>
                 02
               </p>
-              <p className="text-3xl fivo uppercase">Tech stack</p>
+              <p className="fivo text-3xl uppercase">Tech stack</p>
             </div>
             <div>
-              <p className="font-semibold text-justify text-lg">
+              <p className="text-justify text-lg font-semibold">
                 In my journey as a full-stack web developer, I've mastered a
                 diverse array of technologies and i am constantly learning new
                 things and upskilling on daily basis.
@@ -130,7 +130,7 @@ const SlidingTechSection = () => {
           </div>
         </div>
         <div
-          className="w-[50%] p-2 h-full flex justify-center items-center"
+          className="flex h-full w-[50%] items-center justify-center p-2"
           ref={detailsRef}
         >
           {Object.keys(details).length !== 0 && (

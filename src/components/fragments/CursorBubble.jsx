@@ -24,9 +24,9 @@ const CursorBubble = () => {
   }, []);
   return (
     <div
-      className={`fixed pointer-events-none cursor-pointer w-4 h-4 ${
+      className={`pointer-events-none fixed h-4 w-4 cursor-pointer ${
         theme === "light" ? "bg-[#1e649a]" : "bg-[#dc143c]"
-      }  rounded-full transition-transform transform -translate-x-1/2 -translate-y-1/2`}
+      } -translate-x-1/2 -translate-y-1/2 transform rounded-full transition-transform`}
       style={{
         left: `${cursorPosition.x + 15}px`,
         top: `${cursorPosition.y + 25}px`,

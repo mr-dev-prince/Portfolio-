@@ -23,27 +23,27 @@ const DashboardContent = ({ openDashboard, toggleDashboard }) => {
   return (
     <div className="group z-50">
       <div
-        className={`w-40 cursor-grab gap-4 relative flex items-center ${
+        className={`relative flex w-40 cursor-grab items-center gap-4 ${
           theme === "dark"
-            ? "bg-[#F2E8DE] text-[#1f1f1f] group-hover:bg-[#dc143c] duration-200"
-            : "bg-[#1f1f1f] text-[#F2E8DE] group-hover:bg-[#1e649a] duration-200"
-        } justify-center fivo uppercase font-bold p-2`}
+            ? "bg-[#F2E8DE] text-[#1f1f1f] duration-200 group-hover:bg-[#dc143c]"
+            : "bg-[#1f1f1f] text-[#F2E8DE] duration-200 group-hover:bg-[#1e649a]"
+        } fivo justify-center p-2 font-bold uppercase`}
       >
         <p>Dashboard</p>
-        <p className="cursor-pointer w-7 text-center" onClick={toggleDashboard}>
+        <p className="w-7 cursor-pointer text-center" onClick={toggleDashboard}>
           {openDashboard ? "-" : "+"}
         </p>
       </div>
       <div
-        className={`bg-transparent w-40 ${
+        className={`w-40 bg-transparent ${
           openDashboard ? "absolute" : "hidden"
-        } flex flex-col gap-8 justify-start pl-6 border-l-2 border-r-2 ${
+        } flex flex-col justify-start gap-8 border-l-2 border-r-2 pl-6 ${
           theme === "dark"
-            ? "border-[#F2E8DE] text-[#F2E8DE] group-hover:border-[#dc143c] duration-200"
-            : "border-[#1f1f1f] text-[#1f1f1f] group-hover:border-[#1e649a] duration-200"
-        } border-b-8 pt-8 pb-4 fivo uppercase font-bold text-md items-center`}
+            ? "border-[#F2E8DE] text-[#F2E8DE] duration-200 group-hover:border-[#dc143c]"
+            : "border-[#1f1f1f] text-[#1f1f1f] duration-200 group-hover:border-[#1e649a]"
+        } fivo text-md items-center border-b-8 pb-4 pt-8 font-bold uppercase`}
       >
-        <div className="flex flex-col justify-start w-full gap-2">
+        <div className="flex w-full flex-col justify-start gap-2">
           {[
             { path: ".", label: "Profile" },
             { path: "experiences", label: "Experiences" },
@@ -60,7 +60,7 @@ const DashboardContent = ({ openDashboard, toggleDashboard }) => {
             </Link>
           ))}
         </div>
-        <div className="w-full -ml-5 text-center">
+        <div className="-ml-5 w-full text-center">
           <ToggleTheme />
         </div>
       </div>

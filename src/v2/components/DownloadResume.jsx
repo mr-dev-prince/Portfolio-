@@ -22,35 +22,32 @@ const DownloadResume = () => {
 
   return (
     <div className="p-4">
-      <div className="w-full flex justify-between items-center">
+      <div className="flex w-full items-center justify-between">
         <p className="font-slabo text-4xl text-white">Are You Hiring ?</p>
         <Link
           to="mailto:pkcofficial24@gmail.com"
-          className="bg-gray-600 text-gray-300 px-3 py-1 rounded-md
-                     hover:scale-110 transition-transform duration-200
-                     hover:bg-gray-800 hover:text-blue-500 cursor-pointer"
+          className="cursor-pointer rounded-md bg-gray-600 px-3 py-1 text-gray-300 transition-transform duration-200 hover:scale-110 hover:bg-gray-800 hover:text-blue-500"
         >
           Hire Me
         </Link>
       </div>
 
-      <div className="mt-6 flex justify-start items-start flex-col">
-        <div ref={containerRef} className="w-32 h-32"></div>
-        <p className="text-gray-400 text-lg mt-4 font-slabo">
+      <div className="mt-6 flex flex-col items-start justify-start">
+        <div ref={containerRef} className="h-32 w-32"></div>
+        <p className="mt-4 font-slabo text-lg text-gray-400">
           Bringing strong problem-solving skills, a passion for clean code, and
           just the right amount of caffeine. Whether it’s building from scratch
           or improving existing systems — I’m ready to deliver.
         </p>
         <a
           href={resume}
-          download='prince@latest_resume.pdf'
-          className="mt-5  bg-gray-700/50 text-white px-5 py-2 rounded-lg shadow-sm
-                     hover:bg-blue-600 hover:shadow-md hover:scale-105 transition-transform duration-200 flex justify-center items-center gap-2"
+          download="prince@latest_resume.pdf"
+          className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-gray-700/50 px-5 py-2 text-white shadow-sm transition-transform duration-200 hover:scale-105 hover:bg-blue-600 hover:shadow-md"
         >
           <FaCloudDownloadAlt />
           Download Resume
         </a>
-        <p className="text-gray-500 text-xs mt-3 font-mono text-center">
+        <p className="mt-3 text-center font-mono text-xs text-gray-500">
           A quick PDF — no fuss, no fluff. Just my experience and skills in one
           neat package.
         </p>

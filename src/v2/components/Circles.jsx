@@ -30,7 +30,7 @@ const Circles = () => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center items-center">
+    <div className="flex flex-wrap items-center justify-center">
       {circles.map((circle, index) => (
         <motion.div
           key={index}
@@ -38,7 +38,7 @@ const Circles = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{
             duration: 0.5,
-            delay: index * 0.2, // staggered delay for wave effect
+            delay: index * 0.2,
             ease: "easeOut",
           }}
           className={`h-20 w-20 ${circle.color} rounded-full ${circle.z} ${

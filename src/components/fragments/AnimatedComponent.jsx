@@ -7,8 +7,8 @@ const AnimatedComponent = ({ children, delay = 0 }) => {
   useEffect(() => {
     gsap.fromTo(
       divRef.current,
-      { y: 150, opacity: 0 }, // Start state
-      { y: 0, opacity: 1, duration: 1, delay, ease: "power3.out" } // End state
+      { y: 150, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, delay, ease: "power3.out" },
     );
   }, [delay]);
 

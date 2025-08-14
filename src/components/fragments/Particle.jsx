@@ -49,9 +49,8 @@ const ParticleElement = () => {
         overflow: "hidden",
         backgroundColor: "transparent",
         borderTop: "2px solid white",
-        borderEndEndRadius:"100%",
+        borderEndEndRadius: "100%",
         margin: "50px auto",
-
       }}
     ></div>
   );

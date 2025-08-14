@@ -43,15 +43,15 @@ const Resume = () => {
         duration: 1,
         stagger: 0.1,
         ease: "power3.out",
-      }
+      },
     );
   }, []);
 
   return (
     <div
-      className={`${bgColor} ${textColor} min-h-screen w-full justify-center items-center flex flex-col fivo`}
+      className={`${bgColor} ${textColor} fivo flex min-h-screen w-full flex-col items-center justify-center`}
     >
-      <div className="h-screen flex justify-center items-center w-full relative">
+      <div className="relative flex h-screen w-full items-center justify-center">
         <p
           ref={titleRef}
           className="text-8xl font-extrabold uppercase tracking-wide"
@@ -67,26 +67,26 @@ const Resume = () => {
         <ScrollButton />
       </div>
       <div
-        className={`h-fit w-[50%] border border-gray-400 rounded-xl mt-12 flex flex-col justify-center items-center relative text-justify font-medium p-4 py-10 mb-24 bg-slate-500/20 backdrop-blur-lg shadow-lg ${
+        className={`relative mb-24 mt-12 flex h-fit w-[50%] flex-col items-center justify-center rounded-xl border border-gray-400 bg-slate-500/20 p-4 py-10 text-justify font-medium shadow-lg backdrop-blur-lg ${
           theme === "light" ? "shadow-[#1e649a]" : "shadow-[#dc143c]"
-        }   `}
+        } `}
       >
         <div
           ref={headerRef}
-          className="flex flex-col justify-center items-center gap-5 w-full"
+          className="flex w-full flex-col items-center justify-center gap-5"
         >
-          <h1 className="underline text-[4vh] fivo font-semibold uppercase">
+          <h1 className="fivo text-[4vh] font-semibold uppercase underline">
             Prince Chaurasia
           </h1>
-          <div className="grid grid-cols-4 gap-4 ">
-            <span className="flex justify-center items-center gap-2">
+          <div className="grid grid-cols-4 gap-4">
+            <span className="flex items-center justify-center gap-2">
               <FaLocationPin />
               <p className="text-[1.5vh]">Banglore, Karnataka, India</p>
             </span>
             <Link
               to={"mailto:pkcofficial24@gmail.com"}
               target="_blank"
-              className="flex justify-center items-center gap-2"
+              className="flex items-center justify-center gap-2"
             >
               <GoMail />
               <p className="text-[1.5vh]">pkcofficial24@gmail.com</p>
@@ -94,7 +94,7 @@ const Resume = () => {
             <Link
               to={"https://wa.link/5lk0rp"}
               target="_blank"
-              className="flex justify-center items-center gap-2"
+              className="flex items-center justify-center gap-2"
             >
               <BiPhone />
               <p className="text-[1.5vh]">+91 8090900602</p>
@@ -102,7 +102,7 @@ const Resume = () => {
             <Link
               target="_blank"
               to={"https://www.linkedin.com/in/princechaurasia/"}
-              className="flex justify-center items-center gap-2"
+              className="flex items-center justify-center gap-2"
             >
               <FaLinkedin />
               <p className="text-[1.5vh]">@princechaurasia</p>
@@ -112,7 +112,7 @@ const Resume = () => {
         </div>
         <div
           ref={summaryRef}
-          className="flex flex-col justify-start items-start w-full mt-3"
+          className="mt-3 flex w-full flex-col items-start justify-start"
         >
           <h1 className="heading">Summary</h1>
           <span className={`h-0.5 w-full ${accentBgColor}`} />
@@ -125,19 +125,19 @@ const Resume = () => {
         </div>
         <div
           ref={experienceRef}
-          className="flex flex-col justify-start items-start w-full mt-3"
+          className="mt-3 flex w-full flex-col items-start justify-start"
         >
           <h1 className="heading">Experience</h1>
           <span className={`h-0.5 w-full ${accentBgColor}`} />
-          <span className="flex justify-between items-center w-full topic">
+          <span className="topic flex w-full items-center justify-between">
             <p>Software Developer Intern</p>
             <p>Aug 2024 - Present</p>
           </span>
-          <span className="flex justify-between items-center w-full subTopic">
+          <span className="subTopic flex w-full items-center justify-between">
             <p>Aerchain</p>
             <p>Bengaluru, Karnataka</p>
           </span>
-          <span className="pl-3 mt-2">
+          <span className="mt-2 pl-3">
             <ul className="list-disc">
               <li className="description">
                 Developed and deployed an end-to-end internal application using
@@ -155,15 +155,15 @@ const Resume = () => {
             </ul>
           </span>
           <span className={`h-0.5 w-full ${accentBgColor}/50 mt-4`} />
-          <span className="flex justify-between items-center w-full topic">
+          <span className="topic flex w-full items-center justify-between">
             <p>Software Developer Intern</p>
             <p>Feb 2024 - Aug 2024</p>
           </span>
-          <span className="flex justify-between items-center w-full subTopic">
+          <span className="subTopic flex w-full items-center justify-between">
             <p>Sherwa.Tech</p>
             <p>Indore, Madhya Pradesh</p>
           </span>
-          <span className="pl-3 mt-2">
+          <span className="mt-2 pl-3">
             <ul className="list-disc">
               <li className="description">
                 Designed and developed high-performance, client-focused web
@@ -185,14 +185,14 @@ const Resume = () => {
         </div>
         <div
           ref={projectsRef}
-          className="flex flex-col justify-start items-start w-full mt-3"
+          className="mt-3 flex w-full flex-col items-start justify-start"
         >
           <h1 className="heading">Projects</h1>
           <span className={`h-0.5 w-full ${accentBgColor}`} />
-          <span className="flex justify-between w-full items-center mt-3">
-            <span className=" flex justify-center items-center gap-3 topic">
+          <span className="mt-3 flex w-full items-center justify-between">
+            <span className="topic flex items-center justify-center gap-3">
               <p>Journey Journals</p>
-              <p className="font-light text-base">
+              <p className="text-base font-light">
                 Next.Js, PostGres, TailwindCSS
               </p>
             </span>
@@ -200,8 +200,8 @@ const Resume = () => {
               <p>Jan 2023 - Sept 2023</p>
             </span>
           </span>
-          <span className="pl-3 mt-2">
-            <ul className=" list-disc">
+          <span className="mt-2 pl-3">
+            <ul className="list-disc">
               <li className="description">
                 Designed and developed Journey Journals, a social media platform
                 enabling users to share and track their journeys interactively
@@ -220,10 +220,10 @@ const Resume = () => {
             </ul>
           </span>
           <span className={`h-0.5 w-full ${accentBgColor}/50 mt-4`} />
-          <span className="flex justify-between w-full items-center mt-3">
-            <span className=" flex justify-center items-center gap-3 topic">
+          <span className="mt-3 flex w-full items-center justify-between">
+            <span className="topic flex items-center justify-center gap-3">
               <p>Edu-Craft</p>
-              <p className="font-light text-base">
+              <p className="text-base font-light">
                 React, Redux, TailwindCSS, PostGres
               </p>
             </span>
@@ -231,8 +231,8 @@ const Resume = () => {
               <p>Sept 2023 - Dec 2023</p>
             </span>
           </span>
-          <span className="pl-3 mt-2">
-            <ul className=" list-disc">
+          <span className="mt-2 pl-3">
+            <ul className="list-disc">
               <li className="description">
                 Developed an EdTech platform for online courses using React.js,
                 Redux, and TailwindCSS, providing a user-friendly interface for
@@ -254,7 +254,7 @@ const Resume = () => {
         </div>
         <div
           ref={skillsRef}
-          className="flex flex-col justify-start items-start w-full mt-3"
+          className="mt-3 flex w-full flex-col items-start justify-start"
         >
           <h1 className="heading">Technical Skills</h1>
           <span className={`h-0.5 w-full ${accentBgColor}`} />
@@ -285,12 +285,12 @@ const Resume = () => {
         </div>
         <div
           ref={achievementsRef}
-          className="flex flex-col justify-start items-start w-full mt-3"
+          className="mt-3 flex w-full flex-col items-start justify-start"
         >
           <h1 className="heading">Achievements</h1>
           <span className={`h-0.5 w-full ${accentBgColor}`} />
-          <span className="pl-3 mt-2">
-            <ul className=" list-disc">
+          <span className="mt-2 pl-3">
+            <ul className="list-disc">
               <li className="description">
                 Secured a spot in the Grand Finale of Smart India Hackathon
                 2023, showcasing innovative problem-solving skills.
@@ -306,15 +306,15 @@ const Resume = () => {
         {/* eduRef */}
         <div
           ref={eduRef}
-          className="flex flex-col justify-start items-start w-full mt-3"
+          className="mt-3 flex w-full flex-col items-start justify-start"
         >
           <h1 className="heading">Education</h1>
           <span className={`h-0.5 w-full ${accentBgColor}`} />
-          <span className="mt-2 w-full relative">
+          <span className="relative mt-2 w-full">
             <span className="topic">
               <p>Bachelor of Technology in Computer Science & Engineering</p>
             </span>
-            <span className="flex gap-2 description">
+            <span className="description flex gap-2">
               <p>IES College of Technology |</p>
               <p>Madhya Pradesh |</p>
               <p>2026 |</p>
@@ -326,7 +326,7 @@ const Resume = () => {
             <span className="topic">
               <p>Senior Secondary</p>
             </span>
-            <span className="flex gap-2 description ">
+            <span className="description flex gap-2">
               <p>Maharana Pratap Inter College |</p>
               <p>Uttar Pradesh |</p>
               <p>2022 |</p>
@@ -338,7 +338,7 @@ const Resume = () => {
             <span className="topic">
               <p>Higher Secondary</p>
             </span>
-            <span className="flex gap-2 description ">
+            <span className="description flex gap-2">
               <p>P D Academy |</p>
               <p>Uttar Pradesh |</p>
               <p>2020 |</p>
@@ -349,12 +349,12 @@ const Resume = () => {
         </div>
         <div
           ref={linksRef}
-          className="flex flex-col justify-start items-start w-full mt-3"
+          className="mt-3 flex w-full flex-col items-start justify-start"
         >
           <h1 className="heading">Links</h1>
           <span className={`h-0.5 w-full ${accentBgColor}`} />
           <span className="w-full px-3">
-            <ul className="list-disc w-full flex justify-between items-center">
+            <ul className="flex w-full list-disc items-center justify-between">
               <Link className="description">Portfolio</Link>
               <Link className="description">Github</Link>
               <Link className="description">Leetcode</Link>

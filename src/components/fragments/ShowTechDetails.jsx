@@ -16,19 +16,19 @@ const ShowTechDetails = ({ details }) => {
 
   return (
     <motion.div
-      className="h-full w-full relative p-3 rounded-xl fivo border-2"
+      className="fivo relative h-full w-full rounded-xl border-2 p-3"
       initial="hidden"
       animate="visible"
       variants={containerVariant}
     >
       <img
         src={details.image}
-        className="absolute top-0 left-0 object-contain h-full w-full opacity-30 blur-md fivo"
+        className="fivo absolute left-0 top-0 h-full w-full object-contain opacity-30 blur-md"
         alt="details"
       />
-      <div className="h-full w-full p-2 flex">
-        <div className="w-[30%] flex flex-col justify-start">
-          <div className="flex justify-center items-start gap-3 flex-col w-full">
+      <div className="flex h-full w-full p-2">
+        <div className="flex w-[30%] flex-col justify-start">
+          <div className="flex w-full flex-col items-start justify-center gap-3">
             <motion.img
               src={details.image}
               className="h-24"
@@ -36,29 +36,29 @@ const ShowTechDetails = ({ details }) => {
               variants={itemVariant}
             />
             <motion.p
-              className="uppercase font-extrabold text-xl"
+              className="text-xl font-extrabold uppercase"
               variants={itemVariant}
             >
               {details.name}
             </motion.p>
           </div>
-          <div className="flex flex-col w-full justify-start items-start uppercase mt-3">
+          <div className="mt-3 flex w-full flex-col items-start justify-start uppercase">
             <p className="font-semibold">Level:</p>
-            <motion.p className="font-medium mt-2" variants={itemVariant}>
+            <motion.p className="mt-2 font-medium" variants={itemVariant}>
               {details.experienceLevel}
             </motion.p>
           </div>
         </div>
-        <div className="h-full grid grid-cols-2 w-[70%] p-1">
+        <div className="grid h-full w-[70%] grid-cols-2 p-1">
           <div>
-            <p className="uppercase font-semibold text-xl">
+            <p className="text-xl font-semibold uppercase">
               Concepts I am good at
             </p>
-            <div className="font-medium mt-2 h-[50%]">
+            <div className="mt-2 h-[50%] font-medium">
               {details?.strongHold?.map((i) => (
                 <motion.div
                   key={i.id}
-                  className="flex justify-start items-center mb-0.5"
+                  className="mb-0.5 flex items-center justify-start"
                   variants={itemVariant}
                 >
                   <p className="text-lg font-medium">{i.topic}</p>
@@ -67,14 +67,14 @@ const ShowTechDetails = ({ details }) => {
             </div>
           </div>
           <div className="h-[60%]">
-            <p className="uppercase font-semibold text-xl">
+            <p className="text-xl font-semibold uppercase">
               Concepts I learning
             </p>
-            <div className="font-medium mt-2 h-[50%]">
+            <div className="mt-2 h-[50%] font-medium">
               {details?.learning?.map((i) => (
                 <motion.div
                   key={i.id}
-                  className="flex justify-start items-center mb-0.5"
+                  className="mb-0.5 flex items-center justify-start"
                   variants={itemVariant}
                 >
                   <p className="text-lg font-medium">{i.topic}</p>

@@ -18,10 +18,10 @@ const ErrorCard = ({ text }) => {
   }, []);
 
   return (
-    <div className="rounded-xl shadow-md overflow-hidden bg-gray-800/60 p-3 w-full">
-      <div className="h-[400px] w-full flex flex-col justify-center items-center bg-gray-900/50 rounded-lg">
-        <div ref={containerRef} className="w-32 h-32"></div>
-        <p className="text-gray-300 text-md font-slabo mt-4">
+    <div className="w-full overflow-hidden rounded-xl bg-gray-800/60 p-3 shadow-md">
+      <div className="flex w-full flex-col items-center justify-center rounded-lg bg-gray-900/50 md:h-[400px]">
+        <div ref={containerRef} className="h-32 w-32"></div>
+        <p className="text-md mt-4 font-slabo text-gray-300">
           {text || "Something went wrong"}
         </p>
       </div>
