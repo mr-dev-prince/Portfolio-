@@ -1,32 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const contacts = [
     {
       icon: <FaEnvelope />,
       label: "Email",
-      link: "mailto:your.email@example.com",
+      link: "mailto:pkcofficial24@gmail.com",
       text: "If you want to send me a virtual pigeon, email works best!",
     },
     {
       icon: <FaLinkedin />,
       label: "LinkedIn",
-      link: "https://www.linkedin.com/in/yourprofile",
+      link: "https://www.linkedin.com/in/princechaurasia/",
       text: "If you want to talk jobs or collabs, LinkedIn is my playground.",
     },
     {
       icon: <FaInstagram />,
       label: "Instagram",
-      link: "https://www.instagram.com/yourprofile",
+      link: "https://www.instagram.com/dev_.prince",
       text: "If you want memes, vibes, or travel pics, hit me up on Insta!",
     },
     {
       icon: <FaGithub />,
       label: "GitHub",
-      link: "https://github.com/yourusername",
+      link: "https://github.com/mr-dev-prince",
       text: "If you want to peek at my code experiments, GitHub is the place.",
+    },
+    {
+      icon: <FaXTwitter />,
+      label: "Twitter",
+      link: "https://x.com/shutup_prince",
+      text: "If you want to chat about tech, trends, or just say hi, Twitter is where I hang out.",
     },
   ];
 
