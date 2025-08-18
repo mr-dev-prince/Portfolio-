@@ -1,14 +1,18 @@
 import { useSearchParams } from "react-router-dom";
-import { useBlogById } from "../../queries/blogs";
+import { useBlogById, useBlogs } from "../../queries/blogs";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Loader from "../components/Shimmers/Loader";
 import ErrorCard from "../components/Shimmers/ErrorCard";
+import BlogCard from "../components/BlogCard";
 
 const BlogDetails = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   const { data, isLoading, error } = useBlogById(id);
   const { data: blogData } = data || {};
+
+  const { data: moreBlogs } = useBlogs(3);
+  console.log("moreBlogs", moreBlogs);
 
   if (isLoading) return <Loader />;
   if (error)
@@ -26,7 +30,7 @@ const BlogDetails = () => {
 
   return (
     <div className="mx-[6%] min-h-screen md:mx-[25%] md:pl-6">
-      <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-6 md:mt-28">
+      <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-6 md:mt-28 border-b-2 border-dashed border-gray-600">
         <p className="font-slabo text-2xl text-gray-400">
           {new Date(blogData?.publishedAt).toLocaleDateString("en-US", {
             month: "long",
@@ -59,7 +63,7 @@ const BlogDetails = () => {
             className="my-4 h-auto w-full rounded-lg"
           />
         )}
-        <div className="prose mb-6 max-w-full break-words px-2 font-slabo text-base text-gray-300 md:text-lg">
+        <div className="prose max-w-full break-words px-2 font-slabo text-base text-gray-300 md:text-lg">
           <BlocksRenderer
             content={remainingContent}
             modifiers={{
@@ -80,6 +84,16 @@ const BlogDetails = () => {
               },
             }}
           />
+        </div>
+      </div>
+      <div>
+        <h2 className="mt-10 mb-4 text-2xl font-bold text-white font-slabo">
+          Read More Blogs
+        </h2>
+        <div className="flex flex-col gap-6 md:flex-row md:flex-wrap py-4">
+          {moreBlogs?.pages[0]?.data?.map((blog) => (
+            <BlogCard key={blog.documentId} blog={blog} size="small" />
+          ))}
         </div>
       </div>
     </div>

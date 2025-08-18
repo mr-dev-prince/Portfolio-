@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const BlogCard = ({ blog }) => {
+const BlogCard = ({ blog, size = "large" }) => {
   const previewText =
     blog?.content
       ?.find((block) => block.type === "paragraph")
@@ -12,9 +12,16 @@ const BlogCard = ({ blog }) => {
   return (
     <Link
       to={`/blogs/${blog.slug}?id=${blog.documentId}`}
-      className="overflow-hidden rounded-xl bg-gray-800/60 p-3 shadow-md transition-shadow duration-300 hover:shadow-lg"
+      className={`overflow-hidden rounded-xl bg-gray-800/60 shadow-md transition-shadow duration-300 hover:shadow-lg 
+        ${size === "small" ? "flex p-2" : "p-3"}`}
     >
-      <div className="w-full md:h-[400px]">
+      <div
+        className={`${
+          size === "small"
+            ? "w-1/3 h-full flex-shrink-0"
+            : "w-full md:h-[400px]"
+        }`}
+      >
         {imageUrl && (
           <img
             src={imageUrl}
@@ -23,7 +30,12 @@ const BlogCard = ({ blog }) => {
           />
         )}
       </div>
-      <div className="flex flex-col gap-2 p-3">
+
+      <div
+        className={`flex flex-col gap-2 ${
+          size === "small" ? "p-2 w-2/3" : "p-3"
+        }`}
+      >
         <p className="text-xs text-gray-500">
           {new Date(blog?.publishedAt).toLocaleDateString("en-US", {
             month: "long",
@@ -31,10 +43,19 @@ const BlogCard = ({ blog }) => {
             year: "numeric",
           })}
         </p>
-        <h2 className="font-sans text-xl font-bold tracking-wide text-white md:text-2xl">
+        <h2
+          className={`font-sans font-bold tracking-wide text-white 
+            ${size === "small" ? "text-lg" : "text-xl md:text-2xl"}`}
+        >
           {blog?.title}
         </h2>
-        <p className="line-clamp-3 text-sm text-gray-600">{previewText}</p>
+        <p
+          className={`line-clamp-3 text-sm text-gray-600 ${
+            size === "small" ? "hidden" : ""
+          }`}
+        >
+          {previewText}
+        </p>
       </div>
     </Link>
   );
