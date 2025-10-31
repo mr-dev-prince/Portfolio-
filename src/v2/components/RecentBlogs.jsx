@@ -17,6 +17,16 @@ const RecentBlogs = () => {
   if (isLoading) {
     return (
       <div className="flex flex-col gap-8">
+        <div className="flex w-full items-center justify-between">
+          <p className="font-slabo text-4xl text-white">Recent Blogs</p>
+          <Link
+            to="blogs"
+            className="cursor-pointer rounded-md bg-gray-600 px-3 py-1 font-mono text-xs text-gray-300 transition-transform duration-200 hover:scale-110 hover:bg-gray-800 hover:text-blue-500"
+            style={{ display: "inline-block" }}
+          >
+            <p className="transform-none text-sm">View more</p>
+          </Link>
+        </div>
         {Array.from({ length: 3 }, (_, index) => (
           <CardShimmer key={index} />
         ))}
