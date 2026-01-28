@@ -1,13 +1,13 @@
-import Circles from "../components/Circles.jsx";
 import CTA from "../components/CTA.jsx";
+import Circles from "../components/Circles.jsx";
 import Divider from "../components/Divider.jsx";
-import Ventures from "../components/Ventures.jsx";
-import IntroSection from "../components/IntroSection.jsx";
-import TopProjects from "../components/TopProjects.jsx";
-import RecentBlogs from "../components/RecentBlogs.jsx";
 import DownloadResume from "../components/DownloadResume.jsx";
 import Footer from "../common/Footer.jsx";
+import IntroSection from "../components/IntroSection.jsx";
+import RecentBlogs from "../components/RecentBlogs.jsx";
 import RevealOnScroll from "../components/RevealOnScroll.jsx";
+import TopProjects from "../components/TopProjects.jsx";
+import Ventures from "../components/Ventures.jsx";
 
 const Home = () => {
   return (
@@ -18,35 +18,25 @@ const Home = () => {
       <RevealOnScroll>
         <IntroSection />
       </RevealOnScroll>
-
       <RevealOnScroll delay={0.1}>
         <CTA />
       </RevealOnScroll>
-
       <Divider />
-
       <RevealOnScroll delay={0.2}>
         <Ventures />
       </RevealOnScroll>
-
       <Divider />
-
       <RevealOnScroll delay={0.3}>
         <TopProjects />
       </RevealOnScroll>
-
       <Divider />
-
-      <RevealOnScroll delay={0.4}>
-        <RecentBlogs />
-      </RevealOnScroll>
-
-      <Divider />
-
       <RevealOnScroll delay={0.5}>
         <DownloadResume />
       </RevealOnScroll>
-
+      <Divider />
+      <RevealOnScroll delay={0.4}>
+        <RecentBlogs />
+      </RevealOnScroll>
       <Footer />
     </div>
   );

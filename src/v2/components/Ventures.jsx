@@ -1,11 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import { useExperiences } from "../../queries/blogs";
-import ErrorCard from "./Shimmers/ErrorCard";
-import SmallCardShimmer from "./Shimmers/SmallCardShimmer";
+
+import { experiences } from "../constants/experiences";
 
 const Ventures = () => {
-  const { data, isLoading, error } = useExperiences();
-  const { data: experiences } = data || {};
   return (
     <>
       <div className="flex w-full items-center justify-between">
@@ -19,31 +16,8 @@ const Ventures = () => {
         </Link>
       </div>
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3">
-        {isLoading && (
-          <>
-            <SmallCardShimmer />
-            <SmallCardShimmer />
-            <SmallCardShimmer />
-          </>
-        )}
-
-        {error && (
-          <ErrorCard
-            text={"I am actually experienced at generating errors..."}
-          />
-        )}
-
-        {!isLoading &&
-          !error &&
-          experiences?.length > 0 &&
-          experiences.map((e) => <Card key={e.documentId} {...e} />)}
-
-        {!isLoading && !error && data?.length === 0 && (
-          <ErrorCard
-            text={
-              "I promise I have some experiences, they just decided to hide."
-            }
-          />
+        {experiences.map(
+          (e, idx) => idx < 6 && <Card key={e.documentId} {...e} />,
         )}
       </div>
     </>
@@ -63,7 +37,7 @@ const Card = ({ link, org_logo, org_name }) => {
           className="h-full w-full rounded-full object-cover"
         />
       </div>
-      <p className="text-md text-white">{org_name}</p>
+      <p className="text-md text-white text-center">{org_name}</p>
     </NavLink>
   );
 };
