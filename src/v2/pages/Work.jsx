@@ -1,12 +1,7 @@
-import React from "react";
-import { useWorks } from "../../queries/blogs";
 import { ProjectCard } from "../components/TopProjects";
-import ErrorCard from "../components/Shimmers/ErrorCard";
-import CardShimmer from "../components/Shimmers/CardShimmer";
+import { projects } from "../constants/work";
 
 const Work = () => {
-  const { data, isLoading, error } = useWorks();
-  const { data: projects } = data || {};
   return (
     <div className="mx-[5%] min-h-screen md:mx-[25%] md:pl-6">
       <div className="mt-40 flex h-full w-full flex-col items-start justify-start gap-2 md:mt-28">
@@ -16,32 +11,9 @@ const Work = () => {
         </p>
       </div>
       <div className="my-8 flex flex-col gap-8">
-        {isLoading && (
-          <>
-            <CardShimmer />
-            <CardShimmer />
-            <CardShimmer />
-          </>
-        )}
-
-        {error && (
-          <ErrorCard
-            text={"Blogs refused to load ! They need some coffee..."}
-          />
-        )}
-
-        {!isLoading &&
-          !error &&
-          projects?.length > 0 &&
-          projects.map((e) => <ProjectCard key={e.documentId} {...e} />)}
-
-        {!isLoading && !error && projects?.length === 0 && (
-          <ErrorCard
-            text={
-              "I think I forgot that I have a blogs section on my portfolio."
-            }
-          />
-        )}
+        {projects.map((e) => (
+          <ProjectCard key={e.documentId} {...e} />
+        ))}
       </div>
       <div className="mb-8 border-t-2 border-dashed border-gray-600 pt-6">
         <p className="font-slabo text-lg text-gray-400">

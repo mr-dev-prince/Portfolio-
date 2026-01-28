@@ -1,34 +1,32 @@
 // src/App.jsx
 import {
+  Navigate,
+  Route,
   BrowserRouter as Router,
   Routes,
-  Route,
   useNavigate,
-  Navigate,
 } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ScrollToTop from "./components/ScrollToTop";
-import Splash from "./pages/Splash";
 
-// ---- v1 pages -----
-import LegacyHome from "./pages/Home";
-import LegacyExperiences from "./pages/Experiences";
-import LegacyContact from "./pages/Contact";
-import LegacyResume from "./pages/Resume";
-import LegacyProjects from "./pages/Projects";
-
+import About from "./v2/pages/About";
+import BlogDetails from "./v2/pages/BlogDetails";
+import Blogs from "./v2/pages/Blogs";
+import Contact from "./v2/pages/Contact";
+import Experience from "./v2/pages/Experience";
 // ---- v2 pages -----
 import Home from "./v2/pages/Home";
-import About from "./v2/pages/About";
-import Work from "./v2/pages/Work";
-import Contact from "./v2/pages/Contact";
-import Blogs from "./v2/pages/Blogs";
-import Experience from "./v2/pages/Experience";
-import BlogDetails from "./v2/pages/BlogDetails";
-
+import LegacyContact from "./pages/Contact";
+import LegacyExperiences from "./pages/Experiences";
+// ---- v1 pages -----
+import LegacyHome from "./pages/Home";
+import LegacyProjects from "./pages/Projects";
+import LegacyResume from "./pages/Resume";
+import ScrollToTop from "./components/ScrollToTop";
+import Splash from "./pages/Splash";
+import V1Layout from "./layouts/V1Layout";
 // ---- Layouts -----
 import V2Layout from "./layouts/V2Layout";
-import V1Layout from "./layouts/V1Layout";
+import Work from "./v2/pages/Work";
 
 function InnerApp({ entered, setEntered }) {
   const navigate = useNavigate();
@@ -110,20 +108,6 @@ export default function App() {
     () => localStorage.getItem("entered") === "true"
   );
 
-  // useEffect(() => {
-  //   const onKeyDown = (event) => {
-  //     if (event.key === "F12") event.preventDefault();
-  //     if (
-  //       event.ctrlKey &&
-  //       event.shiftKey &&
-  //       (event.key === "I" || event.key === "J")
-  //     )
-  //       event.preventDefault();
-  //     if (event.ctrlKey && event.key === "U") event.preventDefault();
-  //   };
-  //   document.addEventListener("keydown", onKeyDown);
-  //   return () => document.removeEventListener("keydown", onKeyDown);
-  // }, []);
 
   return (
     <Router>

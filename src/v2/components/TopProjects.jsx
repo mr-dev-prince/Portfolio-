@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
-import { useWorks } from "../../queries/blogs";
-import CardShimmer from "./Shimmers/CardShimmer";
-import ErrorCard from "./Shimmers/ErrorCard";
+import { projects } from "../constants/work";
 
 const TopProjects = () => {
-  const { data, isLoading, error } = useWorks();
-  const { data: projects } = data || {};
   return (
     <>
       <div className="flex w-full items-center justify-between">
@@ -19,27 +15,8 @@ const TopProjects = () => {
         </Link>
       </div>
       <div className="mt-6 flex flex-col gap-8">
-        {isLoading && (
-          <>
-            <CardShimmer />
-            <CardShimmer />
-            <CardShimmer />
-          </>
-        )}
-
-        {error && (
-          <ErrorCard message="Oops! Something went wrong while fetching top projects." />
-        )}
-
-        {!isLoading &&
-          !error &&
-          projects?.length > 0 &&
-          projects.map((e) => <ProjectCard key={e.documentId} {...e} />)}
-
-        {!isLoading && !error && data?.length === 0 && (
-          <p className="text-center text-gray-400">
-            I built projects, I swear.
-          </p>
+        {projects.map(
+          (e, idx) => idx < 3 && <ProjectCard key={e.documentId} {...e} />,
         )}
       </div>
     </>
