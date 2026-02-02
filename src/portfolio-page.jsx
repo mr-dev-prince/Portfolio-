@@ -4,7 +4,6 @@ export const PortfolioPage = () => {
   const siteUrl = "https://devprince.xyz";
   const ogImageUrl = `${siteUrl}/og-preview.png`;
 
-  // Structured string highlighting your diverse skill set and achievements
   const fullDescription =
     "Ex-SWE Intern @ Aerchain | Full-Stack & GenAI Engineer (Python, TypeScript) | Next.js, React, Node.js | Docker, GitHub | PostgreSQL, MongoDB | 250+ LeetCode | SIH '23 & '25 Finalist | 2x Hackathon Winner";
 

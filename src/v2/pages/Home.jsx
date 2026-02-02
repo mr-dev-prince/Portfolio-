@@ -33,7 +33,6 @@ const Home = () => {
       <RevealOnScroll delay={0.5}>
         <DownloadResume />
       </RevealOnScroll>
-      <Divider />
       <RevealOnScroll delay={0.4}>
         <RecentBlogs />
       </RevealOnScroll>
