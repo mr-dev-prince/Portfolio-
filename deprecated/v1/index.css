@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 3px;
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e649a;
+  border-radius: 5px;
+}
+
+body,
+html {
+  background: #1f1f1f;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  font-family: "Roboto Medium", sans-serif;
+  cursor: pointer;
+}
+
+/* theme ----- light || dark */
+
+.app {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.JetBrains {
+  font-family: "JetBrains Mono", "Roboto Medium", sans-serif;
+}
+
+.fivo {
+  font-family: "Fivo Sans", "Roboto Medium", sans-serif;
+}
+
+.dash-hover {
+  @apply hover:pl-2 duration-200;
+}
+
+@keyframes fadeIn {
+  from {
+    scale: 50%;
+    opacity: 0;
+  }
+  to {
+    scale: 100%;
+    opacity: 1;
+  }
+}
+
+.show {
+  opacity: 0;
+  animation: fadeIn 0.5s 2s forwards;
+}
+
+@keyframes rotateToNegative6deg {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-6deg);
+  }
+  80% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(-6deg);
+  }
+}
+
+.skew {
+  animation: rotateToNegative6deg 0.2s 1.5s forwards;
+}
+
+@keyframes bgAnimateDark {
+  from {
+    background-color: transparent;
+  }
+  to {
+    color: #1f1f1f;
+    background-color: #dc143c;
+  }
+}
+
+.bgAnimaDark {
+  animation: bgAnimateDark 0.2s ease-out 1s forwards;
+}
+
+@keyframes bgAnimateLight {
+  from {
+    background-color: transparent;
+  }
+  to {
+    color: #ffffe4;
+    background-color: #1e649a;
+  }
+}
+
+.bgAnimaLight {
+  animation: bgAnimateLight 0.2s ease-out 1s forwards;
+}
+
+.spin {
+  animation: spinElem 3s infinite linear;
+}
+
+@keyframes spinElem {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*  button */
+
+.btn-23,
+.btn-23 *,
+.btn-23 :after,
+.btn-23 :before,
+.btn-23:after,
+.btn-23:before {
+  box-sizing: border-box;
+}
+
+.btn-23 {
+  cursor: pointer;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+  background: transparent;
+  border: none;
+  padding: 1rem;
+}
+
+.btn-23 span {
+  display: grid;
+  inset: 0;
+  place-items: center;
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.btn-23 .marquee {
+  --spacing: 12em;
+  --start: 0em;
+  --end: 12em;
+  -webkit-animation: marquee 2s linear infinite;
+  animation: marquee 2s linear infinite;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  opacity: 0;
+  position: relative;
+  text-shadow: #1f1f1f var(--spacing) 0, #1f1f1f calc(var(--spacing) * -1) 0,
+    #1f1f1f calc(var(--spacing) * -2) 0;
+}
+
+.btn-23:hover .marquee {
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  opacity: 1;
+}
+
+.btn-23:hover .text {
+  opacity: 0;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
+  }
+}
+
+.parallelogram {
+  --p: 50px;
+  width: 180px;
+  aspect-ratio: 2/3;
+  clip-path: polygon(0 var(--p), 0 100%, 100% calc(100% - var(--p)), 100% 0);
+}
+
+.parallelogram2 {
+  --p: 50px;
+  width: 180px;
+  aspect-ratio: 2/3;
+  clip-path: polygon(0 calc(100% - var(--p)), 0 0, 100% var(--p), 100% 100%);
+}
+
+/* gsap */
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-right: 100%;
+  white-space: nowrap;
+}
+
+.particle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
+.light-mode-bg-gradient {
+  @apply bg-[#FFFFE4] text-[#081B2A];
+}
+
+.dark-mode-bg-gradient {
+  @apply bg-[#1f1f1f] text-[#FFFFE4];
+}
+
+/* scroll indicator animation */
+
+.animateUpDown {
+  animation: upDown forwards ease-in 1.5s infinite;
+}
+
+@keyframes upDown {
+  0% {
+    padding-top: 2rem;
+  }
+  100% {
+    padding-top: 0.2rem;
+  }
+}
+
+.heading {
+  @apply text-2xl font-semibold uppercase tracking-wide;
+}
+
+.description {
+  @apply mt-1 text-lg font-light;
+}
+
+.topic {
+  @apply mt-1 text-xl font-semibold;
+}
+
+.subTopic {
+  @apply mt-0.5 text-lg font-medium;
+}

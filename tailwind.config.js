@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       gridTemplateColumns: {
@@ -10,7 +10,8 @@ module.exports = {
         18: "repeat(18, minmax(0, 1fr))",
       },
       fontFamily: {
-        slabo: ['"Slabo 27px"', "serif"],
+        caveat: ['var(--font-caveat)', "cursive"],
+        poppins: ['var(--font-poppins)', "sans-serif"],
       },
     },
   },
