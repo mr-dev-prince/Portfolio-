@@ -1,9 +1,12 @@
-'use client';
-import { motion } from 'framer-motion';
+"use client";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <section id="contact" className="h-screen pt-64 pb-10 w-full flex flex-col items-center justify-center">
+    <section
+      id="contact"
+      className="h-screen pt-64 pb-10 w-full flex flex-col items-center justify-center"
+    >
       <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-4 items-center px-6">
         <div className="flex flex-col items-center justify-center">
           <a
@@ -14,9 +17,23 @@ export default function Contact() {
           >
             LINKEDIN
           </a>
-          <svg className="hidden md:block w-24 h-24 text-gray-500 mt-2" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-            <path d="M 90,90 Q 50,90 50,20" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" />
-            <path d="M 50,20 L 40,30 M 50,20 L 60,30" strokeWidth="2" strokeLinecap="round" />
+          <svg
+            className="hidden md:block w-24 h-24 text-gray-500 mt-2"
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              d="M 90,90 Q 50,90 50,20"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeDasharray="4 4"
+            />
+            <path
+              d="M 50,20 L 40,30 M 50,20 L 60,30"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
           </svg>
         </div>
 
@@ -31,9 +48,23 @@ export default function Contact() {
           >
             INSTAGRAM
           </a>
-          <svg className="hidden md:block w-24 h-24 text-gray-500 mt-2" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-            <path d="M 10,90 Q 50,90 50,20" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" />
-            <path d="M 50,20 L 40,30 M 50,20 L 60,30" strokeWidth="2" strokeLinecap="round" />
+          <svg
+            className="hidden md:block w-24 h-24 text-gray-500 mt-2"
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              d="M 10,90 Q 50,90 50,20"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeDasharray="4 4"
+            />
+            <path
+              d="M 50,20 L 40,30 M 50,20 L 60,30"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
           </svg>
         </div>
 
@@ -57,9 +88,23 @@ export default function Contact() {
         <div className="hidden md:block"></div>
 
         <div className="flex flex-col items-center justify-center">
-          <svg className="hidden md:block w-24 h-24 text-gray-500 mb-2" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-            <path d="M 90,10 Q 50,10 50,80" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" />
-            <path d="M 50,80 L 40,70 M 50,80 L 60,70" strokeWidth="2" strokeLinecap="round" />
+          <svg
+            className="hidden md:block w-24 h-24 text-gray-500 mb-2"
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              d="M 90,10 Q 50,10 50,80"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeDasharray="4 4"
+            />
+            <path
+              d="M 50,80 L 40,70 M 50,80 L 60,70"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
           </svg>
           <a
             href="mailto:pkcofficial24@gmail.com"
@@ -70,9 +115,23 @@ export default function Contact() {
         </div>
 
         <div className="flex flex-col items-center justify-center">
-          <svg className="hidden md:block w-24 h-24 text-gray-500 mb-2" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-            <path d="M 50,10 L 50,80" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" />
-            <path d="M 50,80 L 40,70 M 50,80 L 60,70" strokeWidth="2" strokeLinecap="round" />
+          <svg
+            className="hidden md:block w-24 h-24 text-gray-500 mb-2"
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              d="M 50,10 L 50,80"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeDasharray="4 4"
+            />
+            <path
+              d="M 50,80 L 40,70 M 50,80 L 60,70"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
           </svg>
           <a
             href="https://github.com/mr-dev-prince"
@@ -85,9 +144,23 @@ export default function Contact() {
         </div>
 
         <div className="flex flex-col items-center justify-center">
-          <svg className="hidden md:block w-24 h-24 text-gray-500 mb-2" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-            <path d="M 10,10 Q 50,10 50,80" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" />
-            <path d="M 50,80 L 40,70 M 50,80 L 60,70" strokeWidth="2" strokeLinecap="round" />
+          <svg
+            className="hidden md:block w-24 h-24 text-gray-500 mb-2"
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              d="M 10,10 Q 50,10 50,80"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeDasharray="4 4"
+            />
+            <path
+              d="M 50,80 L 40,70 M 50,80 L 60,70"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
           </svg>
           <a
             href="https://x.com/shutup_prince"
