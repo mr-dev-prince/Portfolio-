@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Caveat, Poppins } from "next/font/google";
+import BlurBottom from "../components/blur-bottom";
 
 const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat" });
 const poppins = Poppins({
@@ -9,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Prince Chaurasia - Portfolio",
-  description: "Portfolio of Prince Chaurasia",
+  title: "Prince Chaurasia",
+  description: "The Developer's Space",
 };
 
 export default function RootLayout({ children }) {
@@ -19,8 +20,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${caveat.variable} ${poppins.variable} scroll-smooth`}
     >
-      <body className="font-poppins bg-[#0b1c3a] text-white min-h-screen overflow-x-hidden">
+      <body className="relative font-poppins text-white min-h-screen overflow-x-hidden">
         {children}
+        <BlurBottom/>
       </body>
     </html>
   );

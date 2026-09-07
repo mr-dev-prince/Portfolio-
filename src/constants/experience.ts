@@ -1,0 +1,38 @@
+import { IExperience } from "../interfaces/components";
+import playarka from "../assets/playarka-logo.svg";
+import aerchain from "../assets/aerchain.png";
+
+export const Experience: IExperience[] = [
+  {
+    company: "Playarka",
+    logo: playarka,
+    role: "Software Engineer",
+    duration: "July 2026 – Present",
+    description: [
+      "Developing drone precision landing algorithms for autonomous docking systems utilizing OpenCV and specialized drone SDKs.",
+      "Engineered low-level firmware for high-precision autonomous battery swapping mechanisms.",
+      "Currently spearheading firmware development and integration for an automated duckpin bowling system.",
+    ],
+  },
+  {
+    company: "Playarka",
+    logo: playarka,
+    role: "Software Engineer Intern",
+    duration: "Feb 2026 – June 2026",
+    description: [
+      "Curated datasets and trained a high-performance Machine Learning model for automated chick counting, achieving an impressive 96-98% accuracy.",
+      "Contributed to full-stack web development by designing and building scalable frontend and backend architectures.",
+    ],
+  },
+  {
+    company: "Aerchain",
+    logo: aerchain,
+    role: "Software Engineer Intern",
+    duration: "Aug 2024 – March 2025",
+    description: [
+      "Transitioned to core backend development, designing and implementing scalable new features to enhance the overall platform architecture.",
+      "Engineered robust internal tools using Appsmith for the customer support team, streamlining operational workflows and significantly reducing issue resolution times.",
+      "Collaborated with the hotfix team to rapidly resolve and deploy high-priority bug fixes for enterprise clients, ensuring optimal system reliability.",
+    ],
+  },
+];
